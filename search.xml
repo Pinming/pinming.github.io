@@ -5,7 +5,7 @@
     <url>/2020/02/08/Dell_Inspiron_7590_macOS_Mojave_Installation_Summary/</url>
     <content><![CDATA[<p>黑苹果好吃但难啃，还需步步注意！</p>
 <a id="more"></a>
-<h1>0x00 前言</h1>
+<h2 id="0x00-前言"><strong>0x00 前言</strong></h2>
 <p>转眼间，Pinming 购买目前使用的这台笔记本<code>戴尔灵越 7590</code>已近半年，它也陪着我剪了几条片子，也陪我入门了编程。甚至在上个学期开学之前我还因为没拆电池换网卡，把板子弄短路而直接送修了，可谓「最速奇迹」，购买仅仅 20 天就送修。【所以拆机一定要拔电池！这是血的教训】</p>
 <p>我个人认为这台机其实算是比较均衡的，配置不太低、价格不太高、做工不算顶级、但用料还算扎实。俗话来讲就是性价比颇高，这款机将 4K+i7 标压的笔记本价格拉到了一万元上下，同时有着优秀的重量控制和大电池加持，性能、便携、价格，我们常说笔记本这三者难以平衡，但灵越 7590 尚且是做到了及格，虽然它的绝对价格还是比较高的，但相比它的竞品 —— Dell XPS 15 7590、Thinkpad X1 Extreme、技嘉 Aero 15、甚至是苹果的 MacBook Pro 16…… 三分之二的价格换来的是几乎没有什么差距的体验【别说苹果还有系统差距！一会就装给你看！】，我觉得就真的很香。</p>
 <p>那么，接下来我会就我近几日在本机上进行的黑苹果过程做一个小结。</p>
@@ -18,8 +18,8 @@
 <li>本贴内容偏大众向，意味着文章内容会有一些 Geek 眼中的「废话」，不喜求轻喷！</li>
 </ul>
 </div>
-<h1><strong>0x01 本机硬件配置</strong></h1>
-<h2 id="已驱动-已知可驱动"><strong>已驱动 / 已知可驱动</strong></h2>
+<h2 id="0x01-本机硬件配置"><strong>0x01 本机硬件配置</strong></h2>
+<h3 id="已驱动-已知可驱动">已驱动 / 已知可驱动</h3>
 <p><strong>Dell Inspiron 7590</strong> with Sharp SHP14C7 4K Display</p>
 <ul>
 <li>CPU：Intel Core i7-9750H @ 2.60 Ghz (Boost to 4.50 Ghz)</li>
@@ -30,25 +30,25 @@
 <li>Audio：Realtek ALC295（戴尔定制型号：ALC3254）（内置麦克风不能驱动）（Layout-ID = 77，选用 28 可能导致 kernel_task 占用过高而导致 CPU 高频不下）</li>
 <li>【计划 / 即将更换】<em>WLAN + Bluetooth：Broadcom DW1820A</em></li>
 </ul>
-<h2 id="已知不可驱动"><strong>已知不可驱动</strong></h2>
+<h3 id="已知不可驱动">已知不可驱动</h3>
 <ul>
 <li>Nvidia Geforce GTX 1650（无解）</li>
 <li>Realtek Memory Card Reader（无解）</li>
 <li>Intel Wireless-AC 9560（WiFi 无解 / 仅蓝牙可有限度使用）</li>
 <li>Goodix fingerpint reader（无解）</li>
 </ul>
-<h1><strong>0x02 本机简评</strong></h1>
+<h2 id="0x02-本机简评"><strong>0x02 本机简评</strong></h2>
 <p>灵越 7590 这款机器从其配置上讲，尤其是 4K 屏幕这一款应当是极其适合黑苹果的。有标压 i7、有 <code>100% Adobe RGB</code>、<code>90% DCI-P3</code>、<code>8 bit 抖动 10 bit</code> 豪华参数、素质极高的 4K 屏幕、也有 97 Wh 的大电池，从硬件上它几乎可以和新款的 MacBook Pro 16 不分伯仲（不过人家毕竟可以上 i9，而且不需要屏蔽独显）。</p>
 <p>在保证自身性能的同时，其拓展性也十分充足（苹果出来挨打！）：有 USB-A (3.0) * 3、ThunderBolt 3 (40 Gbps / USB-C) *1，有 HDMI，还有双 M.2 盘位，这样的拓展性是苹果任何的笔记本都无法比拟的，且散热尚且不算很差（爆发时 65W，长时间单拷 CPU 也还顶得住 45W），机身也较为轻薄（1.72 kg / 17.94 mm）。它拥有为黑苹果做先决准备的几乎一切有利条件，它几乎可以说是一台移动工作站了，除了打游戏【说真的我就打个实况，对游戏性能根本没有要求，况且实况还能开 1080P 全高稳定 60fps】，这机器大概算是适合其他一切需要吃计算性能的东西——比如剪片、比如作图、比如 Coding。而 Windows 系统在这些方面的优化几乎可以说惨不忍睹，苹果在这方面（包括视频解码、颜色映射以及更多专业向的操作上）优化可以说更下功夫，这也是这台机器值得黑苹果的重要原因。</p>
 <p>但很可惜碎片化的 Windows 笔记本固然会存在随批次与生产条件不同而造成的<code>单一硬件差异</code>（你们知道我在内涵某菊花的），Pinming 手中的这台灵越 7590 装配的是屏幕是夏普的 <code>SHP14C7</code>，其存在的严重问题是不能使用常规的办法在 macOS 系统下正常驱动，正是因此，本次黑苹果的安装也煞费周折。</p>
 <p>除此之外，黑苹果往往是难以做到十全十美的，毕竟苹果拥有其自身的完整生态，同时在电脑生产线也处于上游地位，拥有较大的支配权，因此他们可以对自己的型号进行高度自定义的设计与硬件搭配。这意味着普通的笔记本或多或少（除非运气足够好，配置搭配极为得当，当然台式机只要你想总能搭配得当）都存在一些配件无法完美适配 macOS，表现可能是工作效率打折扣、也可能是干脆无法正常工作。所以在后续章节我会一一陈述在我的平台上发现的 Bug。</p>
-<h1><strong>0x03 在 10.14.3 下驱动 SHP14C7 的可行办法</strong></h1>
+<h2 id="0x03-在-10-14-3-下驱动-SHP14C7-的可行办法"><strong>0x03 在 10.14.3 下驱动 SHP14C7 的可行办法</strong></h2>
 <p>首先送上 EFI~ <a href="https://github.com/Pinming/Dell-Inspiron-7590-With-SHP14C7-Mojave" target="_blank" rel="noopener">点我前往 Github</a><br>
 安装系统及日用都可以使用  <code>config.plist</code> 作为启动脚本。<br>
 安装系统，先修改集显 Platform-ID 为：<code>0x12345678</code>，然后安装系统并完成初始设置，这期间的多次重启每一次都需要修改集显 Platform-ID 为<code>0x12345678</code>。<br>
 首次进入系统后，在 Terminal 中重建 Kext 缓存：<code>sudo kextcache -i /</code>，之后重启。<br>
 之后继续使用 <code>config.plist</code>，使用内置的 Platform ID：<code>0x3E9B0009</code> 启动系统，如无意外应该可以正常驱动 UHD630 及本屏幕。</p>
-<h1><strong>0x04 系统运行图赏</strong></h1>
+<h2 id="0x04-系统运行图赏"><strong>0x04 系统运行图赏</strong></h2>
 <p>目前系统的主要硬件均可正常工作，CPU、IGPU 实现了（原生）变频；键盘大体上工作正常；触摸板可以实现 Mac 的原生手势。<br>
 <img src="https://tva1.sinaimg.cn/large/0080xEK2ly1gbpao507m0j312s0puk4h.jpg" alt=""></p>
 <p>日常娱乐。<br>
@@ -67,12 +67,12 @@
 <p>最后当然是挂 4K HDR 的老婆！（from 剧场版『コード・ブルー –ドクターヘリ緊急救命–』）　<br>
 <img src="https://tva1.sinaimg.cn/large/0080xEK2ly1gbpaopp0igj31hc0u0aw8.jpg" alt=""></p>
 <p>看起来很好，接下来抓 Bug，噩梦开始了！</p>
-<h1><strong>0x05 我的机器最重大的 Bug：屏幕难以驱动</strong></h1>
+<h2 id="0x05-我的机器最重大的-Bug：屏幕难以驱动"><strong>0x05 我的机器最重大的 Bug：屏幕难以驱动</strong></h2>
 <p>本机型的 4K 版本有两种屏幕，分别为友达的 <code>AUO41EB</code> 与夏普的 <code>SHP14C7</code>。但经尝试发现后者并不像前者般容易驱动。使用常规的 <code>WhateverGreen</code> + 注入参数至 <code>config.plist</code> 的 <code>Devices</code> -&gt; <code>Properties</code> 子项的方式并不能成功驱动后者，同时会出现 <code>division-by-zero</code> 的 Kernel Panic，并立即重启，因此无法正常进入系统。（也可能不重启，能够进入系统但不输出画面，画面卡死在启动界面。这与注入 <code>Properties</code> 的数据有关）</p>
 <p><code>Division-by-zero</code> 这一问题理论上在新版的 <code>WhateverGreen</code> 已经可以由其本身解决，但在装有夏普 SHP14C7 屏幕的机器上似乎并不奏效。</p>
 <p>经尝试后发现，该屏幕在 <code>10.14.2</code> 和 <code>10.14.3</code> 版本下可以使用二进制破解 <code>AppleIntelCFLGraphicsFramebuffer.kext</code> 的方法规避这一 Panic 正常进入系统。具体参数已注入本 repo 的 <code>config.plist</code>。（具体注入内容见文末）</p>
 <p>目前个人认为，要解决在 SHP14C7 上的 <code>division-by-zero</code>，在 <code>WhateverGreen</code> 并不能发挥其预期作用的情况下，根本思路还是在于计算相关值，二进制破解 <code>AppleIntelCFLGraphicsFramebuffer.kext</code> 从而使修改的量传递至 kext 的正确位置。但该过程涉及反编 kext，个人目前能力有限，难以实现这一目标，希望有 julao 可以出手相助！</p>
-<h1><strong>0x06 目前存在的其他 Bug</strong></h1>
+<h2 id="0x06-目前存在的其他-Bug"><strong>0x06 目前存在的其他 Bug</strong></h2>
 <ul>
 <li>【已解决】<s>在 Windows 系统下热重启至 Mac 会导致声卡不能正常工作</s> 通过强制加载 <code>AppleHDA</code> 及使用 <code>SSDT-ALC295.aml</code> <sup>1</sup> 基本可以解决该问题</li>
 <li>【已解决】<s>HDMI 连接会导致 Kernel Panic</s> 配合 <code>WhateverGreen</code> 并在 <code>Devices</code> -&gt; <code>Properties</code> 中注入接口数据使得 HDMI 可以正常输出画面<sup>2</sup>，但不能输出声音</li>
@@ -83,17 +83,17 @@
 <li>电池的容量 (Capacity) 识别错误，应为 97Wh，但实时电量显示基本准确</li>
 <li>无线网卡 / 雷电接口尚未测试，不确定功能可用性【目前暂时用手机 USB Tethering 上网】</li>
 </ul>
-<h1><strong>0x07 关于二进制破解 Kext 的参考文章</strong></h1>
+<h2 id="0x07-关于二进制破解-Kext-的参考文章"><strong>0x07 关于二进制破解 Kext 的参考文章</strong></h2>
 <p>感谢以下文章的原作者，作为我们的领路人摸清了驱动这台电脑的前路！<br>
 《<a href="https://www.firewolf.science/2018/10/coffee-lake-intel-uhd-graphics-630-on-macos-mojave-a-compromise-solution-to-the-kernel-panic-due-to-division-by-zero-in-the-framebuffer-driver" target="_blank" rel="noopener">Coffee Lake Intel UHD Graphics 630 on macOS Mojave: A compromise solution to the kernel panic due to division by zero in the framebuffer driver</a>》<sup>3</sup><br>
 《<a href="https://www.tonymacx86.com/threads/fix-coffee-lake-intel-uhd-graphics-630-on-macos-mojave-kernel-panic-due-to-divide-by-zero.261687/" target="_blank" rel="noopener">[FIX] Coffee Lake Intel UHD Graphics 630 on macOS Mojave: Kernel panic due to divide-by-zero</a>》<br>
 《<a href="https://bbs.pcbeta.com/forum.php?mod=viewthread&amp;tid=1795107&amp;highlight=macOS%2BMojave%2B10.14.1" target="_blank" rel="noopener">10.14-10.14.5 macOS Mojave 各平台核显 DVMT Framebuffer 二进制补丁</a>》</p>
-<h1><strong>0x08 10.14.2 &amp;&amp; 10.14.3 对应的 KextstoPatch 内容</strong></h1>
+<h2 id="0x08-10-14-2-10-14-3-对应的-KextstoPatch-内容"><strong>0x08 10.14.2 &amp;&amp; 10.14.3 对应的 KextstoPatch 内容</strong></h2>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;key&gt;KextsToPatch&lt;&#x2F;key&gt;</span><br><span class="line">&lt;array&gt;</span><br><span class="line">	&lt;dict&gt;</span><br><span class="line">		&lt;key&gt;Comment&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;string&gt;Disable MinStolenSize&lt;&#x2F;string&gt;</span><br><span class="line">		&lt;key&gt;Disabled&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;false&#x2F;&gt;</span><br><span class="line">		&lt;key&gt;Find&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;data&gt;</span><br><span class="line">		dkZI&#x2F;wUwagg&#x3D;</span><br><span class="line">		&lt;&#x2F;data&gt;</span><br><span class="line">		&lt;key&gt;InfoPlistPatch&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;false&#x2F;&gt;</span><br><span class="line">		&lt;key&gt;Name&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;string&gt;AppleIntelCFLGraphicsFramebuffer&lt;&#x2F;string&gt;</span><br><span class="line">		&lt;key&gt;Replace&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;data&gt;</span><br><span class="line">		60ZI&#x2F;wUwagg&#x3D;</span><br><span class="line">		&lt;&#x2F;data&gt;</span><br><span class="line">	&lt;&#x2F;dict&gt;</span><br><span class="line">	&lt;dict&gt;</span><br><span class="line">		&lt;key&gt;Comment&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;string&gt;Set the number of active lanes to 4 (for laptop with 4K display) (by FireWolf)&lt;&#x2F;string&gt;</span><br><span class="line">		&lt;key&gt;Disabled&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;false&#x2F;&gt;</span><br><span class="line">		&lt;key&gt;Find&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;data&gt;</span><br><span class="line">		i5bAJQAAio6VIwAAD7aG</span><br><span class="line">		&lt;&#x2F;data&gt;</span><br><span class="line">		&lt;key&gt;InfoPlistPatch&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;false&#x2F;&gt;</span><br><span class="line">		&lt;key&gt;Name&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;string&gt;AppleIntelCFLGraphicsFramebuffer&lt;&#x2F;string&gt;</span><br><span class="line">		&lt;key&gt;Replace&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;data&gt;</span><br><span class="line">		uAQAAACJhrwlAAAxwF3D</span><br><span class="line">		&lt;&#x2F;data&gt;</span><br><span class="line">	&lt;&#x2F;dict&gt;</span><br><span class="line">&lt;&#x2F;array&gt;</span><br></pre></td></tr></table></figure>
-<h1><strong>0xFF 后记</strong></h1>
+<h2 id="0xFF-后记"><strong>0xFF 后记</strong></h2>
 <p>以上是本次黑苹果过程的简要记录。不管怎么说，虽然过程曲折，但是当整个系统日渐完善，你能够一点一点驾驭它的时候，还是会不由得感叹真香。</p>
 <p>黑苹果向来都是这样：「前途是光明的，道路是曲折的。」有人问为什么要装黑苹果，其实也正应了那句话：「为什么要攀登珠穆朗玛峰？因为它就在那里。」虽然黑苹果这个操作倒算不上所谓巅峰，但挑战本身对于我等玩机佬就是极具快感的。现在这样看其实整个过程、包括这台机器在苹果系统下的使用体验也还存在不少问题，但至少目前整个系统也还算能满足我个人日常使用的需要。 后续还将对一些硬件的细节进行后续完善（也就是尽可能解决上述的 Bug），那么，到时再见了~</p>
-<h2 id="致谢"><strong>致谢</strong></h2>
+<h3 id="致谢">致谢</h3>
 <p><strong><a href="https://github.com/LinZong/" target="_blank" rel="noopener"><code>LinZong</code></a></strong><sup>1</sup>、<strong><a href="https://github.com/tctien342/" target="_blank" rel="noopener"><code>tctien342</code></a></strong><sup>2</sup>、<strong><a href="https://www.firewolf.science/" target="_blank" rel="noopener"><code>Firewolf</code></a></strong><sup>3</sup> 等诸位 dalao 将自己的成果慷慨发布，我才得以参考着解决了一系列问题。</p>
 <p align="right">
 <img src="https://i.loli.net/2019/12/11/o4zQ2tSZduR3rfP.jpg">
@@ -1315,72 +1315,6 @@ LaLaLaLa LaLaLa　美景良辰　故事如此多彩<br>
       </tags>
   </entry>
   <entry>
-    <title>Hello World | 这破站是干啥的？</title>
-    <url>/2019/12/12/HelloWorld/</url>
-    <content><![CDATA[<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello World!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2000 年 12 月 12 日，Pinming 第一次对世界如此呼唤；<br>
-2019 年 12 月 12 日，Pinming 带着这个小站陪伴大家。<br>
-在跨入 19 岁的这一天，送给自己这样一份礼物吧。🎂<br>
-欢迎你的到来。</p>
-<a id="more"></a>
-<h2 id="0x01-初遇-Pinming-有话要说！"><strong>0x01 初遇 / Pinming 有话要说！</strong></h2>
-<p>首先，欢迎来到这里，不论这是否算作真正意义上的「初遇」。</p>
-<p>熟悉我的人恐怕一打眼也会预测这是个 Geek 向的网站吧…… 倒也不是没想过这样做。但既然希望大家能从另外的角度认识 Pinming，这显然就行不通了。</p>
-<p>「那你建这个破站写啥呢？？」我也在问自己。</p>
-<p>开辟了这么一块独立的领地，我还是会更想写些源于内心而非【应该说不全是】源于技术的东西。（那肯定还是要有点硬核的东西啊！不然成了大型公网朋友圈岂不更无聊 →_→）</p>
-<p>不过虽说我一直认为文字是记录内心的最直接方式，然而一向我是没有什么文采的……【毕竟作文难求 50+，选择题错一大堆，就是靠低空飞过混混日子这样，我超喜欢在里面，手动滑稽】所以大概写出来的东西，恐怕会平淡，甚至可能是流水账，正因如此应该能比较真实，只期予屏幕前的你些许共鸣。而且，将这份记忆以数据的方式保留下来，哪怕有一天它被尘封，却也还是以实体的形式存在，也足矣。</p>
-<p>所以你还是没说会写什么呢！</p>
-<ul>
-<li>日常向的意识流（e.g. 你们以前看到的一些所谓「长文」啦或是有关各个领域的无脑口嗨）；</li>
-<li>平日里的或随手或认真考虑过的拍摄作法；</li>
-<li>那些我玩的有趣的 Geek 向的、值得拿来与各位说道说道的东东；</li>
-<li>有趣的题目和能给人「叹为观止」感觉的解法；</li>
-<li>未来计划开设「Pinming 和他的朋友们」板块，欢迎各种形式（文字/摄影/视频作品 etc.）的投稿嗷；</li>
-<li>平常听的歌我大概会精挑做个歌单当做本站 BGM 吧…… 至于歌单更新周期，佛系，想更了就会更。希望大家能喜欢我的口味吧……</li>
-</ul>
-<p>当然，不限于此。能让我有所感触，我就愿意 po 上来。然后我的朋友圈就可以更加沙雕一点了 2333333。</p>
-<p>然后呢，本站内容产出跟歌单也一样，佛系更新，也是有极大可能长期咕咕的→_→ 我尽量能够做到优质产出吧…… 高产似那啥也没有必要嘛，反倒搅乱了大家朋友圈的 Timeline。</p>
-<p>说了这么多，其实这个小站真正的目的，除了去呈现这些文字与图像，更重要的大抵还是连接你我吧。不论内容是什么，我还是相信「见字如面」。《一代宗师》里说「见自己，见天地，见众生」，希望这个小站能成为一个这样的载体吧。</p>
-<p>以上，谢谢你来到这里。</p>
-<h2 id="0x02-技术细节-求求您了-请留步！"><strong>0x02 技术细节 / 求求您了 请留步！</strong></h2>
-<p>关吧关吧 我知道你们不会留下来的！【滑稽】</p>
-<p>本站基于开源平台 Hexo 建设，托管于 Github Pages。UI 是由 xaoxuu 设计的 <a href="https://xaoxuu.com/wiki/material-x/index.html" target="_blank" rel="noopener">Material X</a>，加以自己魔改配色加 Logo 啥的，我个人还是蛮喜欢的。</p>
-<p>目前本站还存在一些以个人能力无法解决或暂时懒得解决【<a href="https://tieba.baidu.com/f?kw=%CD%BC%C0%AD%B6%A1&amp;fr=ala0&amp;tpl=5&amp;traceid=" target="_blank" rel="noopener">图吧</a>大佬：又不是不能用！】的 Bug / 设计缺陷，还请各位看官老爷多多包涵……</p>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox" id="cbx_0" disabled="true"><label for="cbx_0"> 网站部署在 Github 的国外服务器上，国内访问可能速度上有所限制，但应该不会太差，出国党应该问题不大。后续可能考虑迁移回国内（等我有钱吧 下一台一定支持）；</label></li>
-<li class="task-list-item"><input type="checkbox" id="cbx_1" disabled="true"><label for="cbx_1"> 网站暂未实现 <a href="https://github.com/defunkt/jquery-pjax" target="_blank" rel="noopener">pjax</a> 加载，背景音乐在点击其他网页时就断了……（UI 作者称近期会加上 pjax 支持，我也会尽快跟进，让大家听歌听爽点）；</label></li>
-<li class="task-list-item"><input type="checkbox" id="cbx_2" disabled="true"><label for="cbx_2"> 由于微信 API 接口限制，网站的 favicon 在微信分享不能显示，也就是说在朋友圈和聊天页面，大家只能看到标题 + 一个回形针图标（但我相信你们一定能认出我的！）；</label></li>
-<li class="task-list-item"><input type="checkbox" id="cbx_3" disabled="true"><label for="cbx_3"> 音乐播放器在极少部分手机上 <code>(e.g. iPhone 5/5s)</code> 似乎有点长…… 展开了就收不回去，除非横屏（现在大家手机都大屏了应该不太存在这个问题……）；</label></li>
-<li class="task-list-item"><input type="checkbox" id="cbx_4" disabled="true"><label for="cbx_4"> 网站背景音乐的播放是调用了阿里云 OSS 的，如果歌放不出来了说明本月 OSS 的免费流量用完了…… 还想来这听歌请提醒我充钱，充钱才能变得更强（要是能把流量听完说明这站人气还可以了 2333）；</label></li>
-<li class="task-list-item"><input type="checkbox" id="cbx_5" disabled="true"><label for="cbx_5"> 由于 Markdown 语法的限制，正文区域并不能滑稽，然而评论区可以，嘻嘻；</label></li>
-<li class="task-list-item"><input type="checkbox" id="cbx_6" disabled="true"><label for="cbx_6"> 未来还可能加入：夜间模式。</label></li>
-</ul>
-<p>目前大概发现了这些…… 还有什么也欢迎大家反馈啦！毕竟 <a href="https://996.icu/" target="_blank" rel="noopener">996</a> 的 Debug 生活对我等未来程序员来说都是福报嘛，马爸爸说的。</p>
-<p>至于为什么不使用微信公众平台开个公众号呢…… 其实公众平台方便是方便的，主要还是微信这个平台有很多让我个人感到恶心的地方，简单讲就是绑架用户的体验，也绑架内容产出者的思路（比如上面那个）。有时间也许会开贴细说吧【批判一番！🐸】。而且自己做网站的话自定义程度会高很多，可玩性也更高。</p>
-<h2 id="0x03-致谢-这里会记住你们的名字！"><strong>0x03 致谢 / 这里会记住你们的名字！</strong></h2>
-<p>都读到这里了，认识一下他们吧！</p>
-<p><strong><a href="https://github.com" target="_blank" rel="noopener">Github</a></strong>，本站主站部分托管于 Github Pages，这个伟大的开源社区给了我白嫖他家服务器的机会，让家境贫寒的我能够省下钱来在瓜大<code>（西工大的别称！）</code>多吃两串烤串；<br>
-<strong><a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></strong>，本博客的核心程序；<br>
-<strong><a href="https://xaoxuu.com" target="_blank" rel="noopener">xaoxuu</a></strong>，本站主题 Volantis 的作者。不论是美感还是简洁度都十分过关，我真的很喜欢这个 UI，十分感谢作者；<br>
-<strong><a href="https://aplayer.js.org" target="_blank" rel="noopener">Aplayer</a></strong>，大家能够在这里听歌离不开这个播放器；<br>
-<strong><a href="https://valine.js.org/" target="_blank" rel="noopener">Valine</a></strong>，提供了本站的评论功能；<br>
-<strong><code>糖糖AAAAA</code></strong>，她帮助我完成了本站的首次公网连接测试，并对本站访问体验及诸多细节进行了测试；<br>
-<strong><a href="https://mp.weixin.qq.com/s/C_auM1Y0-LXLLDwSOdghUA" target="_blank" rel="noopener"><code>北安kun</code></a></strong>、<strong><a href="https://www.zhihu.com/people/ji-lin-66-85/activities" target="_blank" rel="noopener"><code>际临</code></a></strong>，他们也对本站的访问体验进行了多次测试。</p>
-<p>感谢每一位帮助过我，让这个网站得以顺利呈现在大家面前的你们！就说到这里，那么，正式开站啦，记得常来康康！🎉</p>
-<p align="right">
-  <img src="https://i.loli.net/2019/12/11/o4zQ2tSZduR3rfP.jpg">
-	<i><font size="1" color="#808080">致谢金主爸爸 | 际临、瓜三岁、棄白</font> </i><br>
-  <i><font size="1" color="#808080">本名单依据先后顺序定时更新，感谢滋磁！</font> </i>
-</p>]]></content>
-      <categories>
-        <category>心情空间</category>
-      </categories>
-      <tags>
-        <tag>开站了！</tag>
-        <tag>Hello World!</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Pinming 的歌单 | 2019 年第 50 周</title>
     <url>/2019/12/12/playlist-19w50/</url>
     <content><![CDATA[<p>本歌单不定期更新，这里都是 Pinming 最近在听的并且希望推荐给大家的歌~</p>
@@ -1576,6 +1510,72 @@ Oh come and say that you love me one last time<br><br>
       </categories>
       <tags>
         <tag>歌单</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World | 这破站是干啥的？</title>
+    <url>/2019/12/12/HelloWorld/</url>
+    <content><![CDATA[<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"Hello World!"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2000 年 12 月 12 日，Pinming 第一次对世界如此呼唤；<br>
+2019 年 12 月 12 日，Pinming 带着这个小站陪伴大家。<br>
+在跨入 19 岁的这一天，送给自己这样一份礼物吧。🎂<br>
+欢迎你的到来。</p>
+<a id="more"></a>
+<h2 id="0x01-初遇-Pinming-有话要说！"><strong>0x01 初遇 / Pinming 有话要说！</strong></h2>
+<p>首先，欢迎来到这里，不论这是否算作真正意义上的「初遇」。</p>
+<p>熟悉我的人恐怕一打眼也会预测这是个 Geek 向的网站吧…… 倒也不是没想过这样做。但既然希望大家能从另外的角度认识 Pinming，这显然就行不通了。</p>
+<p>「那你建这个破站写啥呢？？」我也在问自己。</p>
+<p>开辟了这么一块独立的领地，我还是会更想写些源于内心而非【应该说不全是】源于技术的东西。（那肯定还是要有点硬核的东西啊！不然成了大型公网朋友圈岂不更无聊 →_→）</p>
+<p>不过虽说我一直认为文字是记录内心的最直接方式，然而一向我是没有什么文采的……【毕竟作文难求 50+，选择题错一大堆，就是靠低空飞过混混日子这样，我超喜欢在里面，手动滑稽】所以大概写出来的东西，恐怕会平淡，甚至可能是流水账，正因如此应该能比较真实，只期予屏幕前的你些许共鸣。而且，将这份记忆以数据的方式保留下来，哪怕有一天它被尘封，却也还是以实体的形式存在，也足矣。</p>
+<p>所以你还是没说会写什么呢！</p>
+<ul>
+<li>日常向的意识流（e.g. 你们以前看到的一些所谓「长文」啦或是有关各个领域的无脑口嗨）；</li>
+<li>平日里的或随手或认真考虑过的拍摄作法；</li>
+<li>那些我玩的有趣的 Geek 向的、值得拿来与各位说道说道的东东；</li>
+<li>有趣的题目和能给人「叹为观止」感觉的解法；</li>
+<li>未来计划开设「Pinming 和他的朋友们」板块，欢迎各种形式（文字/摄影/视频作品 etc.）的投稿嗷；</li>
+<li>平常听的歌我大概会精挑做个歌单当做本站 BGM 吧…… 至于歌单更新周期，佛系，想更了就会更。希望大家能喜欢我的口味吧……</li>
+</ul>
+<p>当然，不限于此。能让我有所感触，我就愿意 po 上来。然后我的朋友圈就可以更加沙雕一点了 2333333。</p>
+<p>然后呢，本站内容产出跟歌单也一样，佛系更新，也是有极大可能长期咕咕的→_→ 我尽量能够做到优质产出吧…… 高产似那啥也没有必要嘛，反倒搅乱了大家朋友圈的 Timeline。</p>
+<p>说了这么多，其实这个小站真正的目的，除了去呈现这些文字与图像，更重要的大抵还是连接你我吧。不论内容是什么，我还是相信「见字如面」。《一代宗师》里说「见自己，见天地，见众生」，希望这个小站能成为一个这样的载体吧。</p>
+<p>以上，谢谢你来到这里。</p>
+<h2 id="0x02-技术细节-求求您了-请留步！"><strong>0x02 技术细节 / 求求您了 请留步！</strong></h2>
+<p>关吧关吧 我知道你们不会留下来的！【滑稽】</p>
+<p>本站基于开源平台 Hexo 建设，托管于 Github Pages。UI 是由 xaoxuu 设计的 <a href="https://xaoxuu.com/wiki/material-x/index.html" target="_blank" rel="noopener">Material X</a>，加以自己魔改配色加 Logo 啥的，我个人还是蛮喜欢的。</p>
+<p>目前本站还存在一些以个人能力无法解决或暂时懒得解决【<a href="https://tieba.baidu.com/f?kw=%CD%BC%C0%AD%B6%A1&amp;fr=ala0&amp;tpl=5&amp;traceid=" target="_blank" rel="noopener">图吧</a>大佬：又不是不能用！】的 Bug / 设计缺陷，还请各位看官老爷多多包涵……</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_0" disabled="true"><label for="cbx_0"> 网站部署在 Github 的国外服务器上，国内访问可能速度上有所限制，但应该不会太差，出国党应该问题不大。后续可能考虑迁移回国内（等我有钱吧 下一台一定支持）；</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_1" disabled="true"><label for="cbx_1"> 网站暂未实现 <a href="https://github.com/defunkt/jquery-pjax" target="_blank" rel="noopener">pjax</a> 加载，背景音乐在点击其他网页时就断了……（UI 作者称近期会加上 pjax 支持，我也会尽快跟进，让大家听歌听爽点）；</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_2" disabled="true"><label for="cbx_2"> 由于微信 API 接口限制，网站的 favicon 在微信分享不能显示，也就是说在朋友圈和聊天页面，大家只能看到标题 + 一个回形针图标（但我相信你们一定能认出我的！）；</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_3" disabled="true"><label for="cbx_3"> 音乐播放器在极少部分手机上 <code>(e.g. iPhone 5/5s)</code> 似乎有点长…… 展开了就收不回去，除非横屏（现在大家手机都大屏了应该不太存在这个问题……）；</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_4" disabled="true"><label for="cbx_4"> 网站背景音乐的播放是调用了阿里云 OSS 的，如果歌放不出来了说明本月 OSS 的免费流量用完了…… 还想来这听歌请提醒我充钱，充钱才能变得更强（要是能把流量听完说明这站人气还可以了 2333）；</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_5" disabled="true"><label for="cbx_5"> 由于 Markdown 语法的限制，正文区域并不能滑稽，然而评论区可以，嘻嘻；</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_6" disabled="true"><label for="cbx_6"> 未来还可能加入：夜间模式。</label></li>
+</ul>
+<p>目前大概发现了这些…… 还有什么也欢迎大家反馈啦！毕竟 <a href="https://996.icu/" target="_blank" rel="noopener">996</a> 的 Debug 生活对我等未来程序员来说都是福报嘛，马爸爸说的。</p>
+<p>至于为什么不使用微信公众平台开个公众号呢…… 其实公众平台方便是方便的，主要还是微信这个平台有很多让我个人感到恶心的地方，简单讲就是绑架用户的体验，也绑架内容产出者的思路（比如上面那个）。有时间也许会开贴细说吧【批判一番！🐸】。而且自己做网站的话自定义程度会高很多，可玩性也更高。</p>
+<h2 id="0x03-致谢-这里会记住你们的名字！"><strong>0x03 致谢 / 这里会记住你们的名字！</strong></h2>
+<p>都读到这里了，认识一下他们吧！</p>
+<p><strong><a href="https://github.com" target="_blank" rel="noopener">Github</a></strong>，本站主站部分托管于 Github Pages，这个伟大的开源社区给了我白嫖他家服务器的机会，让家境贫寒的我能够省下钱来在瓜大<code>（西工大的别称！）</code>多吃两串烤串；<br>
+<strong><a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a></strong>，本博客的核心程序；<br>
+<strong><a href="https://xaoxuu.com" target="_blank" rel="noopener">xaoxuu</a></strong>，本站主题 Volantis 的作者。不论是美感还是简洁度都十分过关，我真的很喜欢这个 UI，十分感谢作者；<br>
+<strong><a href="https://aplayer.js.org" target="_blank" rel="noopener">Aplayer</a></strong>，大家能够在这里听歌离不开这个播放器；<br>
+<strong><a href="https://valine.js.org/" target="_blank" rel="noopener">Valine</a></strong>，提供了本站的评论功能；<br>
+<strong><code>糖糖AAAAA</code></strong>，她帮助我完成了本站的首次公网连接测试，并对本站访问体验及诸多细节进行了测试；<br>
+<strong><a href="https://mp.weixin.qq.com/s/C_auM1Y0-LXLLDwSOdghUA" target="_blank" rel="noopener"><code>北安kun</code></a></strong>、<strong><a href="https://www.zhihu.com/people/ji-lin-66-85/activities" target="_blank" rel="noopener"><code>际临</code></a></strong>，他们也对本站的访问体验进行了多次测试。</p>
+<p>感谢每一位帮助过我，让这个网站得以顺利呈现在大家面前的你们！就说到这里，那么，正式开站啦，记得常来康康！🎉</p>
+<p align="right">
+  <img src="https://i.loli.net/2019/12/11/o4zQ2tSZduR3rfP.jpg">
+	<i><font size="1" color="#808080">致谢金主爸爸 | 际临、瓜三岁、棄白</font> </i><br>
+  <i><font size="1" color="#808080">本名单依据先后顺序定时更新，感谢滋磁！</font> </i>
+</p>]]></content>
+      <categories>
+        <category>心情空间</category>
+      </categories>
+      <tags>
+        <tag>开站了！</tag>
+        <tag>Hello World!</tag>
       </tags>
   </entry>
 </search>
