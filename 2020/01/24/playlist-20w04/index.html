@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html>
+    <div style="display:none;">
+        <img src="https://pinmingblog.oss-cn-hongkong.aliyuncs.com/favicon512.png">
+    </div>
+<!-- 音频播放 -->
+      <style>
+            #aplayer {   
+                width: 75%;   
+            }  
+      </style>
+<link rel="stylesheet" href="/css/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+<head hexo-theme="Volantis" version="1.5.3" docs="https://xaoxuu.com/wiki/volantis/"><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <title>Pinming 的歌单 | 2020 年第 4 周 | Pinming&#39;s Blog</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+  
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+
+  
+
+  
+  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/pinming/pinming.github.io@master/assets/favicon.ico">
+  
+
+  
+
+  
+    <link rel="stylesheet" href="https://oss.pm-z.tech/style.css">
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <img class='logo' src='https://cdn.jsdelivr.net/gh/pinming/pinming.github.io@master/assets/logo.png'/>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <i class="icon fas fa-search fa-fw"></i>
+      <input type="text" class="input u-search-input" placeholder="Pinming 码字的地方。" />
+    </form>
+  </div>
+
+<div class='menu navigation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home "
+            href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home "
+            href="https://www.github.com/pinming"
+            
+            
+            id="https:www.github.compinming">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home "
+            href="/about"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于 | 留言板
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home "
+            href="http://cloud.pm-z.tech"
+            
+              rel="nofollow"
+            
+            
+            id="http:cloud.pm-z.tech">
+            <i class='fas fa-cloud-download-alt fa-fw'></i>&nbsp;私有云
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header nav-blur">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" target="_self" href='/' >
+        
+          
+          
+            Pinming's Blog
+          
+        
+      </a>
+			<div class='menu navigation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                    target="_self"
+                  
+                  id="home">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;博客
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/categories"
+                  
+                  
+                    target="_self"
+                  
+                  id="categories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/tags"
+                  
+                    rel="nofollow"
+                  
+                  
+                    target="_self"
+                  
+                  id="tags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/archives"
+                  
+                    rel="nofollow"
+                  
+                  
+                    target="_self"
+                  
+                  id="archives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索" />
+        </form>
+      </div>
+
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone white-box">
+    <header>
+		<nav class="menu navigation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                  rel="nofollow"
+                
+                
+                  target="_self"
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/archives/"
+                
+                
+                  target="_self"
+                
+                id="archives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/theme-settings"
+                
+                  rel="https://github.com/pinming"
+                
+                
+                  target="_self"
+                
+                id="theme-settings">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box card-shadow body-blur article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2020/01/24/playlist-20w04/">
+        Pinming 的歌单 | 2020 年第 4 周
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://pinming.github.io" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Pinming</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/心情空间/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>心情空间</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020/1/24</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>本歌单不定期更新，这里都是 Pinming 最近在听的并且希望推荐给大家的歌~</p>
+<a id="more"></a>
+
+<h2 id="0x01-Silent-Sunrise-Final-Masquerade-Acoustic-Version"><a href="#0x01-Silent-Sunrise-Final-Masquerade-Acoustic-Version" class="headerlink" title="0x01 Silent Sunrise | Final Masquerade (Acoustic Version)"></a><strong>0x01 Silent Sunrise | <a href="http://music.163.com/song?id=484012969&userid=92932311" target="_blank" rel="noopener">Final Masquerade (Acoustic Version)</a></strong></h2><p>词・曲 | Rob Bourdon, Chester Bennington, Joseph “Joe” Hahn, Dave Farrell, Brad Delson, Mike Shinoda, Emile Haynie<br><a href="http://music.163.com/song?id=30841077&userid=92932311" target="_blank" rel="noopener">原唱</a> | Linkin Park<br>首发 | 2015/4/11  </p>
+<blockquote>
+<p><em>The light on the horizon is brighter yesterday<br>With Shadows floating over, the scars begin to fade<br>We said it was forever but then it slipped away<br>Standing at the end of the final masquerade<br><br>地平线上的光芒　比昨天更加明亮<br>阴霾布天　伤痕渐渐开始消退<br>曾说好要走到永久　却又悄然离去<br>站在那最后的舞会上　我默然哀悲</em>    </p>
+</blockquote>
+<h2 id="0x02-いきものがかり-アイデンティティ"><a href="#0x02-いきものがかり-アイデンティティ" class="headerlink" title="0x02 いきものがかり | アイデンティティ"></a><strong>0x02 いきものがかり | <a href="http://music.163.com/song?id=1417711916&userid=92932311" target="_blank" rel="noopener">アイデンティティ</a></strong></h2><p>（益力多「ミルミル」日区广告曲）<br>词・曲 | 水野良樹<br>首发 | 2019/4/12<br>本曲中文歌词是由我一手翻译的 * 2！欢迎来 B 站投币滋磁！</p>
+<blockquote>
+<p><em>どうして上手に生きられないんだろう<br>愛しいものさえ大事にできずに<br>あなたが笑えば　それでいいのに<br>無理していくつも望んでいたんだ<br>風吹く街はみんな　ひとりきり<br>悩みもがいて明日を探している<br>わたしの胸も止まらず動いている<br>だから夢は終わりはしない<br><br>为什么生活地这般不如意呢<br>连心爱之物　也没能好好珍惜<br>明明只要你笑了　便已经知足了<br>却还是勉强地　期望着更多<br>风吹过的街道　每个人都形单影只<br>苦恼挣扎着找寻明天<br>而我的心却不会停止跳动<br>因此我的梦想不会无疾而终</em></p>
+</blockquote>
+<p>本曲 MV | <a href="https://www.bilibili.com/video/av82909831" target="_blank" rel="noopener">(Bilibili)</a></p>
+<iframe src="http://player.bilibili.com/player.html?aid=82909831&cid=141841892&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "> </iframe>
+
+<h2 id="0x03-Perfume-再生"><a href="#0x03-Perfume-再生" class="headerlink" title="0x03 Perfume | 再生"></a><strong>0x03 Perfume | <a href="http://music.163.com/song?id=1406598531&userid=92932311" target="_blank" rel="noopener">再生</a></strong></h2><p>词・曲 | 中田ヤスタカ<br>首发 | 2019/11/29       </p>
+<blockquote>
+<p><em>最大限界生きたいわ　宇宙全体が手品いやい<br>正真正銘未来以来　偶然性さえ運命さ<br>コンピューターでも解けないわ　果てしない　光線の海<br>全身全霊で向かうわ　再生再生再生成<br><br>想要逼近极限地活下去　整个宇宙都是戏法<br>真真正正将来后来　连巧合都是命中注定<br>连电脑也无法解出　一望无际的 光线之海<br>全身心地迎面走去　再生再生再生成</em></p>
+</blockquote>
+<p>1:30 开始高能神剪！跨时空对口型也太强了<br>本曲 MV | <a href="https://www.bilibili.com/video/av80557834/" target="_blank" rel="noopener">(Bilibili)</a></p>
+<iframe src="http://player.bilibili.com/player.html?aid=80557834&cid=137862765&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "> </iframe>
+
+<h2 id="0x04-欅坂46-不協和音"><a href="#0x04-欅坂46-不協和音" class="headerlink" title="0x04 欅坂46 | 不協和音"></a><strong>0x04 欅坂46 | <a href="https://music.163.com/#/song?id=491294358" target="_blank" rel="noopener">不協和音</a></strong></h2><p>词 | 秋元康　　曲・编曲 | バグベア<br>首发 | 2017/4/5    </p>
+<blockquote>
+<p><em>不協和音を　僕は恐れたりしない<br>嫌われたって　僕には僕の正義があるんだ<br>殴ればいいさ　一度妥協したら死んだも同然<br>支配したいなら　僕を倒してから行けよ<br><br>我不惧怕不协和音<br>即使被人所憎恶　我也要贯彻我心中的正义<br>尽管拳脚相加吧　一旦妥协与死有何区别<br>想要支配这一切的话　就从我的尸体上踩过去吧</em>        </p>
+</blockquote>
+<p>本曲 MV | <a href="https://www.bilibili.com/video/av82577725?p=13" target="_blank" rel="noopener">(BiliBili)</a></p>
+<iframe id="sbrxp" src="https://player.bilibili.com/player.html?aid=82577725&cid=141289010&page=13" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "></iframe>
+
+<h2 id="0x05-乃木坂46-シンクロニシティ"><a href="#0x05-乃木坂46-シンクロニシティ" class="headerlink" title="0x05 乃木坂46 | シンクロニシティ"></a><strong>0x05 乃木坂46 | <a href="http://music.163.com/song?id=552084590&userid=92932311" target="_blank" rel="noopener">シンクロニシティ</a></strong></h2><p>词 | 秋元康　　曲 | シライシ紗トリ<br>首发 | 2018/4/18        </p>
+<blockquote>
+<p><em>それは　そばにいるそばにいる誰かのせい<br>言葉を交わしていなくても　<br>心が勝手に共鳴するんだ<br>愛を分け合って<br>ハモれハモれハモれ<br><br>这便是　陪伴在身边的那个他的原因<br>即使彼此沉默不语<br>内心也在自行鸣响你我心声　<br>将这份爱意彼此分享<br>同心和音 同心和音</em>     </p>
+</blockquote>
+<p>本曲 MV | <a href="https://www.bilibili.com/video/av67074719?from=search&seid=16040190069425473417" target="_blank" rel="noopener">(BiliBili)</a></p>
+<iframe id="sbrxp" src="https://player.bilibili.com/player.html?aid=67074719&cid=116309698&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "></iframe>
+
+<h2 id="0x06-wacci-キラメキ"><a href="#0x06-wacci-キラメキ" class="headerlink" title="0x06 wacci | キラメキ"></a><strong>0x06 wacci | <a href="http://music.163.com/song?id=29709915&userid=92932311" target="_blank" rel="noopener">キラメキ</a></strong></h2><p>（TV 动画<a href="https://b23.tv/ep80016" target="_blank" rel="noopener">《四月是你的谎言》/『四月は君の嘘』</a> 第 1-11 话片尾曲）<br>词・曲 | 橋口洋平　　编曲 | Ikoman &amp; wacci<br>首发 | 2014/10/8    </p>
+<blockquote>
+<p>「让我难以忘怀的光景竟是这种琐碎的小事，真奇怪啊。你怎么想呢，我是否住进某人的心房了呢？我是否住进你的心房了呢？就算是须臾片刻也好…… 你是否会想起我呢？我可不允许你记忆清零哦，别忘了我啊，约好了哦。」</p>
+</blockquote>
+<p align="right">——宫园薰，TV 动画《四月是你的谎言》第 22 话</p>
+
+<blockquote>
+<p><em>繋いでいたい手は　君のものだったよ<br>握り方で何もかもを　伝えられるその手だった<br>他の誰でもない　君じゃなきゃ駄目だよ<br>いつまでも傍に居たいと思えた<br><br>我只想　一直牵着你的手<br>只要轻握你的手　便能够传递一切<br>不是其他任何人　我非你不可<br>想就这样永远陪在你身边</em></p>
+</blockquote>
+<p>本曲 MV | <a href="https://www.bilibili.com/video/av44329827" target="_blank" rel="noopener">(BiliBili)</a></p>
+<iframe id="sbrxp" src="https://player.bilibili.com/player.html?aid=44329827&cid=77621890&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "></iframe>
+
+<h2 id="0x07-saya-ハルカトオク"><a href="#0x07-saya-ハルカトオク" class="headerlink" title="0x07 saya | ハルカトオク"></a><strong>0x07 saya | <a href="http://music.163.com/song?id=536623510&userid=92932311" target="_blank" rel="noopener">ハルカトオク</a></strong></h2><p>（TV 动画<a href="https://b23.tv/ep164970" target="_blank" rel="noopener">《比宇宙更远的地方》/『宇宙よりも遠い場所』</a>第 1・7・9・13 话插曲）<br>词・曲・编曲 | 藤泽庆昌<br>首发 | 2018/2/21    </p>
+<blockquote>
+<p><em>でっかい夢を叶えたくて　はるか　遠く遠く<br>波に揺られてかたふりして 進んでゆくよ<br>宇宙（そら）より遠くへ<br><br>想去实现宏大的梦想　向着那遥不可及的地方<br>装作随波逐流的样子　缓缓前进<br>去往比宇宙更远的地方</em>     </p>
+</blockquote>
+<h2 id="0x08-水瀬いのり-光"><a href="#0x08-水瀬いのり-光" class="headerlink" title="0x08 水瀬いのり | 光"></a><strong>0x08 水瀬いのり | <a href="http://music.163.com/song?id=1400171472&userid=92932311" target="_blank" rel="noopener">光</a></strong></h2><p>词 | SATSUKI-UPDATE　　曲 | kz(livetune)　　编曲 | kz(livetune) &amp; 門脇大輔<br>首发 | 2019/10/31          </p>
+<blockquote>
+<p><em>夢ばかり夏の空に浮かべた　それでもいい<br>あなたのその願いが　星空に届くまで翔べるように<br>照らしだす光　君に射す光<br><br>在你的梦想　能够高飞到触及星空之前<br>夏日的天空中　浮现的尽是未竟的梦　不过这样就好<br>都会洒下一束光　一束照向你的光</em></p>
+</blockquote>
+<h2 id="0x09-水瀬いのり-Innocent-flower"><a href="#0x09-水瀬いのり-Innocent-flower" class="headerlink" title="0x09 水瀬いのり | Innocent flower"></a><strong>0x09 水瀬いのり | <a href="http://music.163.com/song?id=469508435&userid=92932311" target="_blank" rel="noopener">Innocent flower</a></strong></h2><p>词 | 藤林聖子　　曲 | KOUGA<br>首发 | 2017/4/5    </p>
+<blockquote>
+<p><em>君のため咲いたよ 白い花びら<br>ありがとうの言葉の代わりにね　　　　<br>永遠（とわ）に続くいのり　幸せを願って　　　　<br>咲かせるよ　Innocent　flower　　　　<br>真っ白な　Innocent　flower<br>　　　　<br>纯白的花瓣　为了你而绽放　　　　　<br>那是「谢谢你」这句话语的替代呢　　　　<br>永恒不断的「祈愿」　祝愿着幸福　　　　<br>绽放吧　Innocent　flower　　　　<br>纯白无暇的　Innocent　flower</em>　</p>
+</blockquote>
+<h2 id="0x0A-水瀬いのり-これからも。"><a href="#0x0A-水瀬いのり-これからも。" class="headerlink" title="0x0A 水瀬いのり | これからも。"></a><strong>0x0A 水瀬いのり | <a href="http://music.163.com/song?id=566519125&userid=92932311" target="_blank" rel="noopener">これからも。</a></strong></h2><p>词 | 磯谷佳江　　曲 | 小野貴光<br>首发 | 2018/5/23    </p>
+<blockquote>
+<p>「这是无论如何都想放在『<a href="http://music.163.com/song?id=566519124&userid=92932311" target="_blank" rel="noopener">アイマイモコ</a>』之后的一首歌！如果说『アイマイモコ』是青春时代的恋爱，那么这首歌则是那之后长大成人、结为连理的歌曲。自己觉得，有点婚礼的感觉呢。当然不仅是恋人，这更是一首歌唱对重要的人的心情的歌曲，从这层意义上，又可以和 <a href="http://music.163.com/album?id=35338049&userid=92932311" target="_blank" rel="noopener">1 专</a>的『<a href="http://music.163.com/song?id=469508429&userid=92932311" target="_blank" rel="noopener">いつもずっと</a>』相呼应。」</p>
+</blockquote>
+<p align="right">——水瀬いのり</p>
+
+<blockquote>
+<p><em>変わってく私と　変わらない私　全部<br>包んでくれてる　眩しい光<br>これまでとこれから　続いてゆく道<br>キラリ　不確かに揺れる　目映さの向こう側<br>ふたりの未来へ<br><br>逐渐改变的我　与不会改变的我　全部<br>都包容起来　那耀眼的光芒<br>从今之后　不断延续下去的道路<br>闪耀着　摇曳在不确定中　向着眼前的彼方<br>前往两人的未来</em>    </p>
+</blockquote>
+<p>本曲现场版 (from <em>Inori Minase LIVE TOUR 2018 BLUE COMPASS</em>) | <a href="https://www.bilibili.com/video/av84393928" target="_blank" rel="noopener">(BiliBili)</a></p>
+<iframe id="sbrxp" src="https://player.bilibili.com/player.html?aid=84393928&cid=144355112&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "></iframe>
+
+<h2 id="0x0B-高橋李依-AM11-00"><a href="#0x0B-高橋李依-AM11-00" class="headerlink" title="0x0B 高橋李依 | AM11:00"></a><strong>0x0B 高橋李依 | <a href="https://music.163.com/#/song?id=530986968" target="_blank" rel="noopener">AM11:00</a></strong></h2><p>（TV 动画<a href="https://www.iqiyi.com/v_19rrfjvdww.html#curid=912273500_46255feedd3e0bb9b1c8d0ab5eb8def4" target="_blank" rel="noopener">《擅长捉弄的高木同学》第一季 /『からかい上手の高木さん』</a>第 3-4 话片尾曲）<br>词 · 曲 | TUN　　<a href="http://music.163.com/song?id=22721201&userid=92932311" target="_blank" rel="noopener">原唱</a> | HY　　编曲 | 吉田穣<br>首发 | 2018/1/22<br>应该是我听过最暖最暖的歌了，没有之一。也就是我最喜欢的歌。<br>这是本次歌单的第 11 首歌曲，也是压轴曲目。本曲将作为常驻曲目【意思就是它会一直在这 嘻嘻】。    </p>
+<blockquote>
+<p><em>だから　お願い　僕のそばにいてくれないか<br>君が好きだから<br>この思いが君に届くように<br>願いが叶いますように<br><br>请你一直留在我身边<br>因为我喜欢你<br>希望这样的心情能传达于你<br>希望这样的愿望能成为现实</em>    </p>
+</blockquote>
+<h2 id="0xFF-后记"><a href="#0xFF-后记" class="headerlink" title="0xFF 后记"></a><strong>0xFF 后记</strong></h2><p>以上~ 这就是本次歌单的全部内容。下一次更新会是什么时候呢 看来是出一次文章就出一次歌单吧 权当是正式文章以外的副产品了~<br>目前本站播放器默认设置为： <code>自动播放</code>、<code>歌单内随机播放</code>、<code>Volume = 0.35</code> 。不知道这样的设置是否会影响大家的冲浪体验，如果觉得影响，欢迎在评论区反馈嗷。<br>本次歌单所有歌曲已在网易云建立<a href="http://music.163.com/playlist?id=3141693237&userid=92932311" target="_blank" rel="noopener">歌单</a>，欢迎来跟我一起听歌！<br>虽然听歌品味不尽相同，但也希望大家能够喜欢！一首歌，就是一个故事。</p>
+<p><img src="http://pinmingblog.oss-cn-hongkong.aliyuncs.com/RewardCode-2020CNY.jpg?x-oss-process=style/2" alt></p>
+
+          
+        </div>
+        
+          <br>
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/歌单/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>歌单</p></a></div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+            <div class="prev-next">
+                
+                    <section class="prev">
+                        <span class="art-item-left">
+                            <h6><i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页</h6>
+                            <h4>
+                                <a href="/2020/01/24/2019Review_SecondHalf/" rel="prev" title="【回望己亥】下半场 | 我 · 岭南 · 长安">
+                                  
+                                      【回望己亥】下半场 | 我 · 岭南 · 长安
+                                  
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/回望壹玖/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 回望壹玖</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2019/12/28/2019Review_FirstHalf/" rel="prev" title="【回望壹玖】上半场 | 我 &amp; 洪浪南路">
+                                    
+                                        【回望壹玖】上半场 | 我 &amp; 洪浪南路
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/回望壹玖/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 回望壹玖</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments card-shadow body-blur">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: 'Pinming 的歌单 | 2020 年第 4 周',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+        
+          
+<section class="widget card-shadow widget-blur blogger desktop">
+  <div class='content'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://cdn.jsdelivr.net/gh/pinming/pinming.github.io@master/avatar.png'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:zhengtingpeng88@163.com"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/Pinming"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=92932311"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://space.bilibili.com/19448112"
+              class="social fab fa-youtube flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+          
+  
+  <section class="widget card-shadow widget-blur category desktop mobile">
+    
+  <header>
+    
+      <a href='blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/「机」乐世界/" href="/categories/「机」乐世界/"
+            id="categories「机」乐世界"
+            ><div class='name'>「机」乐世界</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/心情空间/" href="/categories/心情空间/"
+            id="categories心情空间"
+            ><div class='name'>心情空间</div><div class='badge'>(7)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+          
+  
+  <section class="widget card-shadow widget-blur toc-wrapper desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-Silent-Sunrise-Final-Masquerade-Acoustic-Version"><span class="toc-text">0x01 Silent Sunrise | Final Masquerade (Acoustic Version)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-いきものがかり-アイデンティティ"><span class="toc-text">0x02 いきものがかり | アイデンティティ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03-Perfume-再生"><span class="toc-text">0x03 Perfume | 再生</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04-欅坂46-不協和音"><span class="toc-text">0x04 欅坂46 | 不協和音</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x05-乃木坂46-シンクロニシティ"><span class="toc-text">0x05 乃木坂46 | シンクロニシティ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x06-wacci-キラメキ"><span class="toc-text">0x06 wacci | キラメキ</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x07-saya-ハルカトオク"><span class="toc-text">0x07 saya | ハルカトオク</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x08-水瀬いのり-光"><span class="toc-text">0x08 水瀬いのり | 光</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x09-水瀬いのり-Innocent-flower"><span class="toc-text">0x09 水瀬いのり | Innocent flower</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x0A-水瀬いのり-これからも。"><span class="toc-text">0x0A 水瀬いのり | これからも。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x0B-高橋李依-AM11-00"><span class="toc-text">0x0B 高橋李依 | AM11:00</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0xFF-后记"><span class="toc-text">0xFF 后记</span></a></li></ol>
+    </div>
+  </section>
+
+
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+  
+</aside>
+
+<footer class="clearfix ">
+  <br><br>
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:zhengtingpeng88@163.com"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/Pinming"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=92932311"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://space.bilibili.com/19448112"
+            class="social fab fa-youtube flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+   
+  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://xaoxuu.com/wiki/volantis/" target="_blank">Volantis</a>
+    作为主题
+    
+    <!-- 。 -->
+  </div>
+  © Pinming 2019-2020 | All Rights Reserved.<br>
+  <br />
+  <a href="http://beian.miit.gov.cn/" target="_blank">粤 ICP 备 19139605 号</a> <br />
+  <img src="https://pinmingblog.oss-cn-hongkong.aliyuncs.com/ghs.png" height="14" width="14" /><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502004717" target="_blank">粤公网安备 44030502004717 号</a>
+
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+
+
+
+
+  
+  
+  
+    <script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+    <script type="text/javascript">
+      $(function(){
+        if ('') {
+          $('').backstretch(
+          ["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"],
+          {
+            duration: "15000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"],
+          {
+            duration: "15000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@20.2.32/js/valine.js"></script>
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'false' == true;
+  var verify = 'false' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "A2M0uswOM4AoTkNJ0MYKiQum-gzGzoHsz",
+    appKey: "lY0S03ALVr8MXCOFpIURMa6r",
+    placeholder: "这就看完了？BB 两句再走吧~",
+    pageSize:'10',
+    avatar:'mp',
+    lang:'zh-cn',
+    highlight:'false'
+  })
+  </script>
+
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@20.2.32/js/app.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@20.2.32/js/search.js"></script>
+
+
+
+<!-- 复制 -->
+
+
+
+<!-- fancybox -->
+
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
