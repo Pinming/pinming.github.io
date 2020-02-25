@@ -13,9 +13,9 @@
 <div id="aplayer"></div>
 <script type="text/javascript" src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
 <script type="text/javascript" src="/dist/music.js"></script>
-<head hexo-theme="Volantis" version="1.5.3" docs="https://xaoxuu.com/wiki/volantis/"><meta name="generator" content="Hexo 3.9.0">
+<head hexo-theme='Volantis' version='1.5.3' docs='https://xaoxuu.com/wiki/volantis/'>
   <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
   <title>真香！戴尔灵越 7590 macOS Mojave 使用简报 | Pinming&#39;s Blog</title>
   
@@ -23,7 +23,7 @@
 
   
 
-  <meta name="HandheldFriendly" content="True">
+  <meta name="HandheldFriendly" content="True" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <!-- meta -->
@@ -32,20 +32,24 @@
   <!-- link -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
   
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
   
   
 
   
 
   
-  <link rel="shortcut icon" type="image/x-icon" href="https://cdn.jsdelivr.net/gh/pinming/pinming.github.io@master/assets/favicon.ico">
+  <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/pinming/pinming.github.io@master/assets/favicon.ico">
   
 
   
 
   
-    <link rel="stylesheet" href="https://oss.pm-z.tech/style.css">
+    
+<link rel="stylesheet" href="/style.css">
+
   
 
   <script>
@@ -292,6 +296,8 @@
   <section class='meta'>
     
     
+      <a title='真香！戴尔灵越 7590 macOS Mojave 使用简报' href='/2020/02/08/Dell_Inspiron_7590_macOS_Mojave_Installation_Summary/'><img class='thumbnail' src='https://i.loli.net/2020/02/25/oQI5jFkpt2Ez3fa.png'></a>
+    
     <div class="meta" id="header-meta">
       
         
@@ -329,7 +335,7 @@
             
   
   <div class='new-meta-item category'>
-    <a href='/categories/「机」乐世界/' rel="nofollow">
+    <a href='/categories/%E3%80%8C%E6%9C%BA%E3%80%8D%E4%B9%90%E4%B8%96%E7%95%8C/' rel="nofollow">
       <i class="fas fa-folder-open" aria-hidden="true"></i>
       <p>「机」乐世界</p>
     </a>
@@ -366,18 +372,22 @@
           
           <p>黑苹果好吃但难啃，还需步步注意！</p>
 <a id="more"></a>
-
-<h1 id="0x00-前言"><a href="#0x00-前言" class="headerlink" title="0x00 前言"></a>0x00 前言</h1><p>转眼间，Pinming 购买目前使用的这台笔记本<code>戴尔灵越 7590</code>已近半年，它也陪着我剪了几条片子，也陪我入门了编程。甚至在上个学期开学之前我还因为没拆电池换网卡，把板子弄短路而直接送修了，可谓「最速奇迹」，购买仅仅 20 天就送修。【所以拆机一定要拔电池！这是血的教训】</p>
+<h1>0x00 前言</h1>
+<p>转眼间，Pinming 购买目前使用的这台笔记本<code>戴尔灵越 7590</code>已近半年，它也陪着我剪了几条片子，也陪我入门了编程。甚至在上个学期开学之前我还因为没拆电池换网卡，把板子弄短路而直接送修了，可谓「最速奇迹」，购买仅仅 20 天就送修。【所以拆机一定要拔电池！这是血的教训】</p>
 <p>我个人认为这台机其实算是比较均衡的，配置不太低、价格不太高、做工不算顶级、但用料还算扎实。俗话来讲就是性价比颇高，这款机将 4K+i7 标压的笔记本价格拉到了一万元上下，同时有着优秀的重量控制和大电池加持，性能、便携、价格，我们常说笔记本这三者难以平衡，但灵越 7590 尚且是做到了及格，虽然它的绝对价格还是比较高的，但相比它的竞品 —— Dell XPS 15 7590、Thinkpad X1 Extreme、技嘉 Aero 15、甚至是苹果的 MacBook Pro 16…… 三分之二的价格换来的是几乎没有什么差距的体验【别说苹果还有系统差距！一会就装给你看！】，我觉得就真的很香。</p>
 <p>那么，接下来我会就我近几日在本机上进行的黑苹果过程做一个小结。</p>
-<p>⚠️ 请注意 / 在正文开始之前：</p>
+<div class="warning">
+<p><strong>请注意 / 在正文开始之前</strong></p>
 <ul>
 <li>本贴并不会就黑苹果的安装提供详尽的教程【不过未来还是有可能写的】，且难易程度因机器而异，甚至同型号间也存在个体差异【比如我这台】；</li>
 <li>如果想要进行这样的尝试，请先确保自己对电脑的软硬件知识有初步的了解！</li>
 <li>不同的机器安装黑苹果可能产生不同的效果，从事这样的操作要为机器做好最坏的打算！黑苹果需要的操作可大可小，因此在一定程度上存在着发生<strong>不可逆硬件损害</strong>的可能【虽然概率并不高】！</li>
 <li>本贴内容偏大众向，意味着文章内容会有一些 Geek 眼中的「废话」，不喜求轻喷！</li>
 </ul>
-<h1 id="0x01-本机硬件配置"><a href="#0x01-本机硬件配置" class="headerlink" title="0x01 本机硬件配置"></a><strong>0x01 本机硬件配置</strong></h1><h2 id="已驱动-已知可驱动"><a href="#已驱动-已知可驱动" class="headerlink" title="已驱动 / 已知可驱动"></a><strong>已驱动 / 已知可驱动</strong></h2><p><strong>Dell Inspiron 7590</strong> with Sharp SHP14C7 4K Display</p>
+</div>
+<h1><strong>0x01 本机硬件配置</strong></h1>
+<h2 id="已驱动-已知可驱动"><strong>已驱动 / 已知可驱动</strong></h2>
+<p><strong>Dell Inspiron 7590</strong> with Sharp SHP14C7 4K Display</p>
 <ul>
 <li>CPU：Intel Core i7-9750H @ 2.60 Ghz (Boost to 4.50 Ghz)</li>
 <li>IGPU：Intel Graphics UHD 630</li>
@@ -387,33 +397,52 @@
 <li>Audio：Realtek ALC295（戴尔定制型号：ALC3254）（内置麦克风不能驱动）（Layout-ID = 77，选用 28 可能导致 kernel_task 占用过高而导致 CPU 高频不下）</li>
 <li>【计划 / 即将更换】<em>WLAN + Bluetooth：Broadcom DW1820A</em></li>
 </ul>
-<h2 id="已知不可驱动"><a href="#已知不可驱动" class="headerlink" title="已知不可驱动"></a><strong>已知不可驱动</strong></h2><ul>
+<h2 id="已知不可驱动"><strong>已知不可驱动</strong></h2>
+<ul>
 <li>Nvidia Geforce GTX 1650（无解）</li>
 <li>Realtek Memory Card Reader（无解）</li>
 <li>Intel Wireless-AC 9560（WiFi 无解 / 仅蓝牙可有限度使用）</li>
 <li>Goodix fingerpint reader（无解）</li>
 </ul>
-<h1 id="0x02-本机简评"><a href="#0x02-本机简评" class="headerlink" title="0x02 本机简评"></a><strong>0x02 本机简评</strong></h1><p>灵越 7590 这款机器从其配置上讲，尤其是 4K 屏幕这一款应当是极其适合黑苹果的。有标压 i7、有 <code>100% Adobe RGB</code>、<code>90% DCI-P3</code>、<code>8 bit 抖动 10 bit</code> 豪华参数、素质极高的 4K 屏幕、也有 97 Wh 的大电池，从硬件上它几乎可以和新款的 MacBook Pro 16 不分伯仲（不过人家毕竟可以上 i9，而且不需要屏蔽独显）。</p>
+<h1><strong>0x02 本机简评</strong></h1>
+<p>灵越 7590 这款机器从其配置上讲，尤其是 4K 屏幕这一款应当是极其适合黑苹果的。有标压 i7、有 <code>100% Adobe RGB</code>、<code>90% DCI-P3</code>、<code>8 bit 抖动 10 bit</code> 豪华参数、素质极高的 4K 屏幕、也有 97 Wh 的大电池，从硬件上它几乎可以和新款的 MacBook Pro 16 不分伯仲（不过人家毕竟可以上 i9，而且不需要屏蔽独显）。</p>
 <p>在保证自身性能的同时，其拓展性也十分充足（苹果出来挨打！）：有 USB-A (3.0) * 3、ThunderBolt 3 (40 Gbps / USB-C) *1，有 HDMI，还有双 M.2 盘位，这样的拓展性是苹果任何的笔记本都无法比拟的，且散热尚且不算很差（爆发时 65W，长时间单拷 CPU 也还顶得住 45W），机身也较为轻薄（1.72 kg / 17.94 mm）。它拥有为黑苹果做先决准备的几乎一切有利条件，它几乎可以说是一台移动工作站了，除了打游戏【说真的我就打个实况，对游戏性能根本没有要求，况且实况还能开 1080P 全高稳定 60fps】，这机器大概算是适合其他一切需要吃计算性能的东西——比如剪片、比如作图、比如 Coding。而 Windows 系统在这些方面的优化几乎可以说惨不忍睹，苹果在这方面（包括视频解码、颜色映射以及更多专业向的操作上）优化可以说更下功夫，这也是这台机器值得黑苹果的重要原因。</p>
 <p>但很可惜碎片化的 Windows 笔记本固然会存在随批次与生产条件不同而造成的<code>单一硬件差异</code>（你们知道我在内涵某菊花的），Pinming 手中的这台灵越 7590 装配的是屏幕是夏普的 <code>SHP14C7</code>，其存在的严重问题是不能使用常规的办法在 macOS 系统下正常驱动，正是因此，本次黑苹果的安装也煞费周折。</p>
 <p>除此之外，黑苹果往往是难以做到十全十美的，毕竟苹果拥有其自身的完整生态，同时在电脑生产线也处于上游地位，拥有较大的支配权，因此他们可以对自己的型号进行高度自定义的设计与硬件搭配。这意味着普通的笔记本或多或少（除非运气足够好，配置搭配极为得当，当然台式机只要你想总能搭配得当）都存在一些配件无法完美适配 macOS，表现可能是工作效率打折扣、也可能是干脆无法正常工作。所以在后续章节我会一一陈述在我的平台上发现的 Bug。</p>
-<h1 id="0x03-在-10-14-3-下驱动-SHP14C7-的可行办法"><a href="#0x03-在-10-14-3-下驱动-SHP14C7-的可行办法" class="headerlink" title="0x03 在 10.14.3 下驱动 SHP14C7 的可行办法"></a><strong>0x03 在 10.14.3 下驱动 SHP14C7 的可行办法</strong></h1><p>首先送上 EFI~ <a href="https://github.com/Pinming/Dell-Inspiron-7590-With-SHP14C7-Mojave" target="_blank" rel="noopener">点我前往 Github</a><br>安装系统及日用都可以使用  <code>config.plist</code> 作为启动脚本。<br>安装系统，先修改集显 Platform-ID 为：<code>0x12345678</code>，然后安装系统并完成初始设置，这期间的多次重启每一次都需要修改集显 Platform-ID 为<code>0x12345678</code>。<br>首次进入系统后，在 Terminal 中重建 Kext 缓存：<code>sudo kextcache -i /</code>，之后重启。<br>之后继续使用 <code>config.plist</code>，使用内置的 Platform ID：<code>0x3E9B0009</code> 启动系统，如无意外应该可以正常驱动 UHD630 及本屏幕。 </p>
-<h1 id="0x04-系统运行图赏"><a href="#0x04-系统运行图赏" class="headerlink" title="0x04 系统运行图赏"></a><strong>0x04 系统运行图赏</strong></h1><p>目前系统的主要硬件均可正常工作，CPU、IGPU 实现了（原生）变频；键盘大体上工作正常；触摸板可以实现 Mac 的原生手势。<br><img src="http://tva1.sinaimg.cn/large/0080xEK2ly1gbpao507m0j312s0puk4h.jpg" alt></p>
-<p>日常娱乐。<br><img src="http://tva1.sinaimg.cn/large/0080xEK2ly1gbpao7m8fsj31hc0u0b29.jpg" alt><br><img src="http://tva1.sinaimg.cn/large/0080xEK2ly1gbpatxnk21j31hc0u0ax6.jpg" alt></p>
-<p>BMD RAW 解码速度测试。<br><img src="http://tva1.sinaimg.cn/large/0080xEK2ly1gbpaoe2vsbj31hc0u0npd.jpg" alt></p>
-<p>Davinci Resolve、Premiere、XCode。<br><img src="http://tva1.sinaimg.cn/large/0080xEK2ly1gbpaofkq7tj31hc0u0awc.jpg" alt><br><img src="http://tva1.sinaimg.cn/large/0080xEK2ly1gbpaohyeeqj31hc0u01kx.jpg" alt><br><img src="http://tva1.sinaimg.cn/large/0080xEK2ly1gbpaokd3vvj31hc0u01kx.jpg" alt></p>
+<h1><strong>0x03 在 10.14.3 下驱动 SHP14C7 的可行办法</strong></h1>
+<p>首先送上 EFI~ <a href="https://github.com/Pinming/Dell-Inspiron-7590-With-SHP14C7-Mojave" target="_blank" rel="noopener">点我前往 Github</a><br>
+安装系统及日用都可以使用  <code>config.plist</code> 作为启动脚本。<br>
+安装系统，先修改集显 Platform-ID 为：<code>0x12345678</code>，然后安装系统并完成初始设置，这期间的多次重启每一次都需要修改集显 Platform-ID 为<code>0x12345678</code>。<br>
+首次进入系统后，在 Terminal 中重建 Kext 缓存：<code>sudo kextcache -i /</code>，之后重启。<br>
+之后继续使用 <code>config.plist</code>，使用内置的 Platform ID：<code>0x3E9B0009</code> 启动系统，如无意外应该可以正常驱动 UHD630 及本屏幕。</p>
+<h1><strong>0x04 系统运行图赏</strong></h1>
+<p>目前系统的主要硬件均可正常工作，CPU、IGPU 实现了（原生）变频；键盘大体上工作正常；触摸板可以实现 Mac 的原生手势。<br>
+<img src="https://tva1.sinaimg.cn/large/0080xEK2ly1gbpao507m0j312s0puk4h.jpg" alt=""></p>
+<p>日常娱乐。<br>
+<img src="https://tva1.sinaimg.cn/large/0080xEK2ly1gbpao7m8fsj31hc0u0b29.jpg" alt=""><br>
+<img src="https://tva1.sinaimg.cn/large/0080xEK2ly1gbpatxnk21j31hc0u0ax6.jpg" alt=""></p>
+<p>BMD RAW 解码速度测试。<br>
+<img src="https://tva1.sinaimg.cn/large/0080xEK2ly1gbpaoe2vsbj31hc0u0npd.jpg" alt=""></p>
+<p>Davinci Resolve、Premiere、XCode。<br>
+<img src="https://tva1.sinaimg.cn/large/0080xEK2ly1gbpaofkq7tj31hc0u0awc.jpg" alt=""><br>
+<img src="https://tva1.sinaimg.cn/large/0080xEK2ly1gbpaohyeeqj31hc0u01kx.jpg" alt=""><br>
+<img src="https://tva1.sinaimg.cn/large/0080xEK2ly1gbpaokd3vvj31hc0u01kx.jpg" alt=""></p>
 <p>/* 以下截图画面灰暗是画面采集的问题，原片上色及肉眼所见正常，正确的色彩管理是 Mac 的巨大优势之一 */</p>
 <p>4K 60fps HDR 视频硬解，没有明显掉帧。若是在 Win10 下即使用 1650 带这样的视频也会非常费劲，掉帧是常事。苹果的优化功力不得不服！再也不黑了！nb！</p>
-<p>（from 2019 第 70 回 NHK 红白歌会）<br><img src="http://tva1.sinaimg.cn/large/0080xEK2ly1gbpaoo5gbaj31hc0u0kjl.jpg" alt></p>
-<p>最后当然是挂 4K HDR 的老婆！（from 剧场版『コード・ブルー –ドクターヘリ緊急救命–』）　<br><img src="http://tva1.sinaimg.cn/large/0080xEK2ly1gbpaopp0igj31hc0u0aw8.jpg" alt></p>
+<p>（from 2019 第 70 回 NHK 红白歌会）<br>
+<img src="https://tva1.sinaimg.cn/large/0080xEK2ly1gbpaoo5gbaj31hc0u0kjl.jpg" alt=""></p>
+<p>最后当然是挂 4K HDR 的老婆！（from 剧场版『コード・ブルー –ドクターヘリ緊急救命–』）　<br>
+<img src="https://tva1.sinaimg.cn/large/0080xEK2ly1gbpaopp0igj31hc0u0aw8.jpg" alt=""></p>
 <p>看起来很好，接下来抓 Bug，噩梦开始了！</p>
-<h1 id="0x05-我的机器最重大的-Bug：屏幕难以驱动"><a href="#0x05-我的机器最重大的-Bug：屏幕难以驱动" class="headerlink" title="0x05 我的机器最重大的 Bug：屏幕难以驱动"></a><strong>0x05 我的机器最重大的 Bug：屏幕难以驱动</strong></h1><p>本机型的 4K 版本有两种屏幕，分别为友达的 <code>AUO41EB</code> 与夏普的 <code>SHP14C7</code>。但经尝试发现后者并不像前者般容易驱动。使用常规的 <code>WhateverGreen</code> + 注入参数至 <code>config.plist</code> 的 <code>Devices</code> -&gt; <code>Properties</code> 子项的方式并不能成功驱动后者，同时会出现 <code>division-by-zero</code> 的 Kernel Panic，并立即重启，因此无法正常进入系统。（也可能不重启，能够进入系统但不输出画面，画面卡死在启动界面。这与注入 <code>Properties</code> 的数据有关）</p>
-<p><code>Division-by-zero</code> 这一问题理论上在新版的 <code>WhateverGreen</code> 已经可以由其本身解决，但在装有夏普 SHP14C7 屏幕的机器上似乎并不奏效。   </p>
+<h1><strong>0x05 我的机器最重大的 Bug：屏幕难以驱动</strong></h1>
+<p>本机型的 4K 版本有两种屏幕，分别为友达的 <code>AUO41EB</code> 与夏普的 <code>SHP14C7</code>。但经尝试发现后者并不像前者般容易驱动。使用常规的 <code>WhateverGreen</code> + 注入参数至 <code>config.plist</code> 的 <code>Devices</code> -&gt; <code>Properties</code> 子项的方式并不能成功驱动后者，同时会出现 <code>division-by-zero</code> 的 Kernel Panic，并立即重启，因此无法正常进入系统。（也可能不重启，能够进入系统但不输出画面，画面卡死在启动界面。这与注入 <code>Properties</code> 的数据有关）</p>
+<p><code>Division-by-zero</code> 这一问题理论上在新版的 <code>WhateverGreen</code> 已经可以由其本身解决，但在装有夏普 SHP14C7 屏幕的机器上似乎并不奏效。</p>
 <p>经尝试后发现，该屏幕在 <code>10.14.2</code> 和 <code>10.14.3</code> 版本下可以使用二进制破解 <code>AppleIntelCFLGraphicsFramebuffer.kext</code> 的方法规避这一 Panic 正常进入系统。具体参数已注入本 repo 的 <code>config.plist</code>。（具体注入内容见文末）</p>
-<p>目前个人认为，要解决在 SHP14C7 上的 <code>division-by-zero</code>，在 <code>WhateverGreen</code> 并不能发挥其预期作用的情况下，根本思路还是在于计算相关值，二进制破解 <code>AppleIntelCFLGraphicsFramebuffer.kext</code> 从而使修改的量传递至 kext 的正确位置。但该过程涉及反编 kext，个人目前能力有限，难以实现这一目标，希望有 julao 可以出手相助！ </p>
-<h1 id="0x06-目前存在的其他-Bug"><a href="#0x06-目前存在的其他-Bug" class="headerlink" title="0x06 目前存在的其他 Bug"></a><strong>0x06 目前存在的其他 Bug</strong></h1><ul>
-<li>【已解决】<del>在 Windows 系统下热重启至 Mac 会导致声卡不能正常工作</del> 通过强制加载 <code>AppleHDA</code> 及使用 <code>SSDT-ALC295.aml</code> <sup>1</sup> 基本可以解决该问题</li>
-<li>【已解决】<del>HDMI 连接会导致 Kernel Panic</del> 配合 <code>WhateverGreen</code> 并在 <code>Devices</code> -&gt; <code>Properties</code> 中注入接口数据使得 HDMI 可以正常输出画面<sup>2</sup>，但不能输出声音</li>
+<p>目前个人认为，要解决在 SHP14C7 上的 <code>division-by-zero</code>，在 <code>WhateverGreen</code> 并不能发挥其预期作用的情况下，根本思路还是在于计算相关值，二进制破解 <code>AppleIntelCFLGraphicsFramebuffer.kext</code> 从而使修改的量传递至 kext 的正确位置。但该过程涉及反编 kext，个人目前能力有限，难以实现这一目标，希望有 julao 可以出手相助！</p>
+<h1><strong>0x06 目前存在的其他 Bug</strong></h1>
+<ul>
+<li>【已解决】<s>在 Windows 系统下热重启至 Mac 会导致声卡不能正常工作</s> 通过强制加载 <code>AppleHDA</code> 及使用 <code>SSDT-ALC295.aml</code> <sup>1</sup> 基本可以解决该问题</li>
+<li>【已解决】<s>HDMI 连接会导致 Kernel Panic</s> 配合 <code>WhateverGreen</code> 并在 <code>Devices</code> -&gt; <code>Properties</code> 中注入接口数据使得 HDMI 可以正常输出画面<sup>2</sup>，但不能输出声音</li>
 <li>macOS 版本<strong>不能升级</strong>（本 repo 中的二进制破解仅适用于 <code>10.14.2</code> &amp;&amp; <code>10.14.3</code> ！各版本对应的 <code>KextstoPatch</code> 并不相同，且 10.15.x 系统据称<strong>已不支持</strong>这样的方式修补 kext)</li>
 <li><code>F6</code> &amp;&amp; <code>F7</code> 调节亮度映射错误，对应的按键是 <code>Fn + S</code> &amp;&amp; <code>Fn + B</code>（你怎么骂人呢！）【近期会对键盘映射做修复】</li>
 <li>内置麦克风无法使用【无解】</li>
@@ -421,12 +450,18 @@
 <li>电池的容量 (Capacity) 识别错误，应为 97Wh，但实时电量显示基本准确</li>
 <li>无线网卡 / 雷电接口尚未测试，不确定功能可用性【目前暂时用手机 USB Tethering 上网】</li>
 </ul>
-<h1 id="0x07-关于二进制破解-Kext-的参考文章"><a href="#0x07-关于二进制破解-Kext-的参考文章" class="headerlink" title="0x07 关于二进制破解 Kext 的参考文章"></a><strong>0x07 关于二进制破解 Kext 的参考文章</strong></h1><p>感谢以下文章的原作者，作为我们的领路人摸清了驱动这台电脑的前路！<br>《<a href="https://www.firewolf.science/2018/10/coffee-lake-intel-uhd-graphics-630-on-macos-mojave-a-compromise-solution-to-the-kernel-panic-due-to-division-by-zero-in-the-framebuffer-driver" target="_blank" rel="noopener">Coffee Lake Intel UHD Graphics 630 on macOS Mojave: A compromise solution to the kernel panic due to division by zero in the framebuffer driver</a>》<sup>3</sup><br>《<a href="https://www.tonymacx86.com/threads/fix-coffee-lake-intel-uhd-graphics-630-on-macos-mojave-kernel-panic-due-to-divide-by-zero.261687/" target="_blank" rel="noopener">[FIX] Coffee Lake Intel UHD Graphics 630 on macOS Mojave: Kernel panic due to divide-by-zero</a>》<br>《<a href="http://bbs.pcbeta.com/forum.php?mod=viewthread&tid=1795107&highlight=macOS%2BMojave%2B10.14.1" target="_blank" rel="noopener">10.14-10.14.5 macOS Mojave 各平台核显 DVMT Framebuffer 二进制补丁</a>》</p>
-<h1 id="0x08-10-14-2-amp-amp-10-14-3-对应的-KextstoPatch-内容"><a href="#0x08-10-14-2-amp-amp-10-14-3-对应的-KextstoPatch-内容" class="headerlink" title="0x08 10.14.2 &amp;&amp; 10.14.3 对应的 KextstoPatch 内容"></a><strong>0x08 10.14.2 &amp;&amp; 10.14.3 对应的 KextstoPatch 内容</strong></h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;KextsToPatch&lt;/key&gt;</span><br><span class="line">&lt;array&gt;</span><br><span class="line">	&lt;dict&gt;</span><br><span class="line">		&lt;key&gt;Comment&lt;/key&gt;</span><br><span class="line">		&lt;string&gt;Disable MinStolenSize&lt;/string&gt;</span><br><span class="line">		&lt;key&gt;Disabled&lt;/key&gt;</span><br><span class="line">		&lt;false/&gt;</span><br><span class="line">		&lt;key&gt;Find&lt;/key&gt;</span><br><span class="line">		&lt;data&gt;</span><br><span class="line">		dkZI/wUwagg=</span><br><span class="line">		&lt;/data&gt;</span><br><span class="line">		&lt;key&gt;InfoPlistPatch&lt;/key&gt;</span><br><span class="line">		&lt;false/&gt;</span><br><span class="line">		&lt;key&gt;Name&lt;/key&gt;</span><br><span class="line">		&lt;string&gt;AppleIntelCFLGraphicsFramebuffer&lt;/string&gt;</span><br><span class="line">		&lt;key&gt;Replace&lt;/key&gt;</span><br><span class="line">		&lt;data&gt;</span><br><span class="line">		60ZI/wUwagg=</span><br><span class="line">		&lt;/data&gt;</span><br><span class="line">	&lt;/dict&gt;</span><br><span class="line">	&lt;dict&gt;</span><br><span class="line">		&lt;key&gt;Comment&lt;/key&gt;</span><br><span class="line">		&lt;string&gt;Set the number of active lanes to 4 (for laptop with 4K display) (by FireWolf)&lt;/string&gt;</span><br><span class="line">		&lt;key&gt;Disabled&lt;/key&gt;</span><br><span class="line">		&lt;false/&gt;</span><br><span class="line">		&lt;key&gt;Find&lt;/key&gt;</span><br><span class="line">		&lt;data&gt;</span><br><span class="line">		i5bAJQAAio6VIwAAD7aG</span><br><span class="line">		&lt;/data&gt;</span><br><span class="line">		&lt;key&gt;InfoPlistPatch&lt;/key&gt;</span><br><span class="line">		&lt;false/&gt;</span><br><span class="line">		&lt;key&gt;Name&lt;/key&gt;</span><br><span class="line">		&lt;string&gt;AppleIntelCFLGraphicsFramebuffer&lt;/string&gt;</span><br><span class="line">		&lt;key&gt;Replace&lt;/key&gt;</span><br><span class="line">		&lt;data&gt;</span><br><span class="line">		uAQAAACJhrwlAAAxwF3D</span><br><span class="line">		&lt;/data&gt;</span><br><span class="line">	&lt;/dict&gt;</span><br><span class="line">&lt;/array&gt;</span><br></pre></td></tr></table></figure>
-
-<h1 id="0xFF-后记"><a href="#0xFF-后记" class="headerlink" title="0xFF 后记"></a><strong>0xFF 后记</strong></h1><p>以上是本次黑苹果过程的简要记录。不管怎么说，虽然过程曲折，但是当整个系统日渐完善，你能够一点一点驾驭它的时候，还是会不由得感叹真香。</p>
-<p>黑苹果向来都是这样：「前途是光明的，道路是曲折的。」有人问为什么要装黑苹果，其实也正应了那句话：「为什么要攀登珠穆朗玛峰？因为它就在那里。」虽然黑苹果这个操作倒算不上所谓巅峰，但挑战本身对于我等玩机佬就是极具快感的。现在这样看其实整个过程、包括这台机器在苹果系统下的使用体验也还存在不少问题，但至少目前整个系统也还算能满足我个人日常使用的需要。 后续还将对一些硬件的细节进行后续完善（也就是尽可能解决上述的 Bug），那么，到时再见了~    </p>
-<h2 id="致谢"><a href="#致谢" class="headerlink" title="致谢"></a><strong>致谢</strong></h2><p><strong><a href="https://github.com/LinZong/" target="_blank" rel="noopener"><code>LinZong</code></a></strong><sup>1</sup>、<strong><a href="https://github.com/tctien342/" target="_blank" rel="noopener"><code>tctien342</code></a></strong><sup>2</sup>、<strong><a href="https://www.firewolf.science/" target="_blank" rel="noopener"><code>Firewolf</code></a></strong><sup>3</sup> 等诸位 dalao 将自己的成果慷慨发布，我才得以参考着解决了一系列问题。     </p>
+<h1><strong>0x07 关于二进制破解 Kext 的参考文章</strong></h1>
+<p>感谢以下文章的原作者，作为我们的领路人摸清了驱动这台电脑的前路！<br>
+《<a href="https://www.firewolf.science/2018/10/coffee-lake-intel-uhd-graphics-630-on-macos-mojave-a-compromise-solution-to-the-kernel-panic-due-to-division-by-zero-in-the-framebuffer-driver" target="_blank" rel="noopener">Coffee Lake Intel UHD Graphics 630 on macOS Mojave: A compromise solution to the kernel panic due to division by zero in the framebuffer driver</a>》<sup>3</sup><br>
+《<a href="https://www.tonymacx86.com/threads/fix-coffee-lake-intel-uhd-graphics-630-on-macos-mojave-kernel-panic-due-to-divide-by-zero.261687/" target="_blank" rel="noopener">[FIX] Coffee Lake Intel UHD Graphics 630 on macOS Mojave: Kernel panic due to divide-by-zero</a>》<br>
+《<a href="https://bbs.pcbeta.com/forum.php?mod=viewthread&amp;tid=1795107&amp;highlight=macOS%2BMojave%2B10.14.1" target="_blank" rel="noopener">10.14-10.14.5 macOS Mojave 各平台核显 DVMT Framebuffer 二进制补丁</a>》</p>
+<h1><strong>0x08 10.14.2 &amp;&amp; 10.14.3 对应的 KextstoPatch 内容</strong></h1>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;key&gt;KextsToPatch&lt;&#x2F;key&gt;</span><br><span class="line">&lt;array&gt;</span><br><span class="line">	&lt;dict&gt;</span><br><span class="line">		&lt;key&gt;Comment&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;string&gt;Disable MinStolenSize&lt;&#x2F;string&gt;</span><br><span class="line">		&lt;key&gt;Disabled&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;false&#x2F;&gt;</span><br><span class="line">		&lt;key&gt;Find&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;data&gt;</span><br><span class="line">		dkZI&#x2F;wUwagg&#x3D;</span><br><span class="line">		&lt;&#x2F;data&gt;</span><br><span class="line">		&lt;key&gt;InfoPlistPatch&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;false&#x2F;&gt;</span><br><span class="line">		&lt;key&gt;Name&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;string&gt;AppleIntelCFLGraphicsFramebuffer&lt;&#x2F;string&gt;</span><br><span class="line">		&lt;key&gt;Replace&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;data&gt;</span><br><span class="line">		60ZI&#x2F;wUwagg&#x3D;</span><br><span class="line">		&lt;&#x2F;data&gt;</span><br><span class="line">	&lt;&#x2F;dict&gt;</span><br><span class="line">	&lt;dict&gt;</span><br><span class="line">		&lt;key&gt;Comment&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;string&gt;Set the number of active lanes to 4 (for laptop with 4K display) (by FireWolf)&lt;&#x2F;string&gt;</span><br><span class="line">		&lt;key&gt;Disabled&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;false&#x2F;&gt;</span><br><span class="line">		&lt;key&gt;Find&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;data&gt;</span><br><span class="line">		i5bAJQAAio6VIwAAD7aG</span><br><span class="line">		&lt;&#x2F;data&gt;</span><br><span class="line">		&lt;key&gt;InfoPlistPatch&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;false&#x2F;&gt;</span><br><span class="line">		&lt;key&gt;Name&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;string&gt;AppleIntelCFLGraphicsFramebuffer&lt;&#x2F;string&gt;</span><br><span class="line">		&lt;key&gt;Replace&lt;&#x2F;key&gt;</span><br><span class="line">		&lt;data&gt;</span><br><span class="line">		uAQAAACJhrwlAAAxwF3D</span><br><span class="line">		&lt;&#x2F;data&gt;</span><br><span class="line">	&lt;&#x2F;dict&gt;</span><br><span class="line">&lt;&#x2F;array&gt;</span><br></pre></td></tr></table></figure>
+<h1><strong>0xFF 后记</strong></h1>
+<p>以上是本次黑苹果过程的简要记录。不管怎么说，虽然过程曲折，但是当整个系统日渐完善，你能够一点一点驾驭它的时候，还是会不由得感叹真香。</p>
+<p>黑苹果向来都是这样：「前途是光明的，道路是曲折的。」有人问为什么要装黑苹果，其实也正应了那句话：「为什么要攀登珠穆朗玛峰？因为它就在那里。」虽然黑苹果这个操作倒算不上所谓巅峰，但挑战本身对于我等玩机佬就是极具快感的。现在这样看其实整个过程、包括这台机器在苹果系统下的使用体验也还存在不少问题，但至少目前整个系统也还算能满足我个人日常使用的需要。 后续还将对一些硬件的细节进行后续完善（也就是尽可能解决上述的 Bug），那么，到时再见了~</p>
+<h2 id="致谢"><strong>致谢</strong></h2>
+<p><strong><a href="https://github.com/LinZong/" target="_blank" rel="noopener"><code>LinZong</code></a></strong><sup>1</sup>、<strong><a href="https://github.com/tctien342/" target="_blank" rel="noopener"><code>tctien342</code></a></strong><sup>2</sup>、<strong><a href="https://www.firewolf.science/" target="_blank" rel="noopener"><code>Firewolf</code></a></strong><sup>3</sup> 等诸位 dalao 将自己的成果慷慨发布，我才得以参考着解决了一系列问题。</p>
 <p align="right">
 <img src="https://i.loli.net/2019/12/11/o4zQ2tSZduR3rfP.jpg">
 </p>
@@ -449,7 +484,7 @@
         
           
   
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/笔记本/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>笔记本</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/黑苹果/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>黑苹果</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/macOS/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>macOS</p></a></div>
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%AC%94%E8%AE%B0%E6%9C%AC/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>笔记本</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E9%BB%91%E8%8B%B9%E6%9E%9C/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>黑苹果</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/macOS/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>macOS</p></a></div>
 
 
         
@@ -476,7 +511,7 @@
                             
                                 
                                 <h6 class="tags">
-                                    <a class="tag" href="/tags/歌单/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 歌单</a>
+                                    <a class="tag" href="/tags/%E6%AD%8C%E5%8D%95/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 歌单</a>
                                 </h6>
                             
                         </span>
@@ -623,13 +658,13 @@
       <ul class="entry navigation">
         
           <li><a class="flat-box"
-            title="/categories/「机」乐世界/" href="/categories/「机」乐世界/"
-            id="categories「机」乐世界"
+            title="/categories/%E3%80%8C%E6%9C%BA%E3%80%8D%E4%B9%90%E4%B8%96%E7%95%8C/" href="/categories/%E3%80%8C%E6%9C%BA%E3%80%8D%E4%B9%90%E4%B8%96%E7%95%8C/"
+            id="categoriesE3808CE69CBAE3808DE4B990E4B896E7958C"
             ><div class='name'>「机」乐世界</div><div class='badge'>(1)</div></a></li>
         
           <li><a class="flat-box"
-            title="/categories/心情空间/" href="/categories/心情空间/"
-            id="categories心情空间"
+            title="/categories/%E5%BF%83%E6%83%85%E7%A9%BA%E9%97%B4/" href="/categories/%E5%BF%83%E6%83%85%E7%A9%BA%E9%97%B4/"
+            id="categoriesE5BF83E68385E7A9BAE997B4"
             ><div class='name'>心情空间</div><div class='badge'>(7)</div></a></li>
         
       </ul>
@@ -668,7 +703,7 @@
 
 
     <div class='content'>
-      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#0x00-前言"><span class="toc-text">0x00 前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x01-本机硬件配置"><span class="toc-text">0x01 本机硬件配置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#已驱动-已知可驱动"><span class="toc-text">已驱动 / 已知可驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#已知不可驱动"><span class="toc-text">已知不可驱动</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x02-本机简评"><span class="toc-text">0x02 本机简评</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x03-在-10-14-3-下驱动-SHP14C7-的可行办法"><span class="toc-text">0x03 在 10.14.3 下驱动 SHP14C7 的可行办法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x04-系统运行图赏"><span class="toc-text">0x04 系统运行图赏</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x05-我的机器最重大的-Bug：屏幕难以驱动"><span class="toc-text">0x05 我的机器最重大的 Bug：屏幕难以驱动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x06-目前存在的其他-Bug"><span class="toc-text">0x06 目前存在的其他 Bug</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x07-关于二进制破解-Kext-的参考文章"><span class="toc-text">0x07 关于二进制破解 Kext 的参考文章</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0x08-10-14-2-amp-amp-10-14-3-对应的-KextstoPatch-内容"><span class="toc-text">0x08 10.14.2 &amp;&amp; 10.14.3 对应的 KextstoPatch 内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#0xFF-后记"><span class="toc-text">0xFF 后记</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#致谢"><span class="toc-text">致谢</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#已驱动-已知可驱动"><span class="toc-text">已驱动 &#x2F; 已知可驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#已知不可驱动"><span class="toc-text">已知不可驱动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#致谢"><span class="toc-text">致谢</span></a></li></ol>
     </div>
   </section>
 
@@ -734,7 +769,7 @@
   
    
   Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.
-  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
   <div>
     本站使用
@@ -755,7 +790,9 @@
     </div>
     <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
   </div>
-  <script src="//cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  
+<script src="//cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
 
   <script>
     
@@ -786,7 +823,9 @@
   
   
   
-    <script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
     <script type="text/javascript">
       $(function(){
         if ('') {
@@ -817,7 +856,9 @@
 
 
   
-    <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@20.2.32/js/valine.js"></script>
+    
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@20.2.32/js/valine.js"></script>
+
   
   <script>
   var GUEST_INFO = ['nick','mail','link'];
@@ -845,10 +886,14 @@
 
 
 
-  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@20.2.32/js/app.js"></script>
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@20.2.32/js/app.js"></script>
 
 
-  <script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@20.2.32/js/search.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@20.2.32/js/search.js"></script>
+
 
 
 
