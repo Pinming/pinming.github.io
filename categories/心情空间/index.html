@@ -1,8 +1,57 @@
 <!DOCTYPE html>
 <html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="Hexo 4.2.0"></head>
     <div style="display:none;">
         <img src="https://pinmingblog.oss-cn-hongkong.aliyuncs.com/favicon512.png">
     </div>
+
+
+<!-- WXSDK -->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<script src="/js/jweixin-1.2.0.js"></script>
+<script>
+url=location.href;
+  $.ajax({
+    type : "get",
+    url : "https://oss.pm-z.tech/jssdk.php?url="+url,
+    dataType : "jsonp",
+    jsonp: "callback",
+    jsonpCallback:"success_jsonpCallback",
+    success : function(data){
+        wx.config({
+appId: data.appId,
+timestamp: data.timestamp,
+nonceStr: data.nonceStr,
+signature: data.signature,
+jsApiList: [
+       "onMenuShareTimeline", 
+       "onMenuShareAppMessage",
+       "onMenuShareQQ",
+       "onMenuShareWeibo"
+]
+});
+},
+                error:function(data){
+                    alert("Connection Error!");
+                }
+});
+  wx.ready(function (){
+  var shareData = {
+  title: 'Title',
+  desc: 'Desc',
+  link: 'Link',
+  imgUrl: 'https://www.pm-z.tech/favicon512.png'
+  };
+  wx.onMenuShareAppMessage(shareData);
+  wx.onMenuShareTimeline(shareData);
+  wx.onMenuShareQQ(shareData);
+  wx.onMenuShareWeibo(shareData);
+    });
+</script>
+
+
 <!-- 音频播放 -->
       <style>
             #aplayer {   
@@ -45,10 +94,12 @@
   
 
   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
 
   
     
-<link rel="stylesheet" href="https://oss.pm-z.tech/style.css">
+<link rel="stylesheet" href="/style.css">
 
   
 
@@ -776,6 +827,96 @@
   <section class='meta'>
     
     
+    <div class="meta" id="header-meta">
+      
+        
+  <h2 class="title">
+    <a href="/2019/12/12/playlist-19w50/">
+      Pinming 的歌单 | 2019 年第 50 周
+    </a>
+  </h2>
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://pinming.github.io" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Pinming</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2019/12/12</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+  <section class="article typo">
+    <div class="article-entry" itemprop="articleBody">
+      <p>本歌单不定期更新，这里都是 Pinming 最近在听的并且希望推荐给大家的歌~</p>
+      
+        
+          <div class="button readmore">
+            <a href="/2019/12/12/playlist-19w50/" class="flat-box">
+              <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
+              阅读全文
+            </a>
+          </div>
+        
+      
+    </div>
+    <!-- 
+      <div class="full-width auto-padding tags">
+        
+          <a href="/tags/%E6%AD%8C%E5%8D%95/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 歌单</a>
+        
+      </div>
+     -->
+  </section>
+</article>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <article class="post white-box card-shadow body-blur reveal ">
+  
+
+
+  <section class='meta'>
+    
+    
       <a title='Hello World | 这破站是干啥的？' href='/2019/12/12/HelloWorld/'><img class='thumbnail' src='/assets/favicon.png'></a>
     
     <div class="meta" id="header-meta">
@@ -856,96 +997,6 @@
           <a href="/tags/%E5%BC%80%E7%AB%99%E4%BA%86%EF%BC%81/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 开站了！</a>
         
           <a href="/tags/Hello-World/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> Hello World!</a>
-        
-      </div>
-     -->
-  </section>
-</article>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <article class="post white-box card-shadow body-blur reveal ">
-  
-
-
-  <section class='meta'>
-    
-    
-    <div class="meta" id="header-meta">
-      
-        
-  <h2 class="title">
-    <a href="/2019/12/12/playlist-19w50/">
-      Pinming 的歌单 | 2019 年第 50 周
-    </a>
-  </h2>
-
-
-      
-      <div class='new-meta-box'>
-        
-          
-        
-          
-            
-  <div class='new-meta-item author'>
-    
-      <a href="https://pinming.github.io" rel="nofollow">
-        
-          <i class="fas fa-user" aria-hidden="true"></i>
-        
-        <p>Pinming</p>
-      </a>
-    
-  </div>
-
-
-          
-        
-          
-            <div class="new-meta-item date">
-  <a class='notlink'>
-    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-    <p>2019/12/12</p>
-  </a>
-</div>
-
-          
-        
-          
-            
-
-          
-        
-      </div>
-      
-        <hr>
-      
-    </div>
-  </section>
-
-
-  <section class="article typo">
-    <div class="article-entry" itemprop="articleBody">
-      <p>本歌单不定期更新，这里都是 Pinming 最近在听的并且希望推荐给大家的歌~</p>
-      
-        
-          <div class="button readmore">
-            <a href="/2019/12/12/playlist-19w50/" class="flat-box">
-              <i class="fas fa-book-open fa-fw" aria-hidden="true"></i>
-              阅读全文
-            </a>
-          </div>
-        
-      
-    </div>
-    <!-- 
-      <div class="full-width auto-padding tags">
-        
-          <a href="/tags/%E6%AD%8C%E5%8D%95/" rel="nofollow"><i class="fas fa-tag fa-fw"></i> 歌单</a>
         
       </div>
      -->
@@ -1136,7 +1187,30 @@
       
     </div>
   
-   
+<!--
+    <br>
+    <div class="aplayer-container">
+      
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='list'
+      fixed='false'
+      list-max-height='340px'
+      server='netease'
+      type='playlist'
+      id='3175833810'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+    </div>
+   -->  
   Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.
   <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
 </div>
@@ -1174,6 +1248,9 @@
   <script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
 
 
+  <script async src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+  <script async src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
 
   <script src="//cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
   <script type="text/javascript">
@@ -1186,6 +1263,8 @@
   </script>
 
 
+
+  <script async src="//cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
 
 
 
@@ -1227,12 +1306,12 @@
 
 
   
-<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@20.2.32/js/app.js"></script>
+<script src="/js/app.js"></script>
 
 
 
   
-<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@20.2.32/js/search.js"></script>
+<script src="/js/search.js"></script>
 
 
 
