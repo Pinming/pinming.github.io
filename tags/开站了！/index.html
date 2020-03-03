@@ -21,6 +21,7 @@ url=location.href;
     jsonpCallback:"success_jsonpCallback",
     success : function(data){
         wx.config({
+debug: false,
 appId: data.appId,
 timestamp: data.timestamp,
 nonceStr: data.nonceStr,
@@ -29,26 +30,35 @@ jsApiList: [
        "onMenuShareTimeline", 
        "onMenuShareAppMessage",
        "onMenuShareQQ",
-       "onMenuShareWeibo"
+       "onMenuShareWeibo",
+       "updateAppMessageShareData",
+       "updateTimelineShareData"
 ]
 });
 },
-                error:function(data){
-                    alert("Connection Error!");
-                }
 });
   wx.ready(function (){
   var shareData = {
   title: 'Title',
   desc: 'Desc',
-  link: 'Link',
+  link: 'https://www.pm-z.tech/',
   imgUrl: 'https://www.pm-z.tech/favicon512.png'
   };
   wx.onMenuShareAppMessage(shareData);
   wx.onMenuShareTimeline(shareData);
   wx.onMenuShareQQ(shareData);
   wx.onMenuShareWeibo(shareData);
+  wx.updateAppMessageShareData({ 
+      success: function () {
+      // 设置成功
+      }
     });
+  wx.updateTimelineShareData({ 
+    success: function () {
+      // 设置成功
+      }
+    });
+  }); 
 </script>
 
 
