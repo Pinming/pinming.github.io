@@ -10,7 +10,7 @@
 
 <!-- WXSDK -->
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
-<script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
 url=location.href.split("#")[0]; //location.href;
 $.ajax({
@@ -45,7 +45,7 @@ wx.onMenuShareTimeline({
   success: function () {  }
 });
 wx.onMenuShareAppMessage({
-    title: document.write(document.title), // 分享标题
+    title: document.title, // 分享标题
     link: location.href.split("#")[0], 
     desc: '欢迎来到 Pinming 的小站~',
     imgUrl: 'https://www.pm-z.tech/favicon512.png', 
@@ -81,8 +81,8 @@ wx.showMenuItems({
         });
         
     wx.onMenuShareQQ({
-            title: 'document.title', // 分享标题
-            link: 'location.href.split("#")[0]', 
+            title: document.title, // 分享标题
+            link: location.href.split("#")[0], 
             imgUrl: 'https://www.pm-z.tech/favicon512.png', 
             success: function () { 
                 // 用户确认分享后执行的回调函数
@@ -94,8 +94,8 @@ wx.showMenuItems({
         });
   
       wx.onMenuShareWeibo({
-            title: 'document.title', // 分享标题
-            link: 'location.href.split("#")[0]', 
+            title: document.title, // 分享标题
+            link: location.href.split("#")[0], 
             imgUrl: 'https://www.pm-z.tech/favicon512.png', 
             success: function () { 
                 // 用户确认分享后执行的回调函数
