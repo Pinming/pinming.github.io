@@ -10,12 +10,12 @@
 
 <!-- WXSDK -->
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
-<script src="/js/jweixin-1.2.0.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script>
 url=location.href;
   $.ajax({
     type : "get",
-    url : "https://pmblog-jssdk.oss-cn-shenzhen.aliyuncs.com/jssdk.php?url="+url,
+    url : "https://server.pm-z.tech/jssdk/jssdk.php?url="+url,
     dataType : "jsonp",
     jsonp: "callback",
     jsonpCallback:"success_jsonpCallback",
@@ -1016,8 +1016,6 @@ Standing at the end of the final masquerade<br><br>
   </script>
 
 
-
-  <script async src="//cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js"></script>
 
 
 
