@@ -30,9 +30,9 @@ jsApiList: [
        "onMenuShareTimeline", 
        "onMenuShareAppMessage",
        "onMenuShareQQ",
-       "onMenuShareWeibo",
+       "onMenuShareWeibo" /*
        "updateAppMessageShareData", //new * 2
-       "updateTimelineShareData"
+       "updateTimelineShareData" */
 ]
 });
 },
@@ -47,7 +47,7 @@ jsApiList: [
   wx.onMenuShareAppMessage(shareData);
   wx.onMenuShareTimeline(shareData);
   wx.onMenuShareQQ(shareData);
-  wx.onMenuShareWeibo(shareData);
+  wx.onMenuShareWeibo(shareData);/*
   wx.updateAppMessageShareData({ 
       success: function () {
       // 设置成功
@@ -57,7 +57,7 @@ jsApiList: [
     success: function () {
       // 设置成功
       }
-    }); 
+    }); */
   });  
 </script>
 
