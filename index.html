@@ -39,9 +39,9 @@ jsApiList: [
 });
   wx.ready(function (){
   var shareData = {
-  title: 'Title',
-  desc: 'Desc',
-  link: 'location.href',
+  title: 'document.title',
+  desc: '欢迎来到 Pinming 的小站~',
+  link: 'location.href.split("#")[0]',
   imgUrl: 'https://www.pm-z.tech/favicon512.png'
   };
   wx.onMenuShareAppMessage(shareData);
