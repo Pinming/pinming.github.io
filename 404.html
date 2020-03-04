@@ -21,7 +21,7 @@ url=location.href;
     jsonpCallback:"success_jsonpCallback",
     success : function(data){
         wx.config({
-debug: false,
+debug: true,
 appId: data.appId,
 timestamp: data.timestamp,
 nonceStr: data.nonceStr,
@@ -30,9 +30,9 @@ jsApiList: [
        "onMenuShareTimeline", 
        "onMenuShareAppMessage",
        "onMenuShareQQ",
-       "onMenuShareWeibo",
-       "updateAppMessageShareData",
-       "updateTimelineShareData"
+       "onMenuShareWeibo"
+//       "updateAppMessageShareData",
+//       "updateTimelineShareData"
 ]
 });
 },
@@ -48,7 +48,7 @@ jsApiList: [
   wx.onMenuShareTimeline(shareData);
   wx.onMenuShareQQ(shareData);
   wx.onMenuShareWeibo(shareData);
-  wx.updateAppMessageShareData({ 
+/*  wx.updateAppMessageShareData({ 
       success: function () {
       // 设置成功
       }
@@ -57,8 +57,8 @@ jsApiList: [
     success: function () {
       // 设置成功
       }
-    });
-  }); 
+    }); */
+  });  
 </script>
 
 
