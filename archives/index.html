@@ -5,7 +5,7 @@
 <meta name="generator" content="Hexo 4.2.0"></head>
 <!-- WeChat-JS-SDK-Update -->
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
-<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script>
 url=location.href.split("?"||"#"||"&")[0]; //location.href;
 $.ajax({
@@ -24,14 +24,16 @@ $.ajax({
         jsApiList: [
             "onMenuShareQQ",
             "onMenuShareWeibo",
-            "updateTimelineShareData",
-            "updateAppMessageShareData",
+            "onMenuShareTimeline",
+            "onMenuShareAppMessage",
+/*            "updateTimelineShareData",
+            "updateAppMessageShareData", */
             "showMenuItems",
             "hideAllNonBaseMenuItem" ]
     });
     },
 });
-wx.updateAppMessageShareData({ 
+/*wx.updateAppMessageShareData({ 
     title: document.title, // 分享标题
     link: location.href.split("?"||"#"||"&")[0], 
     desc: '欢迎来到 Pinming 的小站~',
@@ -49,14 +51,38 @@ wx.updateTimelineShareData({
     success: function () {
       // 设置成功
     }
-  });
+  }); */
+
+wx.onMenuShareTimeline({
+            title: document.title, // 分享标题
+            link: location.href.split("?"||"#"||"&")[0], 
+            desc: '欢迎来到 Pinming 的小站~',
+            imgUrl: 'https://www.pm-z.tech/favicon512.png', 
+            success: function () { 
+            }
+        });
+
+wx.onMenuShareAppMessage({
+            title: document.title, // 分享标题
+            desc: '欢迎来到 Pinming 的小站~',
+            link: location.href.split("?"||"#"||"&")[0], 
+            imgUrl: 'https://www.pm-z.tech/favicon512.png', 
+            success: function () { 
+                // 用户确认分享后执行的回调函数
+                
+            },
+            cancel: function () { 
+                // 用户取消分享后执行的回调函数
+                
+            }
+        }); 
 
 wx.ready(function (){
 wx.hideAllNonBaseMenuItem();
 wx.showMenuItems({
   menuList: ["menuItem:share:appMessage","menuItem:share:timeline","menuItem:favorite"]
 });
-   /* wx.onMenuShareTimeline({
+    wx.onMenuShareTimeline({
             title: document.title, // 分享标题
             link: location.href.split("?"||"#"||"&")[0], 
             desc: '欢迎来到 Pinming 的小站~',
@@ -78,7 +104,7 @@ wx.showMenuItems({
                 // 用户取消分享后执行的回调函数
                 
             }
-        }); */
+        }); 
         
     wx.onMenuShareQQ({
             title: document.title, // 分享标题
@@ -106,7 +132,7 @@ wx.showMenuItems({
             }
         });  
 
-      wx.updateAppMessageShareData({ 
+    /*  wx.updateAppMessageShareData({ 
             title: document.title, // 分享标题
             link: location.href.split("?"||"#"||"&")[0], 
             desc: '欢迎来到 Pinming 的小站~',
@@ -124,12 +150,10 @@ wx.showMenuItems({
             success: function () {
             // 设置成功
             }
-        });
+        }); */
   });
 
 </script>
-
-
 <!-- 音频播放 -->
       <style>
             #aplayer {   
@@ -512,11 +536,11 @@ wx.showMenuItems({
 	          </div>
 	      
 	          <div class="archive-item archive-post mark">
-	            <a href="/2019/12/12/playlist-19w50/">
+	            <a href="/2019/12/12/HelloWorld/">
 	              <time>12-12</time>
 	              <span class="title">
 	                
-	                  Pinming 的歌单 | 2019 年第 50 周
+	                  Hello World | 这破站是干啥的？
 	                
 	                
 									
@@ -526,11 +550,11 @@ wx.showMenuItems({
 	          </div>
 	      
 	          <div class="archive-item archive-post mark">
-	            <a href="/2019/12/12/HelloWorld/">
+	            <a href="/2019/12/12/playlist-19w50/">
 	              <time>12-12</time>
 	              <span class="title">
 	                
-	                  Hello World | 这破站是干啥的？
+	                  Pinming 的歌单 | 2019 年第 50 周
 	                
 	                
 									
