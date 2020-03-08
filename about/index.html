@@ -2,73 +2,72 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="generator" content="Hexo 4.2.0"></head>
-
-<!-- WXSDK-NewestModified -->
 <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
 <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<!-- WXSDK-NewestModified -->
 <script>
-url=location.href.split("?")[0]
-  $.ajax({
-    type : "get",
-    url : "https://server.pm-z.tech/jssdk/jssdk.php?url="+url,
-    dataType : "jsonp",
-    jsonp: "callback",
-    jsonpCallback:"success_jsonpCallback",
-    success : function(data){
-        wx.config({
-debug: false,
-appId: data.appId,
-timestamp: data.timestamp,
-nonceStr: data.nonceStr,
-signature: data.signature,
-jsApiList: [
-       "onMenuShareTimeline", 
-       "onMenuShareAppMessage",
-       "onMenuShareQQ",
-       "onMenuShareWeibo" /*
-       "updateAppMessageShareData", //new * 2
-       "updateTimelineShareData" */
-]
-});
-},
-});
-  wx.ready(function (){
-  // var shareData = {
-    wx.onMenuShareTimeline({
-            title: document.title, // 分享标题
-            link: location.href.split("?")[0], 
-            imgUrl: 'https://www.pm-z.tech/favicon512.png', 
-            success: function () { 
-            }
-        });
-
-    wx.onMenuShareAppMessage({
-            title: document.title, // 分享标题
-            desc: '欢迎来到 Pinming 的小站~',
-            link: location.href.split("?")[0], 
-            imgUrl: 'https://www.pm-z.tech/favicon512.png', 
-            success: function () { 
-            }
-        });
-        
-    wx.onMenuShareQQ({
-            title: document.title, // 分享标题
-            link: location.href.split("?")[0], 
-            imgUrl: 'https://www.pm-z.tech/favicon512.png', 
-            success: function () { 
-            }
-        });
-  
-      wx.onMenuShareWeibo({
-            title: document.title, // 分享标题
-            link: location.href.split("?")[0], 
-            imgUrl: 'https://www.pm-z.tech/favicon512.png', 
-            success: function () { 
-            }
-        });  
-  });
-</script>
+    url=location.href.split("?")[0]
+      $.ajax({
+        type : "get",
+        url : "https://server.pm-z.tech/jssdk/jssdk.php?url="+url,
+        dataType : "jsonp",
+        jsonp: "callback",
+        jsonpCallback:"success_jsonpCallback",
+        success : function(data){
+            wx.config({
+    debug: false,
+    appId: data.appId,
+    timestamp: data.timestamp,
+    nonceStr: data.nonceStr,
+    signature: data.signature,
+    jsApiList: [
+           "onMenuShareTimeline", 
+           "onMenuShareAppMessage",
+           "onMenuShareQQ",
+           "onMenuShareWeibo" /*
+           "updateAppMessageShareData", //new * 2
+           "updateTimelineShareData" */
+    ]
+    });
+    },
+    });
+      wx.ready(function (){
+      // var shareData = {
+        wx.onMenuShareTimeline({
+                title: document.title, // 分享标题
+                link: location.href.split("?")[0], 
+                imgUrl: 'https://www.pm-z.tech/favicon512.png', 
+                success: function () { 
+                }
+            });
+    
+        wx.onMenuShareAppMessage({
+                title: document.title, // 分享标题
+                desc: '欢迎来到 Pinming 的小站~',
+                link: location.href.split("?")[0], 
+                imgUrl: 'https://www.pm-z.tech/favicon512.png', 
+                success: function () { 
+                }
+            });
+            
+        wx.onMenuShareQQ({
+                title: document.title, // 分享标题
+                link: location.href.split("?")[0], 
+                imgUrl: 'https://www.pm-z.tech/favicon512.png', 
+                success: function () { 
+                }
+            });
+      
+          wx.onMenuShareWeibo({
+                title: document.title, // 分享标题
+                link: location.href.split("?")[0], 
+                imgUrl: 'https://www.pm-z.tech/favicon512.png', 
+                success: function () { 
+                }
+            });  
+      });
+    </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
 <!-- 音频播放 -->
       <style>
             #aplayer {   
