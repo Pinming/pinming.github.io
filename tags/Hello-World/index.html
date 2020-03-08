@@ -6,7 +6,7 @@
 <script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
 <!-- WXSDK-NewestModified -->
 <script>
-    url=location.href.split("?")[0]
+    url=location.href.split("#")[0]
       $.ajax({
         type : "get",
         url : "https://server.pm-z.tech/jssdk/jssdk.php?url="+url,
@@ -35,7 +35,7 @@
       // var shareData = {
         wx.onMenuShareTimeline({
                 title: document.title, // 分享标题
-                link: location.href.split("?")[0], 
+                link: location.href.split("#")[0], 
                 imgUrl: 'https://www.pm-z.tech/favicon512.png', 
                 success: function () { 
                 }
@@ -44,7 +44,7 @@
         wx.onMenuShareAppMessage({
                 title: document.title, // 分享标题
                 desc: '欢迎来到 Pinming 的小站~',
-                link: location.href.split("?")[0], 
+                link: location.href.split("#")[0], 
                 imgUrl: 'https://www.pm-z.tech/favicon512.png', 
                 success: function () { 
                 }
@@ -52,7 +52,7 @@
             
         wx.onMenuShareQQ({
                 title: document.title, // 分享标题
-                link: location.href.split("?")[0], 
+                link: location.href.split("#")[0], 
                 imgUrl: 'https://www.pm-z.tech/favicon512.png', 
                 success: function () { 
                 }
@@ -60,7 +60,7 @@
       
           wx.onMenuShareWeibo({
                 title: document.title, // 分享标题
-                link: location.href.split("?")[0], 
+                link: location.href.split("#")[0], 
                 imgUrl: 'https://www.pm-z.tech/favicon512.png', 
                 success: function () { 
                 }
