@@ -9,7 +9,7 @@
     url=location.href.split("#")[0]
       $.ajax({
         type : "get",
-        url : "https://server.pm-z.tech/jssdk/jssdk.php?url="+url,
+        url : "https://server.pm-z.tech/jssdk/jssdk.php?url="+encodeURIComponent(url),
         dataType : "jsonp",
         jsonp: "callback",
         jsonpCallback:"success_jsonpCallback",
