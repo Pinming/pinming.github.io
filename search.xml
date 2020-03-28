@@ -1,6 +1,339 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>改版了 | 送别三月的第一份小站报告</title>
+    <url>/2020/03/28/2020_Introduction_to_New_Edition/</url>
+    <content><![CDATA[<blockquote>
+<p>「あなたに出会った四月になると。」<br>「与你相遇的四月就要来了。」</p>
+</blockquote>
+<p align="right">——『四月は君の嘘』</p>
+<a id="more"></a>
+<h2 id="0x00-前言"><strong>0x00 前言</strong></h2>
+<p>四月份马上就要来了。虽然深圳早已是春暖花开之时，但 COVID-19 疫情笼罩的阴霾却仍稍稍未能散去，我也十分期望能够摘下口罩，自如地感受春风。</p>
+<p>不过正因如此，我也有了更多的机会去探索此前没有时间探索的东西。一定程度上，今天这个网站的改变也必须归功于我拥有这么一段多出来的时间罢。</p>
+<p>那么接下来就简要说明一下本站开站至今做出的改进。</p>
+<p align="center">
+    <img src="https://oss.pm-z.tech/img/2020_Introduction_to_New_Edition/_DSC9340.jpg?x-oss-process=style/80">
+	<em><font size="1" color="#808080">2018/5/6 | 深圳市宝安中学 | 「春待ち」· 愿能遇见她</font> </em>
+</p>
+<h2 id="0x01-一个简单的汇报"><strong>0x01 一个简单的汇报</strong></h2>
+<p>首先是本站的外观已经发生了显而易见的变化！这要归功于 <a href="https://xaoxuu.com" target="_blank" rel="noopener">xaoxuu</a> 设计的主题 <a href="https://volantis.js.org" target="_blank" rel="noopener">Volantis</a>，在原先主题 Material X 的基础上进一步提升了其颜值。</p>
+<p>在本站开站之初，这个网站还有很多很多的小毛病没有被解决，然后就上线了【再放送：『<a href="https://www.pm-z.tech/2019/12/12/HelloWorld/" target="_blank" rel="noopener">Hello World | 这破站是干啥的？</a>』】。当然现在也还有一些问题……不过以下的问题在这四个多月间得到了解决：</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_0" checked="true" disabled="true"><label for="cbx_0"> 网站部署在 Github 的国外服务器上，国内访问可能速度上有所限制，但应该不会太差，出国党应该问题不大。后续可能考虑迁移回国内；</label>
+<blockquote>
+<p>目前全站已经迁移至阿里云服务器，国内访问体验将获得极大改善。</p>
+</blockquote>
+</li>
+<li class="task-list-item"><input type="checkbox" id="cbx_1" checked="true" disabled="true"><label for="cbx_1"> 由于微信 API 接口限制，网站的 favicon 在微信分享不能显示，也就是说在朋友圈和聊天页面，大家只能看到标题 + 一个回形针图标（但我相信你们一定能认出我的！）；</label>
+<blockquote>
+<p>已经氪金去买了微信高级 API 了……哎，又亏银子了。</p>
+</blockquote>
+</li>
+<li class="task-list-item"><input type="checkbox" id="cbx_2" checked="true" disabled="true"><label for="cbx_2"> 网站背景音乐的播放是调用了阿里云 OSS 的，如果歌放不出来了说明本月 OSS 的免费流量用完了…… 还想来这听歌请提醒我充钱，充钱才能变得更强（要是能把流量听完说明这站人气还可以了 2333）；</label>
+<blockquote>
+<p>同上，氪金就有流量。不过这个倒不是很费银子。<br>
+总而言之，能用钱解决的问题好像都不是很大的问题……<span class="heimu" title="你知道的太多了">【但是我确实也缺钱】</span></p>
+</blockquote>
+</li>
+</ul>
+<p>同时正如在上一段所见，还实现了新的功能：</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_3" checked="true" disabled="true"><label for="cbx_3"> <span class="heimu" title="你知道的太多了">「黑幕」</span>。感谢<a href="https://zh.moegirl.org/" target="_blank" rel="noopener">萌娘百科</a>的创意。点击「黑幕」就可以查看隐藏内容。<span class="heimu" title="你知道的太多了">【二刺螈爪巴 嘻嘻】</span></label></li>
+</ul>
+<p>并做出了一些后台优化：</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_4" checked="true" disabled="true"><label for="cbx_4"> 全站 CDN + HTTPS。这将使本站在全国各地各网络的访问速度进一步提升，同时保障连接的加密性。</label></li>
+</ul>
+<p>那么还剩下这些问题有待解决：</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_5" disabled="true"><label for="cbx_5"> 音乐播放器在极少部分小尺寸手机上 <code>(e.g. iPhone 5/5s)</code> 似乎有点长…… 展开了就收不回去，除非横屏（现在大家手机都大屏了应该不太存在这个问题……）；</label>
+<blockquote>
+<p>所以这个问题应该也不会再做什么修改了……</p>
+</blockquote>
+</li>
+<li class="task-list-item"><input type="checkbox" id="cbx_6" disabled="true"><label for="cbx_6"> 网站暂未实现 <a href="https://github.com/defunkt/jquery-pjax" target="_blank" rel="noopener">pjax</a> 加载，背景音乐在点击其他网页时就断了……（UI 作者称近期会加上 pjax 支持，我也会尽快跟进，让大家听歌听爽点）；</label>
+<blockquote>
+<p>该问题还在全力解决。</p>
+</blockquote>
+</li>
+<li class="task-list-item"><input type="checkbox" id="cbx_7" disabled="true"><label for="cbx_7"> 由于 Markdown 语法的限制，正文区域并不能滑稽，然而评论区可以，嘻嘻；</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_8" disabled="true"><label for="cbx_8"> 未来还可能加入：夜间模式。</label>
+<blockquote>
+<p>这个 Feature 加入应该不会太快了……暂时没有精力嗷。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="0x02-后续计划"><strong>0x02 后续计划</strong></h2>
+<div class="warning">
+<p align="middle">以下内容并不作为后续文章内容计划的明示或暗示保证。【滑稽】</p>
+</div>
+<p>先立几个 flag 好了！不然后面很可能没有更博的动力……<span class="heimu" title="你知道的太多了">【就算立了也说不定还会咕咕咕】</span></p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_9" disabled="true"><label for="cbx_9"> 待能够回校后，对灵越 7590 黑苹果的无线网卡做测试，拼上完整黑苹果体验的最后一块拼图，在之前的基础上形成完整的使用体验报告，甚至还有可能码篇安装过程记录或教程。</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_10" disabled="true"><label for="cbx_10"> 今年会是笔记本市场大动荡大变革大发展的一年，因为<span class="heimu" title="你知道的太多了">AMD，YES！</span>，今年的笔记本市场一定会有更多带来惊喜的产品。目前计划在 5-6 月可能写一份笔记本选购指南。毕竟从 6 月 8 日高考结束到 618 期间，一定会有很多人蠢蠢欲动的。之所以起意写这个也是觉得知乎上的各种指南总还是有些奇怪的槽点……所以想自己尝试了。</label></li>
+</ul>
+<p>目前的计划暂时就是这样了，还请期待。今天这篇就写到这里了，期望春暖花开之时我们能再度相遇。</p>
+<p align="center">
+    <img src="https://oss.pm-z.tech/img/2020_Introduction_to_New_Edition/_DSC9357.jpg?x-oss-process=style/80">
+	<em><font size="1" color="#808080">2018/5/6 | 深圳市宝安中学 | 「青空モーニンググローリー」</font></em>
+</p>
+<p>【<span class="heimu" title="你知道的太多了">到了这里的意思就是可以关掉了</span>，滑稽】</p>
+<h2 id="0xFF-后记-部分功能实现的简单记录"><strong>0xFF 后记 | 部分功能实现的简单记录</strong></h2>
+<h3 id="i-黑幕功能实现源码">i) 黑幕功能实现源码</h3>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">  <span class="selector-class">.heimu</span>, <span class="selector-class">.heimu</span> <span class="selector-tag">a</span>, <span class="selector-tag">a</span> <span class="selector-class">.heimu</span>, <span class="selector-class">.heimu</span> <span class="selector-tag">a</span><span class="selector-class">.new</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#0066A0</span>; <span class="comment">/*背景色*/</span></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#0066A0</span>; <span class="comment">/*隐藏文字色*/</span></span><br><span class="line">    <span class="attribute">text-shadow</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.heimu</span><span class="selector-pseudo">:hover</span>, <span class="selector-class">.heimu</span><span class="selector-pseudo">:active</span>,</span><br><span class="line">  <span class="selector-class">.heimu</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.heimu</span>, <span class="selector-class">.heimu</span><span class="selector-pseudo">:active</span> <span class="selector-class">.heimu</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: white <span class="meta">!important</span>; <span class="comment">/*显示文字色*/</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.heimu</span><span class="selector-pseudo">:hover</span> &#123; <span class="comment">/*渐变控制*/</span></span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">transition-duration</span>: <span class="number">0.3s</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.heimu</span><span class="selector-pseudo">:hover</span> <span class="selector-tag">a</span>, <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.heimu</span>,</span><br><span class="line">  <span class="selector-class">.heimu</span><span class="selector-pseudo">:active</span> <span class="selector-tag">a</span>, <span class="selector-tag">a</span><span class="selector-pseudo">:active</span> <span class="selector-class">.heimu</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: lightblue <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.heimu</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.new</span>, <span class="selector-class">.heimu</span> <span class="selector-class">.new</span><span class="selector-pseudo">:hover</span>, <span class="selector-class">.new</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.heimu</span>,</span><br><span class="line">  <span class="selector-class">.heimu</span><span class="selector-pseudo">:active</span> <span class="selector-class">.new</span>, <span class="selector-class">.heimu</span> <span class="selector-class">.new</span><span class="selector-pseudo">:active</span>, <span class="selector-class">.new</span><span class="selector-pseudo">:active</span> <span class="selector-class">.heimu</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#BA0000</span> <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>对于 Volantis 及结构与之类似的其他主题，只需将这段 CSS 引入到：<code>\你的主题文件夹\layout\layout.ejs</code> 的 <code>&lt;body&gt;</code> 之前。<br>
+从而在 Markdown 语法下可以这样实现黑幕：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"heimu"</span> <span class="attr">title</span>=<span class="string">"你知道的太多了"</span>&gt;</span>这里填写你需要的内容<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="ii-Hexo-下微信分享接口接入">ii) Hexo 下微信分享接口接入</h3>
+<div class="info">
+<p><strong>在开始之前</strong><br>
+首先你需要拥有一个<strong>认证</strong>过的公众号（企业号或服务号），并且拥有自己的已备案域名及服务器资源。<br>
+说实话，我真的没有见过接入哪个平台像微信这么麻烦，可能我见识太短浅。但是张小龙：<span class="heimu" title="你知道的太多了">十四亿人也休想教会我做微信</span>【滑稽】<br>
+具体接入细节可以参考：微信公众平台『<a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html" target="_blank" rel="noopener">JS-SDK 说明文档</a>』<br>
+以下只说明简要步骤。</p>
+</div>
+<h4 id="1-后端准备">1. 后端准备</h4>
+<p>假设你的服务器已经配置好诸如 PHP+IIS 的环境。这里以 PHP 方案为例。</p>
+<ol>
+<li>下载腾讯官方 sample<br>
+<btn large><a href="https://www.weixinsxy.com/jssdk/sample.zip" target="_blank" rel="noopener"><i class='fas fa-download'></i> 点击下载</a></btn></li>
+<li>在 <code>sample.php</code> 第 3 行及 <code>jssdk.php</code> 第 104 行中填入你的公众号对应的 <code>AppID</code> 和 <code>AppSecret</code></li>
+<li>确保同文件夹 <code>access_token.json</code> 及 <code>jsapi_ticket.json</code> 属性为可写，使得服务器可以动态储存校验票据</li>
+</ol>
+<h4 id="2-前端引入">2. 前端引入</h4>
+<p>将相关 js 引入到：<code>\你的主题文件夹\layout\layout.ejs</code></p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/3.4.1/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://res.wx.qq.com/open/js/jweixin-1.4.0.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 可以视需求更换为最新的 1.6.0 版本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">  url = location.href.split(<span class="string">"#"</span>)[<span class="number">0</span>]</span></span><br><span class="line"><span class="actionscript">  <span class="comment">// 请注意这里是绝对的大坑 #1！必须隔断 URL 的所有 Hash！</span></span></span><br><span class="line"><span class="javascript">  $.ajax(&#123;</span></span><br><span class="line"><span class="actionscript">    type: <span class="string">"get"</span>,</span></span><br><span class="line"><span class="javascript">    url: <span class="string">"https://your.domain/jssdk.php?url="</span> + <span class="built_in">encodeURIComponent</span>(url),</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 请注意这里是绝对的大坑 #2！URL 必须经过转义！</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 这里引入你自己配置好的 JSSDK.php</span></span></span><br><span class="line"><span class="actionscript">    dataType: <span class="string">"jsonp"</span>,</span></span><br><span class="line"><span class="actionscript">    jsonp: <span class="string">"callback"</span>,</span></span><br><span class="line"><span class="actionscript">    jsonpCallback: <span class="string">"success_jsonpCallback"</span>,</span></span><br><span class="line"><span class="actionscript">    success: <span class="function"><span class="keyword">function</span> <span class="params">(data)</span> </span>&#123;</span></span><br><span class="line">      wx.config(&#123;</span><br><span class="line"><span class="actionscript">        debug: <span class="literal">false</span>,</span></span><br><span class="line">        appId: data.appId,</span><br><span class="line">        timestamp: data.timestamp,</span><br><span class="line">        nonceStr: data.nonceStr,</span><br><span class="line">        signature: data.signature,</span><br><span class="line">        jsApiList: [</span><br><span class="line"><span class="actionscript">          <span class="string">"onMenuShareTimeline"</span>,</span></span><br><span class="line"><span class="actionscript">          <span class="string">"onMenuShareAppMessage"</span>,</span></span><br><span class="line"><span class="actionscript">          <span class="string">"onMenuShareQQ"</span>,</span></span><br><span class="line"><span class="actionscript">          <span class="string">"onMenuShareWeibo"</span></span></span><br><span class="line"><span class="actionscript">          <span class="comment">// 新版分享接口可以照猫画虎自己配置，这里懒得改了</span></span></span><br><span class="line">        ]</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="actionscript">  wx.ready(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">    wx.onMenuShareTimeline(&#123;</span><br><span class="line"><span class="javascript">      title: <span class="built_in">document</span>.title, <span class="comment">// 分享标题</span></span></span><br><span class="line"><span class="actionscript">      link: location.href.split(<span class="string">"#"</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="actionscript">      imgUrl: <span class="string">'YourFavicon'</span>, <span class="comment">// 分享 Favicon</span></span></span><br><span class="line"><span class="actionscript">      success: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    wx.onMenuShareAppMessage(&#123;</span><br><span class="line"><span class="javascript">      title: <span class="built_in">document</span>.title, <span class="comment">// 分享标题</span></span></span><br><span class="line"><span class="actionscript">      desc: <span class="string">'YourDescription'</span>,</span></span><br><span class="line"><span class="actionscript">      link: location.href.split(<span class="string">"#"</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="actionscript">      imgUrl: <span class="string">'YourFavicon'</span>,</span></span><br><span class="line"><span class="actionscript">      success: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    wx.onMenuShareQQ(&#123;</span><br><span class="line"><span class="javascript">      title: <span class="built_in">document</span>.title, <span class="comment">// 分享标题</span></span></span><br><span class="line"><span class="actionscript">      link: location.href.split(<span class="string">"#"</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="actionscript">      imgUrl: <span class="string">'YourFavicon'</span>,</span></span><br><span class="line"><span class="actionscript">      success: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    wx.onMenuShareWeibo(&#123;</span><br><span class="line"><span class="javascript">      title: <span class="built_in">document</span>.title, <span class="comment">// 分享标题</span></span></span><br><span class="line"><span class="actionscript">      link: location.href.split(<span class="string">"#"</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="actionscript">      imgUrl: <span class="string">'YourFavicon'</span>,</span></span><br><span class="line"><span class="actionscript">      success: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<div class="danger">
+<p>尤其需要注意的是，该段代码第 2 行的 <code>url</code> 必须从 # 号开始截断！<br>
+第 5 行的 <code>url</code> 必须经过 <code>encodeURIComponent(url)</code> 的转义！<br>
+否则会导致 url 校验失败而无法实现 js。</p>
+</div>
+<p>以上即是 Hexo 博客接入微信公众平台的简要步骤，这样也有利于网站在微信平台的分享。但该方案缺点也显而易见，就是无法动态地改变 <code>Desc</code>，但是于我个人而言这个倒算不上很大的问题~</p>
+<p>好了，本文到这里就全部结束了！那么你们也可以给我一个「三连冠」<span class="heimu" title="你知道的太多了">【没有人会不爱看罗翔】</span>，求点赞求投币求收藏~【对不起走错了 这里不是批站 滑稽】</p>
+<p>不过是真心求个分享的 23333。感谢你一路阅读到这里。</p>
+<p align="right">
+  <img src="https://oss.pm-z.tech/RewardCode.jpg">
+	<!-- <i><font size="1" color="#808080">致谢金主爸爸 | 际临、瓜三岁、棄白</font> </i><br>
+  <i><font size="1" color="#808080">本名单依据先后顺序定时更新，感谢滋磁！</font> </i> -->
+</p>]]></content>
+      <categories>
+        <category>开发记录</category>
+      </categories>
+      <tags>
+        <tag>改版</tag>
+        <tag>JavaScript</tag>
+        <tag>CSS</tag>
+        <tag>微信</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Pinming 的歌单 | 2020 年第 13 周</title>
+    <url>/2020/03/28/playlist-20w13/</url>
+    <content><![CDATA[<p>本歌单不定期更新，这里都是 Pinming 最近在听的并且希望推荐给大家的歌~</p>
+<a id="more"></a>
+<h2 id="0x01-Sodagreen-Tomorrow-will-be-fine"><strong>0x01 Sodagreen | <a href="http://music.163.com/song?id=1425676569&amp;userid=92932311" target="_blank" rel="noopener">Tomorrow will be fine.</a></strong></h2>
+<p>词・曲 | 陈韵若　　编曲 | 苏打绿<br>
+首发 | 2020/2/24<br>
+暌违三年，欢迎回来！</p>
+<blockquote>
+<p><em>我最盼望有一双翅膀<br>
+能够带我飞离这城墙　让我们　都一样<br>
+停不了对梦想的渴望<br>
+那就放胆一搏再去闯一闯<br>
+Tomorrow will be fine.<br>
+Tomorrow I’ll be fine.<br>
+Tomorrow we’ll be fine.</em></p>
+</blockquote>
+<p>本曲 MV | <a href="https://www.bilibili.com/video/av92523122" target="_blank" rel="noopener">(Bilibili)</a></p>
+<iframe src="https://player.bilibili.com/player.html?aid=92523122&bvid=BV1eE411H7XL&cid=157973222&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "> </iframe>
+<h2 id="0x02-コバソロ-夏恋慕-feat-春茶"><strong>0x02 コバソロ | <a href="http://music.163.com/song?id=1335529596&amp;userid=92932311" target="_blank" rel="noopener">夏恋慕 feat. 春茶</a></strong></h2>
+<p>词・曲・编曲 | コバソロ<br>
+首发 | 2018/12/25</p>
+<blockquote>
+<p><em>ゆらりゆらり揺れる水面に<br>
+僕は君の隣でいいの<br>
+きらり光るその眼差しで<br>
+夏色に心は躍る<br>
+泡のようには儚いような<br>
+こぼれそうな恋は染まる<br><br>
+在微波荡漾的水面上<br>
+让我映在你的影子身旁 可以吗<br>
+那道闪闪发亮的目光<br>
+让我在夏天里心潮起伏<br>
+又如同泡沫般缥缈啊<br>
+仿佛染上了你溢出的恋爱波澜</em></p>
+</blockquote>
+<p>本曲 MV | <a href="https://www.bilibili.com/video/av55286737" target="_blank" rel="noopener">(Bilibili)</a></p>
+<iframe src="https://player.bilibili.com/player.html?aid=55286737&bvid=BV1x4411K7H9&cid=96672879&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "> </iframe>
+<h2 id="0x03-HoneyComeBear-Calling"><strong>0x03 HoneyComeBear | <a href="http://music.163.com/song?id=1363677518&amp;userid=92932311" target="_blank" rel="noopener">Calling</a></strong></h2>
+<p>词 | kaako (HoneyComeBear)　　曲 | マンキー (HoneyComeBear)<br>
+首发 | 2019/4/28</p>
+<blockquote>
+<p><em>東京はもうすぐ 春予報<br>
+季節を決める　偉い人は話す<br>
+タクシーが空を飛んでゆく<br>
+小指に嵌めた　発明は光りだす<br>
+ネオンが点いたら　夜が来る<br>
+君と離れた人混みの街に<br>
+楽しみひとつ　この場所で<br><br>
+「东京的春日将至」<br>
+决定季节的预报员如此说道<br>
+出租车于天空飞驰而过<br>
+小指戴上 闪闪发光的戒指<br>
+像是旖旎霓虹亮起 宣告着夜幕降临<br>
+远离你的这拥挤的城市<br>
+只剩那唯一的期待</em></p>
+</blockquote>
+<h2 id="0x04-欅坂46-太陽は見上げる人を選ばない"><strong>0x04 欅坂46 | <a href="http://music.163.com/song?id=491294451&amp;userid=92932311" target="_blank" rel="noopener">太陽は見上げる人を選ばない</a></strong></h2>
+<p>词 | 池澤聡　　曲 | 秋元康<br>
+首发 | 2017/7/19</p>
+<blockquote>
+<p><em>太陽は　どんな時も<br>
+この空見上げる人を選ばない<br>
+平等に愛と温もり与えてくれるんだ<br>
+悲しみの厚い雲に覆われたとしたって<br>
+遥か遠く輝きながら<br>
+その祈りに頷いてる<br><br>
+太阳　无论何时<br>
+都不会偏袒仰望天空的人<br>
+它平等地将爱与温暖　赋予我们每一个人<br>
+即使被悲伤的厚云遮掩<br>
+它也会遥遥地闪耀<br>
+回应着那份祈祷</em></p>
+</blockquote>
+<h2 id="0x05-halca-センチメンタルクライシス"><strong>0x05 halca | <a href="https://y.qq.com/n/yqq/song/0047KGI51vk3JN.html" target="_blank" rel="noopener">センチメンタルクライシス</a></strong></h2>
+<p>（TV 动画<a href="https://www.bilibili.com/bangumi/play/ep259770?from=search&amp;seid=17921121195906864969" target="_blank" rel="noopener">『辉夜大小姐想让我告白～天才们的恋爱头脑战～』/『かぐや様は告らせたい～天才たちの恋愛頭脳戦～』第一季</a> 片尾曲）<br>
+词 | 宮嶋淳子　　作曲・编曲 | 山田竜平<br>
+首发 | 2019/2/20</p>
+<blockquote>
+<p><em>君と私　どんなふうに恋するの？<br>
+探る RELATION　余裕なんてないよ<br>
+見つめられる度　いつも震えてる<br>
+素直じゃない私をつれだして！<br><br>
+你与我　是怎样相恋的呢？<br>
+探寻着　这样的关系　一点也不轻松呢<br>
+每每被你凝视　都会一直发颤<br>
+带着不直率的我逃离出去吧！</em></p>
+</blockquote>
+<p>『辉夜大小姐想让我告白～天才们的恋爱头脑战～』第一季 NCED | <a href="https://www.bilibili.com/video/BV1Sb411x7Gn?p=2" target="_blank" rel="noopener">(Bilibili)</a></p>
+<iframe src="https://player.bilibili.com/player.html?aaid=47620847&bvid=BV1Sb411x7Gn&cid=83411947&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "> </iframe>
+<h2 id="0x06-水瀬いのり-アルペジオ"><strong>0x06 水瀬いのり | <a href="http://music.163.com/song?id=566519126&amp;userid=92932311" target="_blank" rel="noopener">アルペジオ</a></strong></h2>
+<p>词・曲 | 山﨑佳祐<br>
+首发 | 2018/5/23</p>
+<blockquote>
+<p><em>青い月　夜の街を照らしてる<br>
+君と見つけた奇跡 Ah…<br>
+さまよう二つ星が出逢う<br>
+We can be…　この世界は君の色<br>
+夜空に煌めいた眩しい光<br>
+願いを詰め込んだ<br>
+そう「0」が「1」に変わるとき<br><br>
+一轮青月　照亮夜幕下的街道<br>
+与你一同找见了奇迹 Ah…<br>
+彷徨的两颗星辰彼此邂逅<br>
+We can be…　世界涂满你的颜色<br>
+夜空中点亮璀璨的光芒<br>
+承载着愿望<br>
+等待着「0」变成「1」的瞬间</em></p>
+</blockquote>
+<h2 id="0x07-水瀬いのり-MELODY-FLAG"><strong>0x07 水瀬いのり | <a href="http://music.163.com/song?id=439121992&amp;userid=92932311" target="_blank" rel="noopener">MELODY FLAG</a></strong></h2>
+<p>词・曲 | 中野領太<br>
+首发 | 2016/11/9</p>
+<blockquote>
+<p><em>この想いは　時を超えて<br>
+誰かの夢導く　ヒカリになる<br>
+迷わないで　進めばいい<br>
+最後はひとつになる　道の途中<br>
+約束の時間　ここで待ち合わせ<br>
+探しに行こうよ　きっと叶うから<br><br>
+胸中心意　超越时空<br>
+为梦指引　化为光芒<br>
+无须迷惘　大胆往前<br>
+在梦想实现的必经之路上跋涉<br>
+约好了时间在这不见不散<br>
+一同去探寻吧　心愿终有实现之时</em></p>
+</blockquote>
+<h2 id="0x08-M・A・O-春待ちクローバー"><strong>0x08 M・A・O | <a href="http://music.163.com/song?id=458507422&amp;userid=92932311" target="_blank" rel="noopener">春待ちクローバー</a></strong></h2>
+<p>（TV 动画<a href="https://www.bilibili.com/bangumi/play/ep100615?from=search&amp;seid=6436267255612871418" target="_blank" rel="noopener">『One Room』/『One Room セカンドシーズン』第一季</a> 1-4 话『結衣編』片尾曲）<br>
+词 | 稲葉エミ　　作曲・编曲 | 奥井康介<br>
+首发 | 2017/2/8</p>
+<blockquote>
+<p><em>目の前の扉を開けたら春風<br>
+鳥たちも木々で待ち合わせ<br>
+君へ向かう信号は青空色　駆け出せばいい<br>
+嘘つき確率論とか　1+1 が無限とか<br>
+教えてくれた君と探しに行こう<br>
+春待ちクローバー<br><br>
+打开眼前的大门春风拂面<br>
+鸟儿们在树木上碰头吱叫<br>
+朝向你的红绿灯是青空色　只要出发即可<br>
+不真实的概率论也好　一加一等于无穷也罢<br>
+与教会我这些的你一起出发去探索<br>
+等待春天的三叶草</em></p>
+</blockquote>
+<h2 id="0x09-M・A・O-青空モーニンググローリー"><strong>0x09 M・A・O | <a href="http://music.163.com/song?id=1296558059&amp;userid=92932311" target="_blank" rel="noopener">青空モーニンググローリー</a></strong></h2>
+<p>（TV 动画<a href="https://www.bilibili.com/bangumi/play/ep231938?from=search&amp;seid=6436267255612871418" target="_blank" rel="noopener">『One Room』/『One Room セカンドシーズン』第二季</a> 0-4 话『結衣編』片尾曲）<br>
+词 | 稲葉エミ　　作曲・编曲 | 奥井康介<br>
+首发 | 2018/7/27</p>
+<blockquote>
+<p><em>高まれ　未来をノックする鼓動<br>
+見るもの　触れるもの　きっと　きっと　感動の日々<br>
+花咲け　ゆっくりなペースでいい<br>
+陽だまりのような笑顔と　青空モーニンググローリー<br><br>
+心跳躁动　敲击着未来<br>
+眼中所见　指尖所触　是必将收获感动的每一天<br>
+花朵终会盛开　就算节奏缓慢也无妨<br>
+伴随太阳般的笑颜　璀璨的朝阳绽放于青空之下</em></p>
+</blockquote>
+<h2 id="0x0A-高橋李依-ポプラと僕らのヒストリー"><strong>0x0A 高橋李依 | <a href="http://music.163.com/song?id=1304922039&amp;userid=92932311" target="_blank" rel="noopener">ポプラと僕らのヒストリー</a></strong></h2>
+<p>（TV 动画<a href="https://www.bilibili.com/bangumi/play/ep231943?from=search&amp;seid=6436267255612871418" target="_blank" rel="noopener">『One Room』/『One Room セカンドシーズン』第二季</a> 5-8 话『御乃梨編』片尾曲）<br>
+词 | 稲葉エミ　　作曲・编曲 | eba<br>
+首发 | 2018/8/24</p>
+<blockquote>
+<p><em>変わるもの　変わらないもの　すべてが　ヒストリー<br>
+泣いた夜も　悩んだ朝も　すべてが繋がる<br>
+君に　巡り会えた日　一瞬が　ヒストリー<br>
+持ってて　とさめさのスペアキー<br>
+大好きなこの街ごと　いつまでも<br><br>
+改变了的东西　不会改变的东西　全都成为了 History<br>
+哭泣的夜晚　烦恼的早晨　都因你而联系在一起<br>
+与你相遇的那天　是我珍贵的 History<br>
+手中紧握　心跳加速的备用钥匙<br>
+这里每一条街道都是我最喜欢的　一直都是</em></p>
+</blockquote>
+<h2 id="0x0B-高橋李依-AM11-00"><strong>0x0B 高橋李依 | <a href="https://music.163.com/#/song?id=530986968" target="_blank" rel="noopener">AM11:00</a></strong></h2>
+<p>（TV 动画<a href="https://www.iqiyi.com/v_19rrfjvdww.html#curid=912273500_46255feedd3e0bb9b1c8d0ab5eb8def4" target="_blank" rel="noopener">『擅长捉弄的高木同学』/『からかい上手の高木さん』第一季</a> 第 3-4 话片尾曲）<br>
+词 · 曲 | TUN　　编曲 | 吉田穣<br>
+<a href="https://music.163.com/song?id=22721201&amp;userid=92932311" target="_blank" rel="noopener">原唱</a> | HY　　<br>
+首发 | 2018/1/22<br>
+本曲作为常驻曲目。<span class="heimu" title="你知道的太多了">李依李天下第一！</span></p>
+<blockquote>
+<p><em>だから　お願い　僕のそばにいてくれないか<br>
+君が好きだから<br>
+この思いが君に届くように<br>
+願いが叶いますように<br><br>
+请你一直留在我身边<br>
+因为我喜欢你<br>
+希望这样的心情能传达于你<br>
+希望这样的愿望能成为现实</em></p>
+</blockquote>
+<h2 id="0xFF-后记"><strong>0xFF 后记</strong></h2>
+<p>以上~ 这就是本次歌单的全部内容。下一次更新会是什么时候呢？看来是出一次文章就出一次歌单吧。权当是正式文章以外的副产品了。</p>
+<p>目前本站播放器默认设置为： <code>自动播放</code>、<code>歌单内随机播放</code>、<code>Volume = 0.15</code>。</p>
+<p>本次歌单所有歌曲已在网易云建立<a href="http://music.163.com/playlist?id=4891122589&amp;userid=92932311" target="_blank" rel="noopener">歌单</a>，欢迎来跟我一起听歌！</p>
+<p>虽然听歌品味不尽相同，但也希望大家能够喜欢！一首歌，就是一个故事。</p>
+<p>希望本次歌单能给你带来春风拂面的清爽感觉。</p>
+<p><img src="https://i.loli.net/2019/12/11/o4zQ2tSZduR3rfP.jpg" alt=""></p>
+]]></content>
+      <categories>
+        <category>心情空间</category>
+      </categories>
+      <tags>
+        <tag>歌单</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>真香！戴尔灵越 7590 macOS Mojave 使用简报</title>
     <url>/2020/02/08/Dell_Inspiron_7590_macOS_Mojave_Installation_Summary/</url>
     <content><![CDATA[<p>黑苹果好吃但难啃，还需步步注意！</p>
@@ -96,7 +429,9 @@
 <h3 id="致谢">致谢</h3>
 <p><strong><a href="https://github.com/LinZong/" target="_blank" rel="noopener"><code>LinZong</code></a></strong><sup>1</sup>、<strong><a href="https://github.com/tctien342/" target="_blank" rel="noopener"><code>tctien342</code></a></strong><sup>2</sup>、<strong><a href="https://www.firewolf.science/" target="_blank" rel="noopener"><code>Firewolf</code></a></strong><sup>3</sup> 等诸位 dalao 将自己的成果慷慨发布，我才得以参考着解决了一系列问题。</p>
 <p align="right">
-<img src="https://i.loli.net/2019/12/11/o4zQ2tSZduR3rfP.jpg">
+  <img src="https://oss.pm-z.tech/RewardCode.jpg">
+	<i><font size="1" color="#808080">致谢金主爸爸 | dwu5</font> </i><br>
+  <i><font size="1" color="#808080">本名单依据先后顺序定时更新，感谢滋磁！</font> </i>
 </p>
 ]]></content>
       <categories>
@@ -1368,7 +1703,7 @@ LaLaLaLa LaLaLa　美景良辰　故事如此多彩<br>
 <strong><a href="https://mp.weixin.qq.com/s/C_auM1Y0-LXLLDwSOdghUA" target="_blank" rel="noopener"><code>北安kun</code></a></strong>、<strong><a href="https://www.zhihu.com/people/ji-lin-66-85/activities" target="_blank" rel="noopener"><code>际临</code></a></strong>，他们也对本站的访问体验进行了多次测试。</p>
 <p>感谢每一位帮助过我，让这个网站得以顺利呈现在大家面前的你们！就说到这里，那么，正式开站啦，记得常来康康！🎉</p>
 <p align="right">
-  <img src="https://i.loli.net/2019/12/11/o4zQ2tSZduR3rfP.jpg">
+  <img src="https://oss.pm-z.tech/RewardCode.jpg">
 	<i><font size="1" color="#808080">致谢金主爸爸 | 际临、瓜三岁、棄白</font> </i><br>
   <i><font size="1" color="#808080">本名单依据先后顺序定时更新，感谢滋磁！</font> </i>
 </p>]]></content>

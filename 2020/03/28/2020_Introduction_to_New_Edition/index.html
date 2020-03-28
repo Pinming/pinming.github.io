@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<!-- WXSDK-NewestModified -->
+<script>
+    url=location.href.split("#")[0]
+      $.ajax({
+        type : "get",
+        url : "https://server.pm-z.tech/jssdk/jssdk.php?url="+encodeURIComponent(url),
+        dataType : "jsonp",
+        jsonp: "callback",
+        jsonpCallback:"success_jsonpCallback",
+        success : function(data){
+            wx.config({
+    debug: false,
+    appId: data.appId,
+    timestamp: data.timestamp,
+    nonceStr: data.nonceStr,
+    signature: data.signature,
+    jsApiList: [
+           "onMenuShareTimeline", 
+           "onMenuShareAppMessage",
+           "onMenuShareQQ",
+           "onMenuShareWeibo" /*
+           "updateAppMessageShareData", //new * 2
+           "updateTimelineShareData" */
+    ]
+    });
+    },
+    });
+      wx.ready(function (){
+      // var shareData = {
+        wx.onMenuShareTimeline({
+                title: document.title, // 分享标题
+                link: location.href.split("#")[0], 
+                imgUrl: 'https://www.pm-z.tech/favicon512.png', 
+                success: function () { 
+                }
+            });
+    
+        wx.onMenuShareAppMessage({
+                title: document.title, // 分享标题
+                desc: '欢迎来到 Pinming 的小站~',
+                link: location.href.split("#")[0], 
+                imgUrl: 'https://www.pm-z.tech/favicon512.png', 
+                success: function () { 
+                }
+            });
+            
+        wx.onMenuShareQQ({
+                title: document.title, // 分享标题
+                link: location.href.split("#")[0], 
+                imgUrl: 'https://www.pm-z.tech/favicon512.png', 
+                success: function () { 
+                }
+            });
+      
+          wx.onMenuShareWeibo({
+                title: document.title, // 分享标题
+                link: location.href.split("#")[0], 
+                imgUrl: 'https://www.pm-z.tech/favicon512.png', 
+                success: function () { 
+                }
+            });  
+      });
+    </script>
+<meta name="generator" content="Hexo 4.2.0"></head>
+<!-- 音频播放 -->
+      <style>
+            #aplayer {   
+                width: 75%;   
+            }  
+      </style>
+<link rel="stylesheet" href="/css/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+<!-- 你知道得太多了 -->  
+<style>
+  .heimu, .heimu a, a .heimu, .heimu a.new {
+    background-color: #0066A0;
+    color: #0066A0;
+    text-shadow: none;
+  }
+  .heimu:hover, .heimu:active,
+  .heimu:hover .heimu, .heimu:active .heimu {
+    color: white !important;
+  }
+  .heimu:hover {
+  opacity: 1;
+  transition-duration: 0.3s;
+  }
+  .heimu:hover a, a:hover .heimu,
+  .heimu:active a, a:active .heimu {
+    color: lightblue !important;
+  }
+  .heimu:hover .new, .heimu .new:hover, .new:hover .heimu,
+  .heimu:active .new, .heimu .new:active, .new:active .heimu {
+    color: #BA0000 !important;
+  }
+  </style>
+
+<head hexo-theme='Volantis' version='1.5.3' docs='https://xaoxuu.com/wiki/volantis/'>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>改版了 | 送别三月的第一份小站报告 | Pinming&#39;s Blog</title>
+  
+  
+
+  
+
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css">
+  
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+  
+  
+
+  
+
+  
+  <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/pinming/pinming.github.io@master/assets/favicon.ico">
+  
+
+  
+
+  
+    
+<link rel="stylesheet" href="/style.css">
+
+  
+
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+
+  
+  
+</head>
+
+<body>
+  
+  
+  <div class="cover-wrapper">
+    <cover class='cover post half'>
+      
+        
+  <img class='logo' src='https://cdn.jsdelivr.net/gh/pinming/pinming.github.io@master/assets/logo.png'/>
+
+
+  <div class="m_search">
+    <form name="searchform" class="form u-search-form">
+      <i class="icon fas fa-search fa-fw"></i>
+      <input type="text" class="input u-search-input" placeholder="Pinming 码字的地方。" />
+    </form>
+  </div>
+
+<div class='menu navigation'>
+  <ul class='h-list'>
+    
+      
+        <li>
+          <a class="nav home "
+            href="/"
+            
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>&nbsp;博文
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home "
+            href="https://www.github.com/pinming"
+            
+            
+            id="https:www.github.compinming">
+            <i class='fas fa-code-branch fa-fw'></i>&nbsp;项目
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home "
+            href="/about"
+            
+              rel="nofollow"
+            
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>&nbsp;关于 | 留言板
+          </a>
+        </li>
+      
+        <li>
+          <a class="nav home "
+            href="http://cloud.pm-z.tech"
+            
+              rel="nofollow"
+            
+            
+            id="http:cloud.pm-z.tech">
+            <i class='fas fa-cloud-download-alt fa-fw'></i>&nbsp;私有云
+          </a>
+        </li>
+      
+    
+  </ul>
+</div>
+
+      
+    </cover>
+    <header class="l_header nav-blur">
+  <div id="loading-bar-wrapper">
+    <div id="loading-bar"></div>
+  </div>
+
+	<div class='wrapper'>
+		<div class="nav-main container container--flex">
+      <a class="logo flat-box" target="_self" href='/' >
+        
+          
+          
+            Pinming's Blog
+          
+        
+      </a>
+			<div class='menu navigation'>
+				<ul class='h-list'>
+          
+  					
+  						<li>
+								<a class="nav flat-box" href="/"
+                  
+                  
+                    target="_self"
+                  
+                  id="home">
+									<i class='fas fa-grin fa-fw'></i>&nbsp;博客
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/categories"
+                  
+                  
+                    target="_self"
+                  
+                  id="categories">
+									<i class='fas fa-folder-open fa-fw'></i>&nbsp;分类
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/tags"
+                  
+                    rel="nofollow"
+                  
+                  
+                    target="_self"
+                  
+                  id="tags">
+									<i class='fas fa-hashtag fa-fw'></i>&nbsp;标签
+								</a>
+							</li>
+      			
+  						<li>
+								<a class="nav flat-box" href="/archives"
+                  
+                    rel="nofollow"
+                  
+                  
+                    target="_self"
+                  
+                  id="archives">
+									<i class='fas fa-archive fa-fw'></i>&nbsp;归档
+								</a>
+							</li>
+      			
+      		
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索" />
+        </form>
+      </div>
+
+			<ul class='switcher h-list'>
+				
+					<li class='s-search'><a class="fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li class='s-menu'><a class="fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a></li>
+			</ul>
+		</div>
+
+		<div class='nav-sub container container--flex'>
+			<a class="logo flat-box"></a>
+			<ul class='switcher h-list'>
+				<li class='s-comment'><a class="flat-btn fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li class='s-toc'><a class="flat-btn fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+			</ul>
+		</div>
+	</div>
+</header>
+	<aside class="menu-phone white-box">
+    <header>
+		<nav class="menu navigation">
+      <ul>
+        
+          
+            <li>
+							<a class="nav flat-box" href="/"
+                
+                  rel="nofollow"
+                
+                
+                  target="_self"
+                
+                id="home">
+								<i class='fas fa-clock fa-fw'></i>&nbsp;近期文章
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/archives/"
+                
+                
+                  target="_self"
+                
+                id="archives">
+								<i class='fas fa-archive fa-fw'></i>&nbsp;文章归档
+							</a>
+            </li>
+          
+            <li>
+							<a class="nav flat-box" href="/theme-settings"
+                
+                  rel="https://github.com/pinming"
+                
+                
+                  target="_self"
+                
+                id="theme-settings">
+								<i class='fas fa-code-branch fa-fw'></i>&nbsp;开源项目
+							</a>
+            </li>
+          
+       
+      </ul>
+		</nav>
+    </header>
+	</aside>
+<script>setLoadingBarProgress(40);</script>
+
+  </div>
+
+
+  <div class="l_body">
+    <div class='body-wrapper'>
+      <div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box card-shadow body-blur article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+    
+      <a title='改版了 | 送别三月的第一份小站报告' href='/2020/03/28/2020_Introduction_to_New_Edition/'><img class='thumbnail' src='/assets/favicon.png'></a>
+    
+    <div class="meta" id="header-meta">
+      
+        
+  
+    <h1 class="title">
+      <a href="/2020/03/28/2020_Introduction_to_New_Edition/">
+        改版了 | 送别三月的第一份小站报告
+      </a>
+    </h1>
+  
+
+
+      
+      <div class='new-meta-box'>
+        
+          
+        
+          
+            
+  <div class='new-meta-item author'>
+    
+      <a href="https://pinming.github.io" rel="nofollow">
+        
+          <i class="fas fa-user" aria-hidden="true"></i>
+        
+        <p>Pinming</p>
+      </a>
+    
+  </div>
+
+
+          
+        
+          
+            
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/' rel="nofollow">
+      <i class="fas fa-folder-open" aria-hidden="true"></i>
+      <p>开发记录</p>
+    </a>
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+    <p>2020/3/28</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+      </div>
+      
+        <hr>
+      
+    </div>
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <blockquote>
+<p>「あなたに出会った四月になると。」<br>「与你相遇的四月就要来了。」</p>
+</blockquote>
+<p align="right">——『四月は君の嘘』</p>
+<a id="more"></a>
+<h2 id="0x00-前言"><strong>0x00 前言</strong></h2>
+<p>四月份马上就要来了。虽然深圳早已是春暖花开之时，但 COVID-19 疫情笼罩的阴霾却仍稍稍未能散去，我也十分期望能够摘下口罩，自如地感受春风。</p>
+<p>不过正因如此，我也有了更多的机会去探索此前没有时间探索的东西。一定程度上，今天这个网站的改变也必须归功于我拥有这么一段多出来的时间罢。</p>
+<p>那么接下来就简要说明一下本站开站至今做出的改进。</p>
+<p align="center">
+    <img src="https://oss.pm-z.tech/img/2020_Introduction_to_New_Edition/_DSC9340.jpg?x-oss-process=style/80">
+	<em><font size="1" color="#808080">2018/5/6 | 深圳市宝安中学 | 「春待ち」· 愿能遇见她</font> </em>
+</p>
+<h2 id="0x01-一个简单的汇报"><strong>0x01 一个简单的汇报</strong></h2>
+<p>首先是本站的外观已经发生了显而易见的变化！这要归功于 <a href="https://xaoxuu.com" target="_blank" rel="noopener">xaoxuu</a> 设计的主题 <a href="https://volantis.js.org" target="_blank" rel="noopener">Volantis</a>，在原先主题 Material X 的基础上进一步提升了其颜值。</p>
+<p>在本站开站之初，这个网站还有很多很多的小毛病没有被解决，然后就上线了【再放送：『<a href="https://www.pm-z.tech/2019/12/12/HelloWorld/" target="_blank" rel="noopener">Hello World | 这破站是干啥的？</a>』】。当然现在也还有一些问题……不过以下的问题在这四个多月间得到了解决：</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_0" checked="true" disabled="true"><label for="cbx_0"> 网站部署在 Github 的国外服务器上，国内访问可能速度上有所限制，但应该不会太差，出国党应该问题不大。后续可能考虑迁移回国内；</label>
+<blockquote>
+<p>目前全站已经迁移至阿里云服务器，国内访问体验将获得极大改善。</p>
+</blockquote>
+</li>
+<li class="task-list-item"><input type="checkbox" id="cbx_1" checked="true" disabled="true"><label for="cbx_1"> 由于微信 API 接口限制，网站的 favicon 在微信分享不能显示，也就是说在朋友圈和聊天页面，大家只能看到标题 + 一个回形针图标（但我相信你们一定能认出我的！）；</label>
+<blockquote>
+<p>已经氪金去买了微信高级 API 了……哎，又亏银子了。</p>
+</blockquote>
+</li>
+<li class="task-list-item"><input type="checkbox" id="cbx_2" checked="true" disabled="true"><label for="cbx_2"> 网站背景音乐的播放是调用了阿里云 OSS 的，如果歌放不出来了说明本月 OSS 的免费流量用完了…… 还想来这听歌请提醒我充钱，充钱才能变得更强（要是能把流量听完说明这站人气还可以了 2333）；</label>
+<blockquote>
+<p>同上，氪金就有流量。不过这个倒不是很费银子。<br>
+总而言之，能用钱解决的问题好像都不是很大的问题……<span class="heimu" title="你知道的太多了">【但是我确实也缺钱】</span></p>
+</blockquote>
+</li>
+</ul>
+<p>同时正如在上一段所见，还实现了新的功能：</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_3" checked="true" disabled="true"><label for="cbx_3"> <span class="heimu" title="你知道的太多了">「黑幕」</span>。感谢<a href="https://zh.moegirl.org/" target="_blank" rel="noopener">萌娘百科</a>的创意。点击「黑幕」就可以查看隐藏内容。<span class="heimu" title="你知道的太多了">【二刺螈爪巴 嘻嘻】</span></label></li>
+</ul>
+<p>并做出了一些后台优化：</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_4" checked="true" disabled="true"><label for="cbx_4"> 全站 CDN + HTTPS。这将使本站在全国各地各网络的访问速度进一步提升，同时保障连接的加密性。</label></li>
+</ul>
+<p>那么还剩下这些问题有待解决：</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_5" disabled="true"><label for="cbx_5"> 音乐播放器在极少部分小尺寸手机上 <code>(e.g. iPhone 5/5s)</code> 似乎有点长…… 展开了就收不回去，除非横屏（现在大家手机都大屏了应该不太存在这个问题……）；</label>
+<blockquote>
+<p>所以这个问题应该也不会再做什么修改了……</p>
+</blockquote>
+</li>
+<li class="task-list-item"><input type="checkbox" id="cbx_6" disabled="true"><label for="cbx_6"> 网站暂未实现 <a href="https://github.com/defunkt/jquery-pjax" target="_blank" rel="noopener">pjax</a> 加载，背景音乐在点击其他网页时就断了……（UI 作者称近期会加上 pjax 支持，我也会尽快跟进，让大家听歌听爽点）；</label>
+<blockquote>
+<p>该问题还在全力解决。</p>
+</blockquote>
+</li>
+<li class="task-list-item"><input type="checkbox" id="cbx_7" disabled="true"><label for="cbx_7"> 由于 Markdown 语法的限制，正文区域并不能滑稽，然而评论区可以，嘻嘻；</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_8" disabled="true"><label for="cbx_8"> 未来还可能加入：夜间模式。</label>
+<blockquote>
+<p>这个 Feature 加入应该不会太快了……暂时没有精力嗷。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="0x02-后续计划"><strong>0x02 后续计划</strong></h2>
+<div class="warning">
+<p align="middle">以下内容并不作为后续文章内容计划的明示或暗示保证。【滑稽】</p>
+</div>
+<p>先立几个 flag 好了！不然后面很可能没有更博的动力……<span class="heimu" title="你知道的太多了">【就算立了也说不定还会咕咕咕】</span></p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_9" disabled="true"><label for="cbx_9"> 待能够回校后，对灵越 7590 黑苹果的无线网卡做测试，拼上完整黑苹果体验的最后一块拼图，在之前的基础上形成完整的使用体验报告，甚至还有可能码篇安装过程记录或教程。</label></li>
+<li class="task-list-item"><input type="checkbox" id="cbx_10" disabled="true"><label for="cbx_10"> 今年会是笔记本市场大动荡大变革大发展的一年，因为<span class="heimu" title="你知道的太多了">AMD，YES！</span>，今年的笔记本市场一定会有更多带来惊喜的产品。目前计划在 5-6 月可能写一份笔记本选购指南。毕竟从 6 月 8 日高考结束到 618 期间，一定会有很多人蠢蠢欲动的。之所以起意写这个也是觉得知乎上的各种指南总还是有些奇怪的槽点……所以想自己尝试了。</label></li>
+</ul>
+<p>目前的计划暂时就是这样了，还请期待。今天这篇就写到这里了，期望春暖花开之时我们能再度相遇。</p>
+<p align="center">
+    <img src="https://oss.pm-z.tech/img/2020_Introduction_to_New_Edition/_DSC9357.jpg?x-oss-process=style/80">
+	<em><font size="1" color="#808080">2018/5/6 | 深圳市宝安中学 | 「青空モーニンググローリー」</font></em>
+</p>
+<p>【<span class="heimu" title="你知道的太多了">到了这里的意思就是可以关掉了</span>，滑稽】</p>
+<h2 id="0xFF-后记-部分功能实现的简单记录"><strong>0xFF 后记 | 部分功能实现的简单记录</strong></h2>
+<h3 id="i-黑幕功能实现源码">i) 黑幕功能实现源码</h3>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">  <span class="selector-class">.heimu</span>, <span class="selector-class">.heimu</span> <span class="selector-tag">a</span>, <span class="selector-tag">a</span> <span class="selector-class">.heimu</span>, <span class="selector-class">.heimu</span> <span class="selector-tag">a</span><span class="selector-class">.new</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#0066A0</span>; <span class="comment">/*背景色*/</span></span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#0066A0</span>; <span class="comment">/*隐藏文字色*/</span></span><br><span class="line">    <span class="attribute">text-shadow</span>: none;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.heimu</span><span class="selector-pseudo">:hover</span>, <span class="selector-class">.heimu</span><span class="selector-pseudo">:active</span>,</span><br><span class="line">  <span class="selector-class">.heimu</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.heimu</span>, <span class="selector-class">.heimu</span><span class="selector-pseudo">:active</span> <span class="selector-class">.heimu</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: white <span class="meta">!important</span>; <span class="comment">/*显示文字色*/</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.heimu</span><span class="selector-pseudo">:hover</span> &#123; <span class="comment">/*渐变控制*/</span></span><br><span class="line">  <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">transition-duration</span>: <span class="number">0.3s</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.heimu</span><span class="selector-pseudo">:hover</span> <span class="selector-tag">a</span>, <span class="selector-tag">a</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.heimu</span>,</span><br><span class="line">  <span class="selector-class">.heimu</span><span class="selector-pseudo">:active</span> <span class="selector-tag">a</span>, <span class="selector-tag">a</span><span class="selector-pseudo">:active</span> <span class="selector-class">.heimu</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: lightblue <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.heimu</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.new</span>, <span class="selector-class">.heimu</span> <span class="selector-class">.new</span><span class="selector-pseudo">:hover</span>, <span class="selector-class">.new</span><span class="selector-pseudo">:hover</span> <span class="selector-class">.heimu</span>,</span><br><span class="line">  <span class="selector-class">.heimu</span><span class="selector-pseudo">:active</span> <span class="selector-class">.new</span>, <span class="selector-class">.heimu</span> <span class="selector-class">.new</span><span class="selector-pseudo">:active</span>, <span class="selector-class">.new</span><span class="selector-pseudo">:active</span> <span class="selector-class">.heimu</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#BA0000</span> <span class="meta">!important</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>对于 Volantis 及结构与之类似的其他主题，只需将这段 CSS 引入到：<code>\你的主题文件夹\layout\layout.ejs</code> 的 <code>&lt;body&gt;</code> 之前。<br>
+从而在 Markdown 语法下可以这样实现黑幕：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"heimu"</span> <span class="attr">title</span>=<span class="string">"你知道的太多了"</span>&gt;</span>这里填写你需要的内容<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="ii-Hexo-下微信分享接口接入">ii) Hexo 下微信分享接口接入</h3>
+<div class="info">
+<p><strong>在开始之前</strong><br>
+首先你需要拥有一个<strong>认证</strong>过的公众号（企业号或服务号），并且拥有自己的已备案域名及服务器资源。<br>
+说实话，我真的没有见过接入哪个平台像微信这么麻烦，可能我见识太短浅。但是张小龙：<span class="heimu" title="你知道的太多了">十四亿人也休想教会我做微信</span>【滑稽】<br>
+具体接入细节可以参考：微信公众平台『<a href="https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html" target="_blank" rel="noopener">JS-SDK 说明文档</a>』<br>
+以下只说明简要步骤。</p>
+</div>
+<h4 id="1-后端准备">1. 后端准备</h4>
+<p>假设你的服务器已经配置好诸如 PHP+IIS 的环境。这里以 PHP 方案为例。</p>
+<ol>
+<li>下载腾讯官方 sample<br>
+<btn large><a href="https://www.weixinsxy.com/jssdk/sample.zip" target="_blank" rel="noopener"><i class='fas fa-download'></i> 点击下载</a></btn></li>
+<li>在 <code>sample.php</code> 第 3 行及 <code>jssdk.php</code> 第 104 行中填入你的公众号对应的 <code>AppID</code> 和 <code>AppSecret</code></li>
+<li>确保同文件夹 <code>access_token.json</code> 及 <code>jsapi_ticket.json</code> 属性为可写，使得服务器可以动态储存校验票据</li>
+</ol>
+<h4 id="2-前端引入">2. 前端引入</h4>
+<p>将相关 js 引入到：<code>\你的主题文件夹\layout\layout.ejs</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/3.4.1/jquery.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://res.wx.qq.com/open/js/jweixin-1.4.0.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 可以视需求更换为最新的 1.6.0 版本 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="actionscript">  url = location.href.split(<span class="string">"#"</span>)[<span class="number">0</span>]</span></span><br><span class="line"><span class="actionscript">  <span class="comment">// 请注意这里是绝对的大坑 #1！必须隔断 URL 的所有 Hash！</span></span></span><br><span class="line"><span class="javascript">  $.ajax(&#123;</span></span><br><span class="line"><span class="actionscript">    type: <span class="string">"get"</span>,</span></span><br><span class="line"><span class="javascript">    url: <span class="string">"https://your.domain/jssdk.php?url="</span> + <span class="built_in">encodeURIComponent</span>(url),</span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 请注意这里是绝对的大坑 #2！URL 必须经过转义！</span></span></span><br><span class="line"><span class="actionscript">    <span class="comment">// 这里引入你自己配置好的 JSSDK.php</span></span></span><br><span class="line"><span class="actionscript">    dataType: <span class="string">"jsonp"</span>,</span></span><br><span class="line"><span class="actionscript">    jsonp: <span class="string">"callback"</span>,</span></span><br><span class="line"><span class="actionscript">    jsonpCallback: <span class="string">"success_jsonpCallback"</span>,</span></span><br><span class="line"><span class="actionscript">    success: <span class="function"><span class="keyword">function</span> <span class="params">(data)</span> </span>&#123;</span></span><br><span class="line">      wx.config(&#123;</span><br><span class="line"><span class="actionscript">        debug: <span class="literal">false</span>,</span></span><br><span class="line">        appId: data.appId,</span><br><span class="line">        timestamp: data.timestamp,</span><br><span class="line">        nonceStr: data.nonceStr,</span><br><span class="line">        signature: data.signature,</span><br><span class="line">        jsApiList: [</span><br><span class="line"><span class="actionscript">          <span class="string">"onMenuShareTimeline"</span>,</span></span><br><span class="line"><span class="actionscript">          <span class="string">"onMenuShareAppMessage"</span>,</span></span><br><span class="line"><span class="actionscript">          <span class="string">"onMenuShareQQ"</span>,</span></span><br><span class="line"><span class="actionscript">          <span class="string">"onMenuShareWeibo"</span></span></span><br><span class="line"><span class="actionscript">          <span class="comment">// 新版分享接口可以照猫画虎自己配置，这里懒得改了</span></span></span><br><span class="line">        ]</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="actionscript">  wx.ready(<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">    wx.onMenuShareTimeline(&#123;</span><br><span class="line"><span class="javascript">      title: <span class="built_in">document</span>.title, <span class="comment">// 分享标题</span></span></span><br><span class="line"><span class="actionscript">      link: location.href.split(<span class="string">"#"</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="actionscript">      imgUrl: <span class="string">'YourFavicon'</span>, <span class="comment">// 分享 Favicon</span></span></span><br><span class="line"><span class="actionscript">      success: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    wx.onMenuShareAppMessage(&#123;</span><br><span class="line"><span class="javascript">      title: <span class="built_in">document</span>.title, <span class="comment">// 分享标题</span></span></span><br><span class="line"><span class="actionscript">      desc: <span class="string">'YourDescription'</span>,</span></span><br><span class="line"><span class="actionscript">      link: location.href.split(<span class="string">"#"</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="actionscript">      imgUrl: <span class="string">'YourFavicon'</span>,</span></span><br><span class="line"><span class="actionscript">      success: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    wx.onMenuShareQQ(&#123;</span><br><span class="line"><span class="javascript">      title: <span class="built_in">document</span>.title, <span class="comment">// 分享标题</span></span></span><br><span class="line"><span class="actionscript">      link: location.href.split(<span class="string">"#"</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="actionscript">      imgUrl: <span class="string">'YourFavicon'</span>,</span></span><br><span class="line"><span class="actionscript">      success: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    wx.onMenuShareWeibo(&#123;</span><br><span class="line"><span class="javascript">      title: <span class="built_in">document</span>.title, <span class="comment">// 分享标题</span></span></span><br><span class="line"><span class="actionscript">      link: location.href.split(<span class="string">"#"</span>)[<span class="number">0</span>],</span></span><br><span class="line"><span class="actionscript">      imgUrl: <span class="string">'YourFavicon'</span>,</span></span><br><span class="line"><span class="actionscript">      success: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;);</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<div class="danger">
+<p>尤其需要注意的是，该段代码第 2 行的 <code>url</code> 必须从 # 号开始截断！<br>
+第 5 行的 <code>url</code> 必须经过 <code>encodeURIComponent(url)</code> 的转义！<br>
+否则会导致 url 校验失败而无法实现 js。</p>
+</div>
+<p>以上即是 Hexo 博客接入微信公众平台的简要步骤，这样也有利于网站在微信平台的分享。但该方案缺点也显而易见，就是无法动态地改变 <code>Desc</code>，但是于我个人而言这个倒算不上很大的问题~</p>
+<p>好了，本文到这里就全部结束了！那么你们也可以给我一个「三连冠」<span class="heimu" title="你知道的太多了">【没有人会不爱看罗翔】</span>，求点赞求投币求收藏~【对不起走错了 这里不是批站 滑稽】</p>
+<p>不过是真心求个分享的 23333。感谢你一路阅读到这里。</p>
+<p align="right">
+  <img src="https://oss.pm-z.tech/RewardCode.jpg">
+	<!-- <i><font size="1" color="#808080">致谢金主爸爸 | 际临、瓜三岁、棄白</font> </i><br>
+  <i><font size="1" color="#808080">本名单依据先后顺序定时更新，感谢滋磁！</font> </i> -->
+</p>
+          
+        </div>
+        
+          <br>
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+          
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%94%B9%E7%89%88/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>改版</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/JavaScript/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>JavaScript</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/CSS/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>CSS</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E5%BE%AE%E4%BF%A1/" rel="nofollow"><i class="fas fa-tag" aria-hidden="true"></i><p>微信</p></a></div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+            <div class="prev-next">
+                
+                
+                    <section class="next">
+                        <span class="art-item-right" aria-hidden="true">
+                            <h6>下一页&nbsp;<i class="fas fa-chevron-right" aria-hidden="true"></i></h6>
+                            <h4>
+                                <a href="/2020/03/28/playlist-20w13/" rel="prev" title="Pinming 的歌单 | 2020 年第 13 周">
+                                    
+                                        Pinming 的歌单 | 2020 年第 13 周
+                                    
+                                </a>
+                            </h4>
+                            
+                                
+                                <h6 class="tags">
+                                    <a class="tag" href="/tags/%E6%AD%8C%E5%8D%95/"><i class="fas fa-tag fa-fw" aria-hidden="true"></i> 歌单</a>
+                                </h6>
+                            
+                        </span>
+                    </section>
+                
+            </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box comments card-shadow body-blur">
+    <section class="article typo">
+      <h4><i class="fas fa-comments fa-fw" aria-hidden="true"></i>&nbsp;评论</h4>
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-spinner fa-spin fa-fw"></i>
+          </div>
+        </section>
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+  <script>
+    window.subData = {
+      title: '改版了 | 送别三月的第一份小站报告',
+      tools: true
+    }
+  </script>
+
+
+</div>
+<aside class='l_side'>
+  
+    
+    
+      
+        
+          
+<section class="widget card-shadow widget-blur blogger desktop">
+  <div class='content'>
+    
+      <div class='avatar'>
+        <img class='avatar' src='https://cdn.jsdelivr.net/gh/pinming/pinming.github.io@master/avatar.png'/>
+      </div>
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:i@pm-z.tech"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/Pinming"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=92932311"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://space.bilibili.com/19448112"
+              class="social fab fa-youtube flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+      
+        
+          
+  
+  <section class="widget card-shadow widget-blur category desktop mobile">
+    
+  <header>
+    
+      <a href='blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/%E3%80%8C%E6%9C%BA%E3%80%8D%E4%B9%90%E4%B8%96%E7%95%8C/" href="/categories/%E3%80%8C%E6%9C%BA%E3%80%8D%E4%B9%90%E4%B8%96%E7%95%8C/"
+            id="categoriesE3808CE69CBAE3808DE4B990E4B896E7958C"
+            ><div class='name'>「机」乐世界</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/" href="/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"
+            id="categoriesE5BC80E58F91E8AEB0E5BD95"
+            ><div class='name'>开发记录</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%BF%83%E6%83%85%E7%A9%BA%E9%97%B4/" href="/categories/%E5%BF%83%E6%83%85%E7%A9%BA%E9%97%B4/"
+            id="categoriesE5BF83E68385E7A9BAE997B4"
+            ><div class='name'>心情空间</div><div class='badge'>(8)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+      
+        
+      
+        
+          
+  
+  <section class="widget card-shadow widget-blur toc-wrapper desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x00-前言"><span class="toc-text">0x00 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-一个简单的汇报"><span class="toc-text">0x01 一个简单的汇报</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-后续计划"><span class="toc-text">0x02 后续计划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0xFF-后记-部分功能实现的简单记录"><span class="toc-text">0xFF 后记 | 部分功能实现的简单记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-黑幕功能实现源码"><span class="toc-text">i) 黑幕功能实现源码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ii-Hexo-下微信分享接口接入"><span class="toc-text">ii) Hexo 下微信分享接口接入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-后端准备"><span class="toc-text">1. 后端准备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-前端引入"><span class="toc-text">2. 前端引入</span></a></li></ol></li></ol></li></ol>
+    </div>
+  </section>
+
+
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+  
+</aside>
+
+<footer class="clearfix ">
+  <br><br>
+
+
+  
+    <div class="social-wrapper">
+      
+        
+          <a href="mailto:i@pm-z.tech"
+            class="social fas fa-envelope flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://github.com/Pinming"
+            class="social fab fa-github flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://music.163.com/#/user/home?id=92932311"
+            class="social fas fa-headphones-alt flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+        
+          <a href="https://space.bilibili.com/19448112"
+            class="social fab fa-youtube flat-btn"
+            target="_blank"
+            rel="external nofollow noopener noreferrer">
+          </a>
+        
+      
+    </div>
+  
+<!-- -->  
+  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://xaoxuu.com/wiki/volantis/" target="_blank">Volantis</a>
+    作为主题
+    
+      <!-- ，  class="codename" -->
+|
+      总访问量为
+      <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+      次
+    
+    <!-- 。 -->
+  </div>
+  © Pinming 2019-<span id="fyear">2015</span> | All Rights Reserved.<br>
+        <!-- 更新年份 -->
+        <script>
+          document.getElementById('fyear').innerHTML = new Date().getFullYear() + '';
+        </script>
+  <br />
+  <a href="http://beian.miit.gov.cn/" target="_blank">粤 ICP 备 19139605 号</a> <br />
+  <img src="https://pinmingblog.oss-cn-hongkong.aliyuncs.com/ghs.png" height="14" width="14" /><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502004717" target="_blank">粤公网安备 44030502004717 号</a>
+
+
+  
+</footer>
+<script>setLoadingBarProgress(80);</script>
+
+      <script>setLoadingBarProgress(60);</script>
+    </div>
+    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+  </div>
+  
+<script src="//cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+
+
+  <script>
+    
+    var SEARCH_SERVICE = "hexo" || "hexo";
+    var ROOT = "/" || "/";
+    if (!ROOT.endsWith('/')) ROOT += '/';
+  </script>
+
+
+  <script async src="//instant.page/3.0.0" type="module" defer integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
+
+
+
+  <script src="//cdn.jsdelivr.net/npm/scrollreveal@4.0.5/dist/scrollreveal.min.js"></script>
+  <script type="text/javascript">
+    $(function() {
+      const $reveal = $('.reveal');
+      if ($reveal.length === 0) return;
+      const sr = ScrollReveal({ distance: 0 });
+      sr.reveal('.reveal');
+    });
+  </script>
+
+
+
+  <script async src="https://www.pm-z.tech/js/busuanzi.js"></script>
+
+
+
+  
+  
+  
+    
+<script src="//cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        if ('') {
+          $('').backstretch(
+          ["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"],
+          {
+            duration: "15000",
+            fade: "2500"
+          });
+        } else {
+          $.backstretch(
+          ["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/00E0F0ED-9F1C-407A-9AA6-545649D919F4.jpeg"],
+          {
+            duration: "15000",
+            fade: "2500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+    
+<script src="/js/valine.js"></script>
+
+  
+  <script>
+  var GUEST_INFO = ['nick','mail','link'];
+  var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var notify = 'false' == true;
+  var verify = 'false' == true;
+  var valine = new Valine();
+  valine.init({
+    el: '#valine_container',
+    notify: notify,
+    verify: verify,
+    guest_info: guest_info,
+    
+    appId: "A2M0uswOM4AoTkNJ0MYKiQum-gzGzoHsz",
+    appKey: "lY0S03ALVr8MXCOFpIURMa6r",
+    placeholder: "这就看完了？BB 两句再走吧~",
+    pageSize:'10',
+    avatar:'mp',
+    lang:'zh-cn',
+    highlight:'false'
+  })
+  </script>
+
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+  
+<script src="/js/search.js"></script>
+
+
+
+
+<!-- 复制 -->
+
+  <script src="//cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+  let COPY_SUCCESS = "复制成功";
+  let COPY_FAILURE = "复制失败";
+  /*页面载入完成后，创建复制按钮*/
+  !function (e, t, a) {
+    /* code */
+    var initCopyCode = function(){
+      var copyHtml = '';
+      copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+      copyHtml += '  <i class="fa fa-copy"></i><span>复制</span>';
+      copyHtml += '</button>';
+      $(".highlight .code pre").before(copyHtml);
+      var clipboard = new ClipboardJS('.btn-copy', {
+        target: function(trigger) {
+          return trigger.nextElementSibling;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        //您可以加入成功提示
+        console.info('Action:', e.action);
+        console.info('Text:', e.text);
+        console.info('Trigger:', e.trigger);
+        success_prompt(COPY_SUCCESS);
+        e.clearSelection();
+      });
+      clipboard.on('error', function(e) {
+        //您可以加入失败提示
+        console.error('Action:', e.action);
+        console.error('Trigger:', e.trigger);
+        fail_prompt(COPY_FAILURE);
+      });
+    }
+    initCopyCode();
+
+  }(window, document);
+
+  /**
+   * 弹出式提示框，默认1.5秒自动消失
+   * @param message 提示信息
+   * @param style 提示样式，有alert-success、alert-danger、alert-warning、alert-info
+   * @param time 消失时间
+   */
+  var prompt = function (message, style, time)
+  {
+      style = (style === undefined) ? 'alert-success' : style;
+      time = (time === undefined) ? 1500 : time*1000;
+      $('<div>')
+          .appendTo('body')
+          .addClass('alert ' + style)
+          .html(message)
+          .show()
+          .delay(time)
+          .fadeOut();
+  };
+
+  // 成功提示
+  var success_prompt = function(message, time)
+  {
+      prompt(message, 'alert-success', time);
+  };
+
+  // 失败提示
+  var fail_prompt = function(message, time)
+  {
+      prompt(message, 'alert-danger', time);
+  };
+
+  // 提醒
+  var warning_prompt = function(message, time)
+  {
+      prompt(message, 'alert-warning', time);
+  };
+
+  // 信息提示
+  var info_prompt = function(message, time)
+  {
+      prompt(message, 'alert-info', time);
+  };
+
+</script>
+
+
+
+
+<!-- fancybox -->
+
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script>
+  let LAZY_LOAD_IMAGE = "";
+  $(".article-entry").find("fancybox").find("img").each(function () {
+      var element = document.createElement("a");
+      $(element).attr("data-fancybox", "gallery");
+      $(element).attr("href", $(this).attr("src"));
+      /* 图片采用懒加载处理时,
+       * 一般图片标签内会有个属性名来存放图片的真实地址，比如 data-original,
+       * 那么此处将原本的属性名src替换为对应属性名data-original,
+       * 修改如下
+       */
+       if (LAZY_LOAD_IMAGE) {
+         $(element).attr("href", $(this).attr("data-original"));
+       }
+      $(this).wrap(element);
+  });
+</script>
+
+
+
+
+
+
+  <script>setLoadingBarProgress(100);</script>
+</body>
+</html>
