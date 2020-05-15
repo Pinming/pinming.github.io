@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>改版了 | 送别三月的第一份小站报告</title>
+    <title>公告 | 全国哀悼日 —— 逝者安息，生者坚强！</title>
+    <url>/2020/04/04/National_Mourning/</url>
+    <content><![CDATA[<p>为表达全国各族人民对抗击新冠肺炎疫情斗争牺牲烈士和逝世同胞的深切哀悼，国务院决定，2020 年 4 月 4 日举行全国性哀悼活动。</p>
+<p>本站在全国哀悼日（4 月 4 日）以黑白方式呈现。</p>
+<p>在此，向在疫情中不幸离世的同胞致以沉痛的哀思。让我们铭记当下，紧密团结、守望相助，为夺取抗击新冠肺炎全面胜利贡献我们的一份力量！🕯</p>
+<p>Pinming<br>
+2020 年 4 月 4 日</p>
+]]></content>
+      <categories>
+        <category>公告</category>
+      </categories>
+      <tags>
+        <tag>全国哀悼日</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>改版了 | 送别三月的一份小站报告</title>
     <url>/2020/03/28/2020_Introduction_to_New_Edition/</url>
     <content><![CDATA[<blockquote>
 <p>「あなたに出会った四月になると。」<br>「与你相遇的四月就要来了。」</p>
@@ -97,7 +113,7 @@
 <p>假设你的服务器已经配置好诸如 PHP+IIS 的环境。这里以 PHP 方案为例。</p>
 <ol>
 <li>下载腾讯官方 sample<br>
-<btn large><a href="https://www.weixinsxy.com/jssdk/sample.zip" target="_blank" rel="noopener"><i class='fas fa-download'></i> 点击下载</a></btn></li>
+<btn large><a href="https://oss.pm-z.tech/temp_files/wx_sample.zip" target="_blank" rel="noopener"><i class='fas fa-download'></i> 点击下载</a></btn></li>
 <li>在 <code>sample.php</code> 第 3 行及 <code>jssdk.php</code> 第 104 行中填入你的公众号对应的 <code>AppID</code> 和 <code>AppSecret</code></li>
 <li>确保同文件夹 <code>access_token.json</code> 及 <code>jsapi_ticket.json</code> 属性为可写，使得服务器可以动态储存校验票据</li>
 </ol>
@@ -114,8 +130,8 @@
 <p>不过是真心求个分享的 23333。感谢你一路阅读到这里。</p>
 <p align="right">
   <img src="https://oss.pm-z.tech/RewardCode.jpg">
-	<!-- <i><font size="1" color="#808080">致谢金主爸爸 | 际临、瓜三岁、棄白</font> </i><br>
-  <i><font size="1" color="#808080">本名单依据先后顺序定时更新，感谢滋磁！</font> </i> -->
+	<i><font size="1" color="#808080">致谢金主爸爸 | 「<b>dwu5</b>」「<b>粗丝棉</b>」<br></font> </i>
+  <i><font size="1" color="#808080">本名单依据先后顺序定时更新，感谢滋磁！</font> </i>
 </p>]]></content>
       <categories>
         <category>开发记录</category>
@@ -133,7 +149,7 @@
     <content><![CDATA[<p>本歌单不定期更新，这里都是 Pinming 最近在听的并且希望推荐给大家的歌~</p>
 <a id="more"></a>
 <h2 id="0x01-Sodagreen-Tomorrow-will-be-fine"><strong>0x01 Sodagreen | <a href="http://music.163.com/song?id=1425676569&amp;userid=92932311" target="_blank" rel="noopener">Tomorrow will be fine.</a></strong></h2>
-<p>词・曲 | 陈韵若　　编曲 | 苏打绿<br>
+<p>词・曲 | 史俊威　　编曲 | 苏打绿<br>
 首发 | 2020/2/24<br>
 暌违三年，欢迎回来！</p>
 <blockquote>
@@ -204,6 +220,7 @@ Tomorrow we’ll be fine.</em></p>
 </blockquote>
 <h2 id="0x05-halca-センチメンタルクライシス"><strong>0x05 halca | <a href="https://y.qq.com/n/yqq/song/0047KGI51vk3JN.html" target="_blank" rel="noopener">センチメンタルクライシス</a></strong></h2>
 <p>（TV 动画<a href="https://www.bilibili.com/bangumi/play/ep259770?from=search&amp;seid=17921121195906864969" target="_blank" rel="noopener">『辉夜大小姐想让我告白～天才们的恋爱头脑战～』/『かぐや様は告らせたい～天才たちの恋愛頭脳戦～』第一季</a> 片尾曲）<br>
+第二季就要来了！4 月 11 日开始放送！<br>
 词 | 宮嶋淳子　　作曲・编曲 | 山田竜平<br>
 首发 | 2019/2/20</p>
 <blockquote>
