@@ -1,37 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://pinming.github.io/2020/04/04/National_Mourning/</loc>
-    <lastmod>2020-04-03</lastmod>
+    <loc>https://www.pm-z.tech/2022/01/16/Photos_under_Pandemic/</loc>
+    <lastmod>2022-01-16</lastmod>
   </url>  <url>
-    <loc>https://pinming.github.io/2020/03/28/2020_Introduction_to_New_Edition/</loc>
-    <lastmod>2020-03-30</lastmod>
+    <loc>https://www.pm-z.tech/Photos_under_Pandemic.html</loc>
+    <lastmod>2022-01-15</lastmod>
   </url>  <url>
-    <loc>https://pinming.github.io/2020/03/28/playlist-20w13/</loc>
-    <lastmod>2020-03-29</lastmod>
+    <loc>https://www.pm-z.tech/2021/12/31/2021_TheLastDay/</loc>
+    <lastmod>2022-01-13</lastmod>
   </url>  <url>
-    <loc>https://pinming.github.io/2019/12/12/HelloWorld/</loc>
-    <lastmod>2020-03-27</lastmod>
+    <loc>https://www.pm-z.tech/2022/01/13/Auto_Reporter_For_COVID19_3rd/</loc>
+    <lastmod>2022-01-13</lastmod>
   </url>  <url>
-    <loc>https://pinming.github.io/2020/02/08/Dell_Inspiron_7590_macOS_Mojave_Installation_Summary/</loc>
-    <lastmod>2020-03-27</lastmod>
+    <loc>https://www.pm-z.tech/2021/04/03/2021_Early_Spring/</loc>
+    <lastmod>2022-01-13</lastmod>
   </url>  <url>
-    <loc>https://pinming.github.io/2020/01/24/playlist-20w04/</loc>
-    <lastmod>2020-02-25</lastmod>
+    <loc>https://www.pm-z.tech/2020/07/26/Auto_Reporter_For_COVID19/</loc>
+    <lastmod>2022-01-13</lastmod>
   </url>  <url>
-    <loc>https://pinming.github.io/2019/12/24/playlist-19w52/</loc>
-    <lastmod>2020-02-25</lastmod>
+    <loc>https://www.pm-z.tech/2020/08/07/Auto_Reporter_For_COVID19_2nd/</loc>
+    <lastmod>2022-01-13</lastmod>
   </url>  <url>
-    <loc>https://pinming.github.io/2020/02/08/playlist-20w06/</loc>
-    <lastmod>2020-02-25</lastmod>
+    <loc>https://www.pm-z.tech/Leetcode-416-partition-equal-subset-sum.html</loc>
+    <lastmod>2021-10-13</lastmod>
   </url>  <url>
-    <loc>https://pinming.github.io/2019/12/12/playlist-19w50/</loc>
-    <lastmod>2020-02-25</lastmod>
+    <loc>https://www.pm-z.tech/2021/08/23/playlist-21t02/</loc>
+    <lastmod>2021-08-25</lastmod>
   </url>  <url>
-    <loc>https://pinming.github.io/2020/01/24/2019Review_SecondHalf/</loc>
-    <lastmod>2020-02-25</lastmod>
+    <loc>https://www.pm-z.tech/2021/08/23/2021_08_Last_Summer_in_Xi_an/</loc>
+    <lastmod>2021-08-25</lastmod>
   </url>  <url>
-    <loc>https://pinming.github.io/2019/12/28/2019Review_FirstHalf/</loc>
-    <lastmod>2020-02-25</lastmod>
+    <loc>https://www.pm-z.tech/2019/12/12/HelloWorld/</loc>
+    <lastmod>2021-08-23</lastmod>
+  </url>  <url>
+    <loc>https://www.pm-z.tech/2020/02/08/Dell_Inspiron_7590_macOS_Mojave_Installation_Summary/</loc>
+    <lastmod>2021-08-23</lastmod>
+  </url>  <url>
+    <loc>https://www.pm-z.tech/2020/03/28/2020_Introduction_to_New_Edition/</loc>
+    <lastmod>2021-08-23</lastmod>
+  </url>  <url>
+    <loc>https://www.pm-z.tech/2020/12/12/2020_Birthday/</loc>
+    <lastmod>2021-08-23</lastmod>
+  </url>  <url>
+    <loc>https://www.pm-z.tech/2019/12/28/2019Review_FirstHalf/</loc>
+    <lastmod>2021-08-23</lastmod>
+  </url>  <url>
+    <loc>https://www.pm-z.tech/2020/07/26/playlist-20w31/</loc>
+    <lastmod>2020-07-26</lastmod>
+  </url>  <url>
+    <loc>https://www.pm-z.tech/2020/01/24/playlist-20w04/</loc>
+    <lastmod>2020-05-26</lastmod>
+  </url>  <url>
+    <loc>https://www.pm-z.tech/2020/02/08/playlist-20w06/</loc>
+    <lastmod>2020-05-26</lastmod>
+  </url>  <url>
+    <loc>https://www.pm-z.tech/2019/12/24/playlist-19w52/</loc>
+    <lastmod>2020-05-26</lastmod>
+  </url>  <url>
+    <loc>https://www.pm-z.tech/2020/03/28/playlist-20w13/</loc>
+    <lastmod>2020-05-26</lastmod>
+  </url>  <url>
+    <loc>https://www.pm-z.tech/2019/12/12/playlist-19w50/</loc>
+    <lastmod>2020-05-26</lastmod>
+  </url>  <url>
+    <loc>https://www.pm-z.tech/2020/05/24/playlist-20w22/</loc>
+    <lastmod>2020-05-25</lastmod>
+  </url>  <url>
+    <loc>https://www.pm-z.tech/2020/05/24/Two_stores/</loc>
+    <lastmod>2020-05-24</lastmod>
+  </url>  <url>
+    <loc>https://www.pm-z.tech/2020/01/24/2019Review_SecondHalf/</loc>
+    <lastmod>2020-05-18</lastmod>
+  </url>  <url>
+    <loc>https://www.pm-z.tech/2020/04/04/National_Mourning/</loc>
+    <lastmod>2020-05-17</lastmod>
   </url>
 </urlset>

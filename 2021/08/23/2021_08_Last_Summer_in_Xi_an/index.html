@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<!-- 音频播放 -->
+<style>
+  #aplayer {
+    width: 75%;
+  }
+</style>
+<link rel="stylesheet" href="/css/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+
+<!-- 一言API -->
+<script src="https://cdn.bootcdn.net/ajax/libs/bluebird/3.7.2/bluebird.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/fetch/2.0.1/fetch.min.js"></script>
+<script id="pjax-container">
+  fetch('https://server.pm-z.tech/hito/hito.php')
+    .then(response => response.json())
+    .then(data => {
+      const hitokoto = document.getElementById('hitokoto')
+      const from = document.getElementById('from')
+      hitokoto.innerText = data.hitokoto
+      from.innerText = "——" + data.from
+    })
+    .catch(console.error)
+</script>
+<style>
+  .from {
+    @media(max-width: @on_phone) {
+      margin: 56px 0 0 0;
+    }
+</style>
+
+<!-- 你知道得太多了 -->
+<style>
+  .heimu,
+  .heimu a,
+  a .heimu,
+  .heimu a.new {
+    background-color: #0066A0;
+    color: #0066A0;
+    text-shadow: none;
+  }
+
+  .heimu:hover,
+  .heimu:active,
+  .heimu:hover .heimu,
+  .heimu:active .heimu {
+    color: white !important;
+  }
+
+  .heimu:hover {
+    opacity: 1;
+    transition-duration: 0.3s;
+  }
+
+  .heimu:hover a,
+  a:hover .heimu,
+  .heimu:active a,
+  a:active .heimu {
+    color: lightblue !important;
+  }
+
+  .heimu:hover .new,
+  .heimu .new:hover,
+  .new:hover .heimu,
+  .heimu:active .new,
+  .heimu .new:active,
+  .new:active .heimu {
+    color: #BA0000 !important;
+  }
+</style>
+
+
+<head hexo-theme='https://volantis.js.org/#3.0-beta'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>
+  聚光 | 画别西安 - Pinming&#39;s Blog</title>
+  
+    <meta name="keywords" content="摄影,西安,西工大">
+  
+
+  
+    <meta name="description" itemprop="description"  content="以告别为名，才发现是为被动的重逢作序。">
+  
+
+  
+    <meta name="wechatimg" content="https://p.pstatp.com/origin/pgc-image/234412c4bb574bcb8e643e442b68a194">
+  
+
+  
+    <meta name="name" itemprop="name" content="聚光 | 画别西安" />
+  
+
+  
+    <meta name="image" itemprop="image" content="https://p.pstatp.com/origin/pgc-image/234412c4bb574bcb8e643e442b68a194" />
+  
+  
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.css">
+  
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/node-waves/0.7.6/waves.min.css">
+
+  
+
+  
+    <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/pinming/pinming.github.io@master/assets/favicon.ico">
+  
+
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+
+  
+  
+  <script>
+    // 加个备注防误删，这串用途为，从邮件里的查看链接过来时，直接跳转到相应的评论部分
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+           if ($(window.location.hash).length) {
+              $('html, body').animate({scrollTop: $(window.location.hash).offset().top-90}, 1000);
+              clearInterval(checkExist);
+           }
+        }, 100);
+    }
+  </script>
+</head>
+
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js" id="pjax-container"></script>
+  <!-- WXSDK-NewestModified -->
+  <script id="pjax-container">
+    // 加入 pjax-id，保证每次刷新时重加载
+    url = location.href.split("#")[0]
+    x = document.getElementsByTagName("meta").description.content
+    if (x == null || x == "" || x == undefined) {
+      // 判断 desc 使其与 front-matter 中 description 取值一致
+      desc1 = "欢迎来到 Pinming 的小站~"
+      // 缺省值：没有指定 desc 的情况
+    } else {
+      desc1 = x
+    }
+
+    wechatimg = "https://www.pm-z.tech/favicon512.png"
+    if (document.getElementsByTagName("meta").wechatimg.content != undefined) {
+      wechatimg = document.getElementsByTagName("meta").wechatimg.content
+    }
+
+
+    $.ajax({
+      type: "get",
+      url: "https://server.pm-z.tech/jssdk/jssdk.php?url=" + encodeURIComponent(url),
+      dataType: "jsonp",
+      jsonp: "callback",
+      jsonpCallback: "success_jsonpCallback",
+      success: function (data) {
+        wx.config({
+          debug: false,
+          appId: data.appId,
+          timestamp: data.timestamp,
+          nonceStr: data.nonceStr,
+          signature: data.signature,
+          jsApiList: [
+            "onMenuShareTimeline",
+            "onMenuShareAppMessage",
+            "onMenuShareQQ",
+            "onMenuShareWeibo",
+            "updateAppMessageShareData",
+            "updateTimelineShareData"
+          ]
+        });
+      },
+    });
+
+    wx.ready(function () {
+      wx.updateAppMessageShareData({
+        title: document.title,
+        desc: desc1,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+          console.log("success_wx.updateAppMessageShareData")
+          // 设置成功
+        }
+      });
+
+      wx.updateTimelineShareData({
+        title: document.title,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+          console.log("success_wx.updateTimelineShareData")
+          // 设置成功
+        }
+      });
+
+      wx.onMenuShareTimeline({
+        title: document.title,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+        }
+      });
+
+      wx.onMenuShareAppMessage({
+        title: document.title,
+        desc: desc1,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+        }
+      });
+
+      wx.onMenuShareQQ({
+        title: document.title,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+        }
+      });
+
+      wx.onMenuShareWeibo({
+        title: document.title,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+        }
+      });
+    });
+  </script>
+
+
+  <body>
+    
+<div class="cover-wrapper">
+  <cover class='cover post' style="display: none;">
+    <div class='cover-body'>
+  <div class='a'>
+    
+    <img class='logo' src='https://www.pm-z.tech/assets/logo.png' />
+    
+    
+    
+  </div>
+  <div class='b'>
+    
+    <div class="m_search">
+      <form name="searchform" class="form u-search-form">
+        <input type="text" class="input u-search-input" placeholder="Pinming 码字的地方。" />
+        <i class="icon fas fa-search fa-fw"></i>
+      </form>
+    </div>
+    
+    <div class='menu navigation'>
+      <ul class='cover-list-h'>
+        
+        
+        <li>
+          <a class="nav home" href="/" 
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>博文
+          </a>
+        </li>
+        
+        <li>
+          <a class="nav home" href="https://www.github.com/pinming" 
+            
+            id="https:wwwgithubcompinming">
+            <i class='fas fa-code-branch fa-fw'></i>项目
+          </a>
+        </li>
+        
+        <li>
+          <a class="nav home" href="/about/" 
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>关于 | 留言板
+          </a>
+        </li>
+        
+        <li>
+          <a class="nav home" href="http://cloud.pm-z.tech"  rel="nofollow" 
+            
+            id="http:cloudpm-ztech">
+            <i class='fas fa-cloud-download-alt fa-fw'></i>私有云
+          </a>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </div>
+  <div class="hitoclass" style="line-height: normal; text-align: center; margin: 16px 0px 0 0px;">
+    <nobr>
+      <i class="fa fa-quote-left" aria-hidden="true" style="font-size: 12px;"></i></nobr>
+    <b><i><span id="hitokoto" style="font-size: 12px;">正在加载一言...</span><span class="fa fa-quote-right"
+          aria-hidden="true" style="font-size: 12px;"></span><br></i></b>
+    <span id="from" style="font-size: 12px;"></span>
+  </div>
+</div>
+    <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+  </cover>
+  <div id="loading-bar-wrapper">
+    <script>NProgress.configure({parent:"#loading-bar-wrapper"});NProgress.start();</script>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+            Pinming's blog
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索" />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+</div>
+
+
+      <div class="l_body">
+        <div class='body-wrapper' id="pjax-container">
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+
+
+<div id="pjax-data" style="display: none">
+    <div id="pjax-ispage">true</div>
+    <div id="pjax-pageTitle">聚光 | 画别西安</div>
+    <div id="pjax-enable-cover">true</div>
+    
+    <div id="valine-path">none</div>
+    <div id="valine-placeholder">none</div>
+    
+</div>
+
+
+<script>
+    // 处理封面 - blog    此时 jquery 还没加载，线用原生顶着
+    if("blog" == "none") {  // 移除封面
+        document.getElementsByClassName('cover')[0].style.display = "none";  
+        document.getElementsByClassName('l_body')[0].classList.add("nocover");
+        document.getElementsByClassName('l_header','cover-wrapper')[0].classList.add("show"); 
+    } else {
+        if("blog" == "blog") {  // 半屏
+            document.getElementsByClassName('cover')[0].classList.remove("full");
+            document.getElementsByClassName('cover')[0].classList.add("half");
+            document.getElementsByClassName('scroll-down')[0].style.display = "none";
+        } else if("blog" == "docs") { // 全屏
+            document.getElementsByClassName('cover')[0].classList.remove("half");
+            document.getElementsByClassName('cover')[0].classList.add("full");
+            document.getElementsByClassName('scroll-down')[0].style.display = "";
+        }
+        document.getElementsByClassName('cover')[0].style.display = "";
+        document.getElementsByClassName('l_body','show')[0].classList.remove("nocover");
+        document.getElementsByClassName('l_header','cover-wrapper')[0].classList.remove("show");
+    }
+</script>
+
+            
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2021/08/23/2021_08_Last_Summer_in_Xi_an/">
+      聚光 | 画别西安
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://www.pm-z.tech" rel="nofollow">
+    <img no-lazy src="https://www.pm-z.tech/favicon512.png">
+    <p>Pinming</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E8%81%9A%E5%85%89/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>聚光</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021/8/23</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>原以为是告别，没想到我胡汉三又回来了；</p>
+<p>以告别为名，才发现是为被动的重逢作序。</p>
+<a id="more"></a>
+<h2 id="0x00-前言">0x00 | 前言</h2>
+<p>在来到瓜大之前，我确乎未曾想过自己还能够离开这山水如画的秦岭脚下。</p>
+<p>但随着太仓校区的成立却给了我出乎意料的惊喜——得知消息的同时我突然意识到，在长安校区、在西安的日子也就剩下不足百日。</p>
+<p>我想，就用一幅幅画面记录下在长安校区的最后三个月吧，这可能是与古城话别的最好方式了——亦是画别。</p>
+<h2 id="0x01-「天青色等烟雨」">0x01 |「天青色等烟雨」</h2>
+<p>「草树知春不久归」，春天渐入尾声。来到四月，烟雨缭绕，秦岭又展现出它的常态，空气中多了一份清洌，颇有「天青色等烟雨」的意境。<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/01-00001.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/01-00002.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/01-00003.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/01-00004.jpg?x-oss-process=style/80-2048-wm2021" alt="81192 二十年祭——航母已备好，请随时返航"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/01-00005.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/01-00006.jpg?x-oss-process=style/80-2048-wm2021" alt="「坐骑」"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/01-00007.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/01-00008.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/01-00009.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/01-00010.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/01-00011.jpg?x-oss-process=style/80-2048-wm2021" alt="虽然我没看过，但还是想起一部电影名，那人那山那狗"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/01-00012.jpg?x-oss-process=style/80-2048-wm2021" alt="入夜的海天苑有了一丝赛博朋克的味道"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/01-00013.jpg?x-oss-process=style/80-2048-wm2021" alt="「雨下整夜 我的爱溢出就像雨水」"></p>
+<h2 id="0x02-清明进城随拍">0x02 | 清明进城随拍</h2>
+<p>谁能想到，清明节竟是我四月份起三个月以来唯一一次进城。所以这一部分过去以后全都是校内图了😅<br>
+也算是身处西安一年半的时间里，为数不多的走近这座古城的机会。<br>
+这一部分大多低饱和，可能也更符合大多数人对西安的认知吧<span class="heimu" title="你知道的太多了">（不是</span></p>
+<p><img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/02-00001.jpg?x-oss-process=style/80-2048-wm2021" alt="喜提阳光半小时体验卡"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/02-00002.jpg?x-oss-process=style/80-2048-wm2021" alt="落花"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/02-00003.jpg?x-oss-process=style/80-2048-wm2021" alt="笔直的求实路与法桐，是老校区的绝配"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/02-00004.jpg?x-oss-process=style/80-2048-wm2021" alt="永宁门站，西安地铁的壁画从不让人失望"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/02-00005.jpg?x-oss-process=style/80-2048-wm2021" alt="护城河边上的珠颈斑鸠"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/02-00006.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/02-00007.jpg?x-oss-process=style/80-2048-wm2021" alt="红叶夺人眼"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/02-00009.jpg?x-oss-process=style/80-2048-wm2021" alt="城墙中的旧改残垣"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/02-00010.jpg?x-oss-process=style/80-2048-wm2021" alt="被她安利的小贝安利的卤面馆"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/1629713250624.jpg/80-2048-wm2021" alt="加蛋 12 块钱好像，哪怕小碗也很大。味道真不错"></p>
+<blockquote>
+<p>关于这家店可以看小贝饿了的视频：<a href="https://www.bilibili.com/video/BV1nN41197qa?from=search&amp;seid=9564476649091243599" target="_blank" rel="noopener">「西安钟楼小区开了 20 多年的卤肉面，大碗 14 有肉有菜，再加 2 个煎蛋，太香了！」</a></p>
+</blockquote>
+<p><img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/02-00011.jpg?x-oss-process=style/80-2048-wm2021" alt="熙熙攘攘的钟楼小区，属于是美食一条街了"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/02-00012.jpg?x-oss-process=style/80-2048-wm2021" alt="「文武盛地」"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/02-00013.jpg?x-oss-process=style/80-2048-wm2021" alt="城隍庙上飘扬着的福海"></p>
+<h2 id="0x03-立夏">0x03 | 立夏</h2>
+<p>阳光逐渐热辣起来，是属于夏天的青绿色。<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/03-00001.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/03-00002.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/03-00004.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/03-00003.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/03-00005.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/03-00006.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/03-00007.jpg?x-oss-process=style/80-2048-wm2021" alt=""></p>
+<p>和<code>北安</code>在经典云 D 天台拍星😅<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/03-00008.jpg?x-oss-process=style/80-2048-wm2021" alt="等到十二点学校也没按时停电，没等到熄灯"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/03-00009.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/03-00010.jpg?x-oss-process=style/80-2048-wm2021" alt="右上角是北斗七星噢"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/03-00011.jpg?x-oss-process=style/80-2048-wm2021" alt=""></p>
+<h2 id="0x04-夕阳下的花海">0x04 | 夕阳下的花海</h2>
+<p>夕阳之下，海天苑大草坪的豌豆花海甚是迷人。然而这片花海拍完之后的一两天就被铲掉了，甚是令人惋惜。<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/04-00001.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/04-00002.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/04-00003.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/04-00004.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/04-00005.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/04-00006.jpg?x-oss-process=style/80-2048-wm2021" alt=""></p>
+<h2 id="0x05-大草坪观日落">0x05 | 大草坪观日落</h2>
+<p>同样是这片大草坪，每一次日落都是一场盛大的表演，永远不缺少驻足的观众。<br>
+那也是天天下雨的一段日子，记得当时我在朋友圈和小影投图都写上了『晴天娃娃』<span class="heimu" title="你知道的太多了">巴味十足</span>里的那句：</p>
+<blockquote>
+<p>「我讨厌下雨天　亲爱的你快出现」</p>
+</blockquote>
+<span class='p right'>——江语晨『晴天娃娃』</span>
+<p><img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/05-00001.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/05-00002.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/05-00003.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/05-00005.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC5078.jpg?x-oss-process=style/80-2048-wm2021" alt="欣赏者众"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/05-00004.jpg?x-oss-process=style/80-2048-wm2021" alt="「观察者」"></p>
+<p>还有夜幕降临后的一点光。<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/05-00006.jpg?x-oss-process=style/80-2048-wm2021" alt="依然是赛博朋克风格"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/05-00007.jpg?x-oss-process=style/80-2048-wm2021" alt="「光，散落地方」"></p>
+<h2 id="0x06-灿烂星河">0x06 | 灿烂星河</h2>
+<blockquote>
+<p>古人曾经思考过地上的沙子有多少，他们片面地认为沙子和天上的星星一样多。可是他们却不知天上的星星不仅更多，而且是何等的璀璨美丽。星辰大海虽远在天边，却又近在咫尺；璀璨星空是何等美丽，却是多久之前的杰作。</p>
+</blockquote>
+<p>星空点缀下的长安校区也有着平日看不见的美丽。那一天一路沿着长安校区从北到南，拍到凌晨两点，虽然累但也很值得。<span class="heimu" title="你知道的太多了">只是回宿舍的时候吵醒宿管阿姨开门时，宿管阿姨面色铁青，危</span></p>
+<p><img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/06-00001.jpg?x-oss-process=style/80-2048-wm2021" alt="确实有城里看不见的繁星点点"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/06-00002.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/06-00008.jpg?x-oss-process=style/80-2048-wm2021" alt="你瓜大锅盖这天角度不是太好"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/06-00009.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/06-00004.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/06-00005.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/06-00003.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/06-00006.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/06-00007.jpg?x-oss-process=style/80-2048-wm2021" alt=""></p>
+<h2 id="0x07-夏・风雨・阴阳">0x07 | 夏・风雨・阴阳</h2>
+<blockquote>
+<p>「温的风　山的风　吹成了山风」</p>
+</blockquote>
+<span class='p right'>——温岚『夏天的风』</span>
+<p><img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/07-00001.jpg?x-oss-process=style/80-2048-wm2021" alt="蓝天永远会在白云之上"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/07-00002.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/07-00003.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/07-00004.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/07-00005.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/07-00007.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/07-00008.jpg?x-oss-process=style/80-2048-wm2021" alt="穿过阴霾，阳光还是映在了秦岭上"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC0513.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/07-00009.jpg?x-oss-process=style/80-2048-wm2021" alt="带劲的眩光"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/07-00010.jpg?x-oss-process=style/80-2048-wm2021" alt="雨后的潮湿感"></p>
+<blockquote>
+<p>「让一切的准备都美好演出　让所有的努力都美好落幕」</p>
+</blockquote>
+<span class='p right'>——周杰伦『鞋子特大号』</span>
+<p>偶尔出现的彩霞真是给我等山里孩子最好的礼物了。<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/07-00011.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/07-00012.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/07-00013.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/07-00014.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/07-00015.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC0885.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC0893.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC0917_noWM.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC0947_noWM.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC0956_noWM.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC0960_noWM.jpg?x-oss-process=style/80-2048-wm2021" alt=""></p>
+<blockquote>
+<p>「天黑黑　会不会　让我忘了你是谁」</p>
+</blockquote>
+<span class='p right'>——咻比嘟哔『世界末日』</span>
+<p><img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC0666.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC0690.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC0711.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC0713.jpg?x-oss-process=style/80-2048-wm2021" alt=""></p>
+<blockquote>
+<p>「千山万水　无数黑夜　等一轮明月」</p>
+</blockquote>
+<span class='p right'>——周杰伦『千山万水』</span>
+<p><img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC0806.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC0801.jpg?x-oss-process=style/80-2048-wm2021" alt="云和月"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC0802.jpg?x-oss-process=style/80-2048-wm2021" alt="像是漫画里的颜色"></p>
+<h2 id="0x08-回望长安">0x08 | 回望长安</h2>
+<p><img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/1629713350165.jpg/80-2048-wm2021" alt="郑重地签上退宿承诺书，然后离开长安校区"></p>
+<p>剑人给我上了一课：一定要练好核心力量，<span class="heimu" title="你知道的太多了">不然我差点就上不去了😅</span>。<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC1158.jpg?x-oss-process=style/80-2048-wm2021" alt="构图和北安的姿态我直呼上佳"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC1175-3.jpg?x-oss-process=style/80-2048-wm2021" alt=""><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC1201.jpg?x-oss-process=style/80-2048-wm2021" alt="来一张"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC1218.jpg?x-oss-process=style/80-2048-wm2021" alt="怀着告别的心再一次遥望「面皮」"><br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/_DSC1246.jpg?x-oss-process=style/80-2048-wm2021" alt=""></p>
+<h2 id="0xFF-后记">0xFF | 后记</h2>
+<p>有一点意外吧，读到这里的很多人应该也以为我真的要 run 了？😅</p>
+<p>在撰稿结束以后，我才得到太仓校区不能成行的消息——<span class="heimu" title="你知道的太多了">当然也是经典的你瓜特色，没有说明理由，也没有说明何时再去</span>。不过我相信最主要的的原因应该还是疫情，也许下个学期就会去太仓了吧。</p>
+<p>这篇文章确实是怀着与西安这座城市告别的心态写下来的，也正因如此，我才在这三个月中更佳急切地想要记录下一些东西，哪怕不成章法，没有确切的主题与审慎的考虑，只能够草草分为几个部分，我高速退化的文笔也不足以我再写出什么天花乱坠的辞藻了，用镜头记录下这光景也不错。</p>
+<p>九月回归长安城已经板上钉钉，本以为要开启全新大学生活的我又回到了那条延续开来的轨道上。好在还可以再记录一个长安的秋天与冬天，这样也算在长安城记录齐了四季。</p>
+<p>那便往前看，期待温暖的粉黛和皑皑的白雪罢——至少西安冬天是比南方暖和多了，也算是唯一的慰藉了吧。<span class="heimu" title="你知道的太多了">对了，还有瑞幸，好耶（逃</span></p>
+<p><img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/2021_08_Last_Summer_in_Xi_an/DSC_1113.jpg/80-2048-wm2020" alt="典中典之雪中星天阁，开学后摄学会有这张的明信片嗷"></p>
+<p><img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/RewardCode.jpg?x-oss-process=style/80" alt=""></p>
+<!-- _<span class='p reward'>致谢金主爸爸 | 「dwu5」「粗丝棉」</span>_  -->
+<!-- _<span class='p reward'>本名单依据先后顺序定时更新，感谢滋磁！</span>_ -->
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%91%84%E5%BD%B1/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>摄影</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%A5%BF%E5%AE%89/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>西安</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E8%A5%BF%E5%B7%A5%E5%A4%A7/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>西工大</p></a></div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2021/12/31/2021_TheLastDay/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>一张拼图，一篇文章，告别 2021</p>
+                <!-- <p class='content'>不断努力，去见更多我不曾相识的人，走到更多我未曾涉足的地方，经历更多我不曾想象的事情，那么，到了 2022 年的此刻，我想自己也一定能够满足了。
+
+
+回望这 365 天，它确乎平淡而不平凡。也想...</p> -->
+              </a>
+            
+            
+              <a class='next' href='/2021/08/23/playlist-21t02/'>
+                <p class='title'>Pinming 的歌单 | 2021 年第 2 期<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <!-- <p class='content'>本歌单不定期更新，这里都是 Pinming 最近在听的并且希望推荐给大家的歌~
+
+0x01 李玖哲 | 夏天
+作词 | 古小力
+作曲 | 周杰伦
+编曲 | Jae Chong
+首发 | 2010...</p> -->
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+<section class="widget blogger shadow desktop mobile">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box' href='/about/'>
+          <img no-lazy src='https://www.pm-z.tech/avatar.png'/>
+        </a>
+      
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:i@pm-z.tech"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/Pinming"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=92932311"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://space.bilibili.com/19448112"
+              class="social fab fa-youtube flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget text shadow desktop mobile">
+  
+  <header>
+    
+      <a href='/about/'><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><span class='name'>自述</span></a>
+    
+  </header>
+
+
+  <div class='content'>
+    
+      <p><i class="fa fa-birthday-cake fa-fw" aria-hidden="true"></i> 2000/12/12</p>
+
+    
+      <p><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i> 现居广东深圳</p>
+
+    
+      <p><i class="fa fa-university fa-fw" aria-hidden="true"></i> 西北工业大学</p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget category shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/Pinming-%E5%92%8C%E4%BB%96%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC/" href="/categories/Pinming-%E5%92%8C%E4%BB%96%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC/"
+            id="categoriesPinming-E5928CE4BB96E79A84E69C8BE58F8BE4BBAC"
+            ><div class='name'>Pinming 和他的朋友们</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E3%80%8C%E6%9C%BA%E3%80%8D%E4%B9%90%E4%B8%96%E7%95%8C/" href="/categories/%E3%80%8C%E6%9C%BA%E3%80%8D%E4%B9%90%E4%B8%96%E7%95%8C/"
+            id="categoriesE3808CE69CBAE3808DE4B990E4B896E7958C"
+            ><div class='name'>「机」乐世界</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%85%AC%E5%91%8A/" href="/categories/%E5%85%AC%E5%91%8A/"
+            id="categoriesE585ACE5918A"
+            ><div class='name'>公告</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/" href="/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"
+            id="categoriesE5BC80E58F91E8AEB0E5BD95"
+            ><div class='name'>开发记录</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%BF%83%E6%83%85%E7%A9%BA%E9%97%B4/" href="/categories/%E5%BF%83%E6%83%85%E7%A9%BA%E9%97%B4/"
+            id="categoriesE5BF83E68385E7A9BAE997B4"
+            ><div class='name'>心情空间</div><div class='badge'>(13)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E8%81%9A%E5%85%89/" href="/categories/%E8%81%9A%E5%85%89/"
+            id="categoriesE8819AE58589"
+            ><div class='name'>聚光</div><div class='badge'>(3)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x00-前言"><span class="toc-text">0x00 | 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-「天青色等烟雨」"><span class="toc-text">0x01 |「天青色等烟雨」</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x02-清明进城随拍"><span class="toc-text">0x02 | 清明进城随拍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03-立夏"><span class="toc-text">0x03 | 立夏</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04-夕阳下的花海"><span class="toc-text">0x04 | 夕阳下的花海</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x05-大草坪观日落"><span class="toc-text">0x05 | 大草坪观日落</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x06-灿烂星河"><span class="toc-text">0x06 | 灿烂星河</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x07-夏・风雨・阴阳"><span class="toc-text">0x07 | 夏・风雨・阴阳</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x08-回望长安"><span class="toc-text">0x08 | 回望长安</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0xFF-后记"><span class="toc-text">0xFF | 后记</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+<footer class="clearfix ">
+  <br><br>
+
+
+   
+  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://volantis.js.org/" target="_blank">Volantis 为主题</a>
+    |
+    总访问量为
+    <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+    次
+  </div>
+  © Pinming 2019-<span id="fyear">2015</span> | All Rights Reserved.<br>
+        <!-- 更新年份 -->
+        <script>
+          document.getElementById('fyear').innerHTML = new Date().getFullYear() + '';
+        </script>
+  <span class="fa fa-heart" aria-hidden="true"></span> <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+    if(interval != null){
+      clearInterval(interval);
+    } // 重置 Interval
+    var now = new Date();
+    // var isLoad = new Boolean(false);
+    function createtime() {
+      var grt = new Date("12/12/2019 00:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+      now.setTime(now.getTime() + 1000);
+      days = (now - grt) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+      hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+      if (String(hnum).length == 1) { hnum = "0" + hnum; } minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+      mnum = Math.floor(minutes); if (String(mnum).length == 1) { mnum = "0" + mnum; }
+      seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+      snum = Math.round(seconds); if (String(snum).length == 1) { snum = "0" + snum; }
+      document.getElementById("timeDate").innerHTML = "本站已运行 " + dnum + " 天 ";
+      document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分钟 " + snum + " 秒";
+      // isLoad(true);
+    }
+    var interval = setInterval("createtime()", 1000);
+    
+    
+  </script>
+  <br />
+  <a href="http://beian.miit.gov.cn/" target="_blank">粤 ICP 备 19139605 号</a> <br />
+  <img src="https://oss.pm-z.tech/110.svg" height="14" width="14" /><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502004717" target="_blank">粤公网安备 44030502004717 号</a>
+
+
+  
+</footer>
+<!-- <script>setLoadingBarProgress(80);</script> -->
+
+        </div>
+        <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+      </div>
+      <div>
+        
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script src="https://oss.pm-z.tech/pjax.min.js"></script>
+
+
+
+<script>
+  
+    var SEARCH_SERVICE = "hexo " || "
+  hexo ";
+  var ROOT = "/" || "/";
+  if (!ROOT.endsWith('/')) ROOT += '/';
+</script>
+
+
+<!--无需处理 - 确认兼容-->
+
+
+<!--无需处理 - 确认兼容-->
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery-backstretch/2.1.17/jquery.backstretch.min.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    var imgs = ["https://oss-qiniu.pm-z.tech/nbimg/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpg", "https://oss-qiniu.pm-z.tech/nbimg/41F215B9-261F-48B4-80B5-4E86E165259E.jpg"];
+    if ('true' == 'true') {
+      function shuffle(arr) {
+        /*From countercurrent-time*/
+        var n = arr.length;
+        while (n--) {
+          var index = Math.floor(Math.random() * n);
+          var temp = arr[index];
+          arr[index] = arr[n];
+          arr[n] = temp;
+        }
+      }
+      shuffle(imgs);
+    }
+    if ('') {
+      $('').backstretch(
+        imgs, {
+          duration: "20000",
+          fade: "1500"
+        });
+    } else {
+      $.backstretch(
+        imgs, {
+          duration: "20000",
+          fade: "1500"
+        });
+    }
+  });
+</script>
+
+
+
+<!--似乎不需要处理-->
+
+
+<!--PS：只对 valine 做了 Pjax 兼容测试-->
+
+
+
+
+
+
+
+
+
+
+<script src="https://www.pm-z.tech/js/valine.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    var valinePath = $.trim($('#valine-path').text()) === "none" ?
+      window.location.pathname : $.trim($('#valine-path').text());
+
+    var valinePlaceholder = $.trim($('#valine-placeholder').text()) === "none" ?
+      "这就看完了？BB 两句再走吧~" : $.trim($('#valine-placeholder').text());
+
+    var ALLPATH = '';
+    if (ALLPATH != '') valinePath = ALLPATH;
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: valinePlaceholder,
+      path: valinePath,
+      appId: "A2M0uswOM4AoTkNJ0MYKiQum-gzGzoHsz",
+      appKey: "lY0S03ALVr8MXCOFpIURMa6r",
+      pageSize: '10',
+      avatar: 'retro',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+
+    })
+  }
+
+  $(function() {
+    pjax_valine();
+  });
+</script>
+
+
+
+<!-- 复制 -fix -->
+
+<script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+<script>
+function wait(callback,seconds){var timelag=null;timelag=window.setTimeout(callback,seconds)}function pjax_initCopyCode(){var copyHtml='';copyHtml+='<button class="btn-copy" data-clipboard-snippet="">';copyHtml+='<i class="fas fa-copy"></i><span>COPY</span>';copyHtml+='</button>';$(".highlight .code pre").before(copyHtml);$(".article pre code").before(copyHtml);var clipboard=new ClipboardJS('.btn-copy',{target:function(trigger){return trigger.nextElementSibling}});clipboard.on('success',function(e){$.message({title:'复制成功',message:"代码已复制，请遵守相关授权协议。",type:'success'});let $btn=$(e.trigger);$btn.addClass('copied');let $icon=$($btn.find('i'));$icon.removeClass('fa-copy');$icon.addClass('fa-check-circle');let $span=$($btn.find('span'));$span[0].innerText='COPIED';wait(function(){$icon.removeClass('fa-check-circle');$icon.addClass('fa-copy');$span[0].innerText='COPY'},2000)});clipboard.on('error',function(e){e.clearSelection();let $btn=$(e.trigger);$btn.addClass('copy-failed');let $icon=$($btn.find('i'));$icon.removeClass('fa-copy');$icon.addClass('fa-times-circle');let $span=$($btn.find('span'));$span[0].innerText='COPY FAILED';wait(function(){$icon.removeClass('fa-times-circle');$icon.addClass('fa-copy');$span[0].innerText='COPY'},2000)})}$(function(){pjax_initCopyCode()});
+</script>
+
+<!-- ******************************** -->
+
+<!--scrollreveal -fix -->
+
+<script src="https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+<script type="text/javascript">
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '8px',
+      duration: '800',
+      interval: '100',
+      scale: '1'
+    });
+  }
+
+  $(function() {
+    pjax_scrollrebeal();
+  });
+</script>
+
+<!-- ******************************** -->
+
+<!-- fancybox -fix -->
+<script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+<!-- ******************************** -->
+
+<!--主要的 JS 文件-->
+
+
+<script src="/js/app.js"></script>
+
+
+
+<!--fix-->
+
+
+
+<script src="/js/search.js"></script>
+
+
+
+
+<!--重新加载即可-->
+
+<script defer src="https://oss.pm-z.tech/busuanzi.pure.mini.js" data-pjax></script>
+
+
+<!--无需处理-->
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/node-waves/0.7.6/waves.min.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    Waves.attach('.flat-btn', ['waves-button']);
+    Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+    Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+    Waves.attach('.flat-box', ['waves-block']);
+    Waves.attach('.float-box', ['waves-block', 'waves-float']);
+    Waves.attach('.waves-image');
+    Waves.init();
+  });
+</script>
+
+
+<!--无需处理-->
+
+
+<!--无需处理 ？-->
+
+
+
+
+
+<script src="/js/message.js"></script>
+
+
+<!-- <script type="text/javascript">
+  var t = 7.9;
+  t = t.toFixed(1); 
+  setInterval("refer()", 100);
+  function refer() {
+    if (t < 0) {
+      t = 0;
+      return 0;
+    }
+    document.getElementById('show').innerHTML = t;
+    t = t - 0.1;
+    t = t.toFixed(1); 
+  } 
+</script> -->
+
+<script>
+  var t = 7.9;
+  t = t.toFixed(1);
+  setInterval("refer()", 100);
+
+  function refer() {
+    if (t < 0) {
+      t = 0;
+      return 0;
+    }
+    if (document.getElementById('show') != null) {
+      document.getElementById('show').innerHTML = t;
+    }
+    t = t - 0.1;
+    t = t.toFixed(1);
+  }
+
+  $(document).ready(function() {
+    NProgress.done();
+
+     // if (theme.plugins.aplayer.enable == true && theme.plugins.aplayer.autoplay == true)
+    var isplay = true;
+    $.message({
+      title: '<b>音乐播放</b>',
+      message: '<span id="show">8.0</span> 秒后播放音乐，点击<a class="stopMusic">停止播放</a>',
+      type: 'warning'
+    });
+    setTimeout(function() {
+      if (isplay)
+        ap.play();
+    }, 8000)
+    $(".stopMusic").click(function() {
+      $(".c-message--close").click();
+      isplay = false;
+    })
+    
+  });
+
+
+  var pjax;
+  document.addEventListener('DOMContentLoaded', function() {
+    pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+      selectors: [
+        "title",
+        "meta[name=description]",
+        "meta[name=keywords]",
+        "meta[name=name]",
+        "meta[name=wechatimg]",
+        "meta[name=image]",
+        "#pjax-container"
+      ],
+      cacheBust: false, // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: '5000'
+    });
+  });
+
+  document.addEventListener('pjax:send', function() {
+    window.stop(); // 相当于点击了浏览器的停止按钮
+    window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+    $.fancybox.close(); // 关闭弹窗，曾经有人提过个BUG，在查看图片时浏览器返回上一页后，弹窗无法关闭了
+
+    $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+    $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+    $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+    $(window).unbind('resize'); // 解绑
+    $(window).unbind('scroll'); // 解绑
+    $(window).unbind('click'); // 解绑
+    $(document).unbind('scroll'); // 解绑
+
+    NProgress.start();
+  });
+
+  document.addEventListener('pjax:complete', function() {
+
+    $('script[data-pjax], .pjax-reload script').each(function() {
+      $(this).parent().append($(this).remove());
+    });
+
+    try {
+      pjax_fancybox();
+      
+      pjax_scrollrebeal();
+      
+      
+      pjax_initCopyCode();
+      
+      
+      pjax_valine();
+      
+    } catch (e) {
+      console.log(e);
+    }
+
+    NProgress.done();
+  });
+
+  document.addEventListener('pjax:error', function() {
+    NProgress.done();
+    $.message({
+      title: '事件通知',
+      message: "链接加载失败，执行强制刷新！",
+      type: 'warning'
+    });
+    window.location.href = event.triggerElement.href;
+  });
+</script>
+      </div>
+
+  <script id="pjax-container">
+            window.imageLazyLoadSetting = {
+                isSPA: true,
+                processImages: null,
+            };
+        </script><script id>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script id>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+
+</html>

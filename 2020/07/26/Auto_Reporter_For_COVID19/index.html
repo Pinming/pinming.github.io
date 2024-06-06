@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<!-- 音频播放 -->
+<style>
+  #aplayer {
+    width: 75%;
+  }
+</style>
+<link rel="stylesheet" href="/css/APlayer.min.css">
+<div id="aplayer"></div>
+<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
+<script type="text/javascript" src="/dist/music.js"></script>
+
+
+
+<!-- 一言API -->
+<script src="https://cdn.bootcdn.net/ajax/libs/bluebird/3.7.2/bluebird.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/fetch/2.0.1/fetch.min.js"></script>
+<script id="pjax-container">
+  fetch('https://server.pm-z.tech/hito/hito.php')
+    .then(response => response.json())
+    .then(data => {
+      const hitokoto = document.getElementById('hitokoto')
+      const from = document.getElementById('from')
+      hitokoto.innerText = data.hitokoto
+      from.innerText = "——" + data.from
+    })
+    .catch(console.error)
+</script>
+<style>
+  .from {
+    @media(max-width: @on_phone) {
+      margin: 56px 0 0 0;
+    }
+</style>
+
+<!-- 你知道得太多了 -->
+<style>
+  .heimu,
+  .heimu a,
+  a .heimu,
+  .heimu a.new {
+    background-color: #0066A0;
+    color: #0066A0;
+    text-shadow: none;
+  }
+
+  .heimu:hover,
+  .heimu:active,
+  .heimu:hover .heimu,
+  .heimu:active .heimu {
+    color: white !important;
+  }
+
+  .heimu:hover {
+    opacity: 1;
+    transition-duration: 0.3s;
+  }
+
+  .heimu:hover a,
+  a:hover .heimu,
+  .heimu:active a,
+  a:active .heimu {
+    color: lightblue !important;
+  }
+
+  .heimu:hover .new,
+  .heimu .new:hover,
+  .new:hover .heimu,
+  .heimu:active .new,
+  .heimu .new:active,
+  .new:active .heimu {
+    color: #BA0000 !important;
+  }
+</style>
+
+
+<head hexo-theme='https://volantis.js.org/#3.0-beta'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- 页面元数据 -->
+  
+  <title>
+  妈妈再也不用担心我忘记填报疫情——巧用云函数完成自动化数据填报 - Pinming&#39;s Blog</title>
+  
+    <meta name="keywords" content="Python,爬虫,模拟登录,request,cookie">
+  
+
+  
+    <meta name="description" itemprop="description"  content="班长别@了，这次会自动填的。">
+  
+
+  
+    <meta name="wechatimg" content="https://www.pm-z.tech/favicon256.jpg">
+  
+
+  
+    <meta name="name" itemprop="name" content="妈妈再也不用担心我忘记填报疫情——巧用云函数完成自动化数据填报" />
+  
+
+  
+    <meta name="image" itemprop="image" content="https://www.pm-z.tech/favicon256.jpg" />
+  
+  
+  <!-- feed -->
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.css">
+  
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+
+  
+    
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/node-waves/0.7.6/waves.min.css">
+
+  
+
+  
+    <link rel="shortcut icon" type='image/x-icon' href="https://cdn.jsdelivr.net/gh/pinming/pinming.github.io@master/assets/favicon.ico">
+  
+
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
+
+  
+  
+  <script>
+    // 加个备注防误删，这串用途为，从邮件里的查看链接过来时，直接跳转到相应的评论部分
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+           if ($(window.location.hash).length) {
+              $('html, body').animate({scrollTop: $(window.location.hash).offset().top-90}, 1000);
+              clearInterval(checkExist);
+           }
+        }, 100);
+    }
+  </script>
+</head>
+
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js" id="pjax-container"></script>
+  <!-- WXSDK-NewestModified -->
+  <script id="pjax-container">
+    // 加入 pjax-id，保证每次刷新时重加载
+    url = location.href.split("#")[0]
+    x = document.getElementsByTagName("meta").description.content
+    if (x == null || x == "" || x == undefined) {
+      // 判断 desc 使其与 front-matter 中 description 取值一致
+      desc1 = "欢迎来到 Pinming 的小站~"
+      // 缺省值：没有指定 desc 的情况
+    } else {
+      desc1 = x
+    }
+
+    wechatimg = "https://www.pm-z.tech/favicon512.png"
+    if (document.getElementsByTagName("meta").wechatimg.content != undefined) {
+      wechatimg = document.getElementsByTagName("meta").wechatimg.content
+    }
+
+
+    $.ajax({
+      type: "get",
+      url: "https://server.pm-z.tech/jssdk/jssdk.php?url=" + encodeURIComponent(url),
+      dataType: "jsonp",
+      jsonp: "callback",
+      jsonpCallback: "success_jsonpCallback",
+      success: function (data) {
+        wx.config({
+          debug: false,
+          appId: data.appId,
+          timestamp: data.timestamp,
+          nonceStr: data.nonceStr,
+          signature: data.signature,
+          jsApiList: [
+            "onMenuShareTimeline",
+            "onMenuShareAppMessage",
+            "onMenuShareQQ",
+            "onMenuShareWeibo",
+            "updateAppMessageShareData",
+            "updateTimelineShareData"
+          ]
+        });
+      },
+    });
+
+    wx.ready(function () {
+      wx.updateAppMessageShareData({
+        title: document.title,
+        desc: desc1,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+          console.log("success_wx.updateAppMessageShareData")
+          // 设置成功
+        }
+      });
+
+      wx.updateTimelineShareData({
+        title: document.title,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+          console.log("success_wx.updateTimelineShareData")
+          // 设置成功
+        }
+      });
+
+      wx.onMenuShareTimeline({
+        title: document.title,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+        }
+      });
+
+      wx.onMenuShareAppMessage({
+        title: document.title,
+        desc: desc1,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+        }
+      });
+
+      wx.onMenuShareQQ({
+        title: document.title,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+        }
+      });
+
+      wx.onMenuShareWeibo({
+        title: document.title,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+        }
+      });
+    });
+  </script>
+
+
+  <body>
+    
+<div class="cover-wrapper">
+  <cover class='cover post' style="display: none;">
+    <div class='cover-body'>
+  <div class='a'>
+    
+    <img class='logo' src='https://www.pm-z.tech/assets/logo.png' />
+    
+    
+    
+  </div>
+  <div class='b'>
+    
+    <div class="m_search">
+      <form name="searchform" class="form u-search-form">
+        <input type="text" class="input u-search-input" placeholder="Pinming 码字的地方。" />
+        <i class="icon fas fa-search fa-fw"></i>
+      </form>
+    </div>
+    
+    <div class='menu navigation'>
+      <ul class='cover-list-h'>
+        
+        
+        <li>
+          <a class="nav home" href="/" 
+            
+            id="home">
+            <i class='fas fa-rss fa-fw'></i>博文
+          </a>
+        </li>
+        
+        <li>
+          <a class="nav home" href="https://www.github.com/pinming" 
+            
+            id="https:wwwgithubcompinming">
+            <i class='fas fa-code-branch fa-fw'></i>项目
+          </a>
+        </li>
+        
+        <li>
+          <a class="nav home" href="/about/" 
+            
+            id="about">
+            <i class='fas fa-info-circle fa-fw'></i>关于 | 留言板
+          </a>
+        </li>
+        
+        <li>
+          <a class="nav home" href="http://cloud.pm-z.tech"  rel="nofollow" 
+            
+            id="http:cloudpm-ztech">
+            <i class='fas fa-cloud-download-alt fa-fw'></i>私有云
+          </a>
+        </li>
+        
+        
+      </ul>
+    </div>
+  </div>
+  <div class="hitoclass" style="line-height: normal; text-align: center; margin: 16px 0px 0 0px;">
+    <nobr>
+      <i class="fa fa-quote-left" aria-hidden="true" style="font-size: 12px;"></i></nobr>
+    <b><i><span id="hitokoto" style="font-size: 12px;">正在加载一言...</span><span class="fa fa-quote-right"
+          aria-hidden="true" style="font-size: 12px;"></span><br></i></b>
+    <span id="from" style="font-size: 12px;"></span>
+  </div>
+</div>
+    <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+  </cover>
+  <div id="loading-bar-wrapper">
+    <script>NProgress.configure({parent:"#loading-bar-wrapper"});NProgress.start();</script>
+</div>
+<header class="l_header shadow blur">
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h'>
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+          
+            Pinming's blog
+          
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="搜索" />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/categories/
+                  
+                  
+                  
+                    id="categories"
+                  >
+                  <i class='fas fa-folder-open fa-fw'></i>分类
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="flat-box" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+</div>
+
+
+      <div class="l_body">
+        <div class='body-wrapper' id="pjax-container">
+          <!--此文件用来存放一些不方便取值的变量-->
+<!--思路大概是将值藏到重加载的区域内-->
+
+
+
+<div id="pjax-data" style="display: none">
+    <div id="pjax-ispage">true</div>
+    <div id="pjax-pageTitle">妈妈再也不用担心我忘记填报疫情——巧用云函数完成自动化数据填报</div>
+    <div id="pjax-enable-cover">true</div>
+    
+    <div id="valine-path">none</div>
+    <div id="valine-placeholder">none</div>
+    
+</div>
+
+
+<script>
+    // 处理封面 - blog    此时 jquery 还没加载，线用原生顶着
+    if("blog" == "none") {  // 移除封面
+        document.getElementsByClassName('cover')[0].style.display = "none";  
+        document.getElementsByClassName('l_body')[0].classList.add("nocover");
+        document.getElementsByClassName('l_header','cover-wrapper')[0].classList.add("show"); 
+    } else {
+        if("blog" == "blog") {  // 半屏
+            document.getElementsByClassName('cover')[0].classList.remove("full");
+            document.getElementsByClassName('cover')[0].classList.add("half");
+            document.getElementsByClassName('scroll-down')[0].style.display = "none";
+        } else if("blog" == "docs") { // 全屏
+            document.getElementsByClassName('cover')[0].classList.remove("half");
+            document.getElementsByClassName('cover')[0].classList.add("full");
+            document.getElementsByClassName('scroll-down')[0].style.display = "";
+        }
+        document.getElementsByClassName('cover')[0].style.display = "";
+        document.getElementsByClassName('l_body','show')[0].classList.remove("nocover");
+        document.getElementsByClassName('l_header','cover-wrapper')[0].classList.remove("show");
+    }
+</script>
+
+            
+
+<div class='l_main'>
+  
+
+  
+    <article id="post" class="post white-box reveal shadow article-type-post" itemscope itemprop="blogPost">
+      
+
+
+  <section class='meta'>
+    
+      
+      
+      <div class="meta" id="header-meta">
+        
+          
+  <h1 class="title">
+    <a href="/2020/07/26/Auto_Reporter_For_COVID19/">
+      妈妈再也不用担心我忘记填报疫情——巧用云函数完成自动化数据填报
+    </a>
+  </h1>
+
+
+        
+        <div class='new-meta-box'>
+          
+            
+          
+            
+              
+<div class='new-meta-item author'>
+  <a href="https://www.pm-z.tech" rel="nofollow">
+    <img no-lazy src="https://www.pm-z.tech/favicon512.png">
+    <p>Pinming</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+  
+  <div class='new-meta-item category'>
+    <a href='/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/' rel="nofollow">
+      <i class="fas fa-folder-open fa-fw" aria-hidden="true"></i>
+      <p>开发记录</p>
+    </a>
+  </div>
+
+
+            
+          
+            
+              <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020/7/26</p>
+  </a>
+</div>
+
+            
+          
+            
+              
+
+            
+          
+        </div>
+        
+          <hr>
+        
+      </div>
+    
+  </section>
+
+
+      <section class="article typo">
+        <div class="article-entry" itemprop="articleBody">
+          
+          <p>一个适用于某西北 985 高校<span class="heimu" title="你知道的太多了">「中国工科的第一大学」</span>的疫情身体状况自动填报程序思路分享及其使用方法。</p>
+<a id="more"></a>
+<div class="note success">
+            <p>本文最近一次更新时间为：2022 年 1 月 13 日。</p>
+          </div>
+<h2 id="0x00-前言"><strong>0x00 前言</strong></h2>
+<p>在新冠疫情的背景之下，想必很多学校都要求学生每日申报自己的健康状况。但是日子一天天过去总有忘记的时候——轻则全班公开处刑，重则全院公开处刑，尴尬至极。后来接入了企业微信，如果不填每天中午 11:30 又准时来催你填……每天还得去对着表格整几下，实在有些麻烦，遂考虑制作一个自动化填报的程序来减轻自己的工作量。</p>
+<p>本项目 Github 仓库：<br>
+如果 Github 访问异常，请浏览 Gitee 镜像。</p>
+<div class="btns rounded grid5">
+            <a href='https://github.com/Pinming/NWPU_COVID19_AutoReport' target="_blank" rel="noopener" title='Github 下载源码'><i class='fas fa-code-branch'></i>Github 下载源码</a>
+<a href='https://gitee.com/pinming_nwpu/NWPU_COVID19_AutoReport' target="_blank" rel="noopener" title='Gitee 国内镜像'><i class='fas fa-download'></i>Gitee 国内镜像</a>
+          </div>
+<div class="note danger">
+            <p class='p subtitle'>警告 / 请认真阅读本部分</p><ul><li>本软件设计之本意为技术学习，请在遵循法律及学校各项规定的前提下使用本软件。</li><li>如您需要使用该软件，请确保您的身体状况良好，如实申报自身身体状况。</li><li>若您的身体状况出现异常，应立即停止使用本软件、关闭云函数自动触发功能，并及时于学校系统更改每日申报情况。</li><li>因使用该软件误报身体状况而引发的不良后果应由您自行承担。</li><li>本软件原理是提取上一次的填报结果来提交，如果您的所在地发生改变，请自行手动填报一次，理论上程序会自动跟进后续的填报并与之同步。如出现异常烦请反馈！</li><li>该软件并非万能，请时常检查填报结果！</li></ul>
+          </div>
+<div class="note warning">
+            <p class='p subtitle'>请注意 / 在正文开始之前</p><ul><li>软件更新至 `v2.0` 后，不再考虑本地部署需求。程序中所有设计均为云函数执行而准备；</li><li>关于 Server 酱推送，详见本系列<a href="/2020/08/07/Auto_Reporter_For_COVID19_2nd/">第二篇</a>；</li><li>关于 2021 年底疫情填报系统及本软件的改动，详见本系列<a href="/2022/01/13/Auto_Reporter_For_COVID19_3rd/">第三篇</a>；</li></ul>
+          </div>
+<h2 id="0x01-代码实现"><strong>0x01 代码实现</strong></h2>
+<h3 id="1-1-整体流程分析">1.1 整体流程分析</h3>
+<p>本程序涉及的全局 URL：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">url_jrsb &#x3D; &#39;http:&#x2F;&#x2F;yqtb.nwpu.edu.cn&#x2F;wx&#x2F;ry&#x2F;jrsb.jsp&#39;  # 获取表格并进行操作</span><br><span class="line">url_ry_util &#x3D; &#39;http:&#x2F;&#x2F;yqtb.nwpu.edu.cn&#x2F;wx&#x2F;ry&#x2F;ry_util.jsp&#39;  # 用于 POST 申报的内容</span><br><span class="line">url_cas_login &#x3D; &#39;https:&#x2F;&#x2F;uis.nwpu.edu.cn&#x2F;cas&#x2F;login&#39;  # 用于 Validate 登录状态</span><br><span class="line">url_rzxx_list &#x3D; &#39;http:&#x2F;&#x2F;yqtb.nwpu.edu.cn&#x2F;wx&#x2F;xg&#x2F;yz-mobile&#x2F;rzxx_list.jsp&#39;  # 日报列表</span><br></pre></td></tr></table></figure>
+<p>先定义一个疫情填报系统的实例，将所有稍后填报需要的属性封装在其中。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NWPU_Yqtb_Site</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="comment"># 在 `NWPU_Yqtb_Site` 实例中，首先建立一个 session 并对登录页发起 get：</span></span><br><span class="line">        self.session = requests.Session()</span><br><span class="line">        <span class="comment"># 从 CAS 登录页作为登录过程起点</span></span><br><span class="line">        self.session.get(url_cas_login)</span><br><span class="line">        <span class="comment"># 供填报时使用的数据</span></span><br><span class="line">        self.name = <span class="string">""</span></span><br><span class="line">        self.xymc = <span class="string">""</span></span><br><span class="line">        self.xssjhm = <span class="string">""</span></span><br><span class="line">        self.szcsbm = <span class="string">""</span></span><br><span class="line">        self.szcsmc = <span class="string">""</span></span><br><span class="line">        self.hsjc = <span class="string">""</span></span><br><span class="line">        self.sign = <span class="string">""</span></span><br><span class="line">        self.timeStamp = <span class="string">""</span></span><br><span class="line">        self.data_for_submit = <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+<p>要实现信息的填报，可以发现全流程大体需要经过四个步骤：<code>CAS 登录</code>→<code>传递 Cookie 到疫情填报系统</code>→<code>获取上一次填报的 Form（初始化填报数据）</code>→<code>提交 Form</code>。接下来将分步说明每个步骤的实现。</p>
+<h3 id="1-2-模拟-CAS-登录">1.2 模拟 CAS 登录</h3>
+<p>首先登入填报系统的主页：<code>https://yqtb.nwpu.edu.cn</code>。发现在未登录时，其跳转至 <code>https://uis.nwpu.edu.cn/cas/login?service=http%3A%2F%2Fyqtb.nwpu.edu.cn%2F%2Fsso%2Flogin.jsp%3FtargetUrl%3Dbase64aHR0cDovL3lxdGIubndwdS5lZHUuY24vL3d4L3hnL3l6LW1vYmlsZS9pbmRleC5qc3A%3D</code> 这一页面，该页面用于填入用户名及密码，这些信息将被打包 POST 出去，由 UIS 接受后跳转到 yqtb 的 service。</p>
+<p>为了更容易地获取登录状态，从 CAS 登录网址 <code>url_cas_login</code> 无跳转地发起登录，直接获得登录状态，与 Form 的 submit 过程分开。</p>
+<p>通过抓包发现，在 <code>uis.nwpu.edu.cn</code> 登录时，CAS 首先接到第一组 POST，同时前端生成了 <code>SESSION</code> 作为第一个 cookie：<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/Auto_Reporter_For_COVID19/1.png" alt=""><br>
+提取以上信息，打包第一组 <code>header</code> 和 <code>data</code>，然后对 <code>url_cas_login</code> 模拟 POST：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">header = &#123;</span><br><span class="line">    <span class="string">'referer'</span>: url_cas_login,</span><br><span class="line">    <span class="string">'User-Agent'</span>: <span class="string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.26 Safari/537.36'</span>,</span><br><span class="line">    <span class="string">'content-Type'</span>: <span class="string">'application/x-www-form-urlencoded'</span>,</span><br><span class="line">    <span class="string">'origin'</span>: <span class="string">'https://uis.nwpu.edu.cn'</span>,</span><br><span class="line">    <span class="string">'cookie'</span>: <span class="string">'SESSION='</span> + str((session.cookies.values()[<span class="number">0</span>])),</span><br><span class="line">    <span class="comment"># [0] 是生成的 `SESSION`</span></span><br><span class="line">    <span class="string">'authority'</span>: <span class="string">'uis.nwpu.edu.cn'</span>,</span><br><span class="line">    <span class="string">'path'</span>: <span class="string">'/cas/login'</span>,</span><br><span class="line">    <span class="string">'scheme'</span>: <span class="string">'https'</span>,</span><br><span class="line">    <span class="string">'accept'</span>: <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'</span>,</span><br><span class="line">    <span class="string">'upgrade-insecure-requests'</span>: <span class="string">'1'</span>,</span><br><span class="line">    <span class="string">'sec-fetch-dest'</span>: <span class="string">'document'</span>,</span><br><span class="line">    <span class="string">'sec-fetch-mode'</span>: <span class="string">'navigate'</span>,</span><br><span class="line">    <span class="string">'sec-fetch-site'</span>: <span class="string">'same-origin'</span>,</span><br><span class="line">    <span class="string">'sec-fetch-user'</span>: <span class="string">'?1'</span>,</span><br><span class="line">    <span class="string">'cache-control'</span>: <span class="string">'no-cache'</span></span><br><span class="line">&#125;</span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">'username'</span>: username,</span><br><span class="line">    <span class="string">'password'</span>: password,</span><br><span class="line">    <span class="string">'_eventId'</span>: <span class="string">'submit'</span>,</span><br><span class="line">    <span class="string">'currentMenu'</span>: <span class="string">'1'</span>,</span><br><span class="line">    <span class="string">'execution'</span>: <span class="string">'e2s1'</span>,</span><br><span class="line">    <span class="string">'submit'</span>: <span class="string">'One moment please...'</span>,</span><br><span class="line">    <span class="string">'geolocation'</span>: <span class="string">''</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>之后 url_cas_login 会如图返回登录状态。如果登录成功成功则返回文字内容：<code>欢迎使用 统一身份认证 系统</code>。这里直接在网页中查找这个字段来判断登录是否成功：<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/Auto_Reporter_For_COVID19/2.png" alt=""></p>
+<div class="note info">
+            <p>2020 年 8 月 6 日翱翔门户进行了微调，返回登录状态页面只返回<code>欢迎使用</code>四个字。因此下方代码块第三行需要对应修改为：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if rt.find(&#39;欢迎使用&#39;) !&#x3D; -1:</span><br></pre></td></tr></table></figure>
+          </div>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">res_login = self.session.post(url_cas_login, data=data_for_login, headers=header_for_login)</span><br><span class="line"><span class="keyword">if</span> (res_login.text.find(<span class="string">'欢迎使用'</span>)) != <span class="number">-1</span>:</span><br><span class="line">    print(<span class="string">'登陆成功！'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'登录失败！请检查「登录信息」一栏用户名及密码是否正确'</span>)</span><br><span class="line">    <span class="keyword">if</span> user_config.SC_switcher == <span class="number">1</span>:</span><br><span class="line">        Pusher.sc_push_when_login_failed(self)</span><br><span class="line">    exit()</span><br></pre></td></tr></table></figure>
+<p>至此我们已经成功登入学校 CAS 系统，接下来需要到 <code>yqtb.nwpu.edu.cn</code> 进行健康状况的申报。</p>
+<h3 id="1-3-填报信息的初始化">1.3 填报信息的初始化</h3>
+<h4 id="1-3-1-准备工作（获取-Cookie）">1.3.1 准备工作（获取 Cookie）</h4>
+<p>在来到疫情填报页面前，我们还需要观察 <code>url_cas_login</code> 在登录成功后返回的 cookie：它携带了此前生成的第一个 cookie <code>SESSION</code>，且又生成了第二个 cookie <code>TGC</code>。<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/Auto_Reporter_For_COVID19/3.png" alt=""></p>
+<p>利用 <code>session.cookies.values()</code> 来得到已经获取的 cookie 列表，分别存入 header。</p>
+<p>紧接着访问疫情填报页面 <code>url_jrsb</code>，发现又生成了第三个 cookie <code>JSESSIONID</code>。这里先将其储存到 <code>header_for_init</code>，否则后续在 <code>yqtb.nwpu.edu.cn</code> 执行的步骤会因为缺少 cookie 传递而失败。<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/Auto_Reporter_For_COVID19/4.png" alt=""></p>
+<p>在代码中即是先伪造一次对 <code>url_Form</code> 的请求<span class="heimu" title="你知道的太多了">简单来说就是「我就蹭蹭不进去」</span>，目的是为了「骗」到 <code>JSESSIONID</code>。</p>
+<p>至此，全流程所需的三个 cookie 都已经获取成功，这样就可以为接下来的初始化信息与 POST 表单所用。<br>
+这时可以正式登入疫情填报页面。通过抓包发现，这里需要此前获得的 <code>TGC</code> 作为 ticket 来从 UIS 跳转到 yqtb，同时 <code>header</code> 需要携带 <code>JSESSIONID</code>。故构造 <code>header_for_init</code> 和 <code>data_for_init </code> 来 POST：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">header_for_init = &#123;</span><br><span class="line">    <span class="string">'User-Agent'</span>:</span><br><span class="line">        <span class="string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.26 Safari/537.36'</span>,</span><br><span class="line">    <span class="string">'Hsost'</span>: <span class="string">'yqtb.nwpu.edu.cn'</span>,</span><br><span class="line">    <span class="string">'cookie'</span>: <span class="string">'JSESSIONID='</span> + str((self.session.cookies.values()[<span class="number">2</span>])),</span><br><span class="line">    <span class="string">'accept'</span>:</span><br><span class="line">        <span class="string">'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'</span>,</span><br><span class="line">    <span class="string">'upgrade-insecure-requests'</span>: <span class="string">'1'</span>,</span><br><span class="line">    <span class="string">'cache-control'</span>: <span class="string">'no-cache'</span></span><br><span class="line">&#125;</span><br><span class="line">data_for_init = &#123;</span><br><span class="line">    <span class="string">'ticket'</span>:</span><br><span class="line">        str((self.session.cookies.values()[<span class="number">1</span>])),</span><br><span class="line">    <span class="string">'targetUrl'</span>:</span><br><span class="line">        <span class="string">'base64aHR0cDovL3lxdGIubndwdS5lZHUuY24vL3d4L3hnL3l6LW1vYmlsZS9pbmRleC5qc3A='</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>之后就可以获取其他的信息进行初始化了。</p>
+<h4 id="1-3-2-初始化">1.3.2 初始化</h4>
+<div class="note info">
+            <p class='p subtitle'>请注意</p>在阅读「1.3.2 初始化」前，建议先阅读「1.4 获取 Form 信息」来熟悉疫情填报表单中所需要动态获取的属性。该步骤的意义在于获取上一次填报的数据。
+          </div>
+<p>这一部分通过解析 <code>/wx/ry/jrsb.jsp</code> 中 js 包含的部分信息，来提取稍后在表单中需要被 POST 出去的数据。<br>
+将这些值赋予填报实例 <code>self</code> 的对应属性，方便后续操作。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 `/wx/ry/jrsb.jsp` 页面中，获取 `timeStamp` &amp; `sign`。</span></span><br><span class="line">res_jrsb = self.session.post(url_jrsb,</span><br><span class="line">                                data=data_for_init,</span><br><span class="line">                                headers=header_for_init)</span><br><span class="line">self.timeStamp = re.findall(re.compile(<span class="string">'(?&lt;=&amp;timeStamp=).*(?=\')'</span>),</span><br><span class="line">                            res_jrsb.text)[<span class="number">0</span>]</span><br><span class="line">self.sign = re.findall(re.compile(<span class="string">'(?&lt;=sign=).*(?=&amp;)'</span>),</span><br><span class="line">                        res_jrsb.text)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在 `/wx/ry/jrsb.jsp` 页面中，获取 `param_data`。</span></span><br><span class="line">param_data_str = re.findall(re.compile(<span class="string">'var paramData = (.*?);'</span>),</span><br><span class="line">                            res_jrsb.text)[<span class="number">2</span>]</span><br><span class="line"><span class="comment"># 再在 `param_data` 中获取 `name`、`xymc`、`xssjhm` 三个信息。</span></span><br><span class="line">self.name = re.findall(re.compile(<span class="string">'(?&lt;=userName:\').*(?=\',szcsbm)'</span>),</span><br><span class="line">                        param_data_str)[<span class="number">0</span>]</span><br><span class="line">self.xymc = re.findall(re.compile(<span class="string">'(?&lt;=xymc:\').*(?=\',)'</span>),</span><br><span class="line">                        param_data_str)[<span class="number">0</span>]</span><br><span class="line">self.xssjhm = re.findall(re.compile(<span class="string">'(?&lt;=xssjhm:\').*(?=\')'</span>),</span><br><span class="line">                            param_data_str)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在 `wx/xg/yz-mobile/rzxx_list.jsp` 中，获取 `szcsmc`，并查 `location.py` 得 `szcsbm`</span></span><br><span class="line">rzxx_list_str = self.session.post(url_rzxx_list, data=data_for_init, headers=header_for_init).text</span><br><span class="line">soup = BeautifulSoup(rzxx_list_str, <span class="string">'html.parser'</span>)</span><br><span class="line">loc_name = soup.find(<span class="string">"span"</span>, attrs=&#123;<span class="string">"class"</span>: <span class="string">"status"</span>&#125;).string</span><br><span class="line">self.szcsmc = loc_name</span><br><span class="line">loc_code = location.get_location(loc_name)</span><br><span class="line"><span class="keyword">if</span> loc_name == <span class="string">"在西安"</span>:</span><br><span class="line">    self.szcsbm = <span class="string">"2"</span></span><br><span class="line"><span class="keyword">elif</span> loc_name == <span class="string">"在学校"</span>:</span><br><span class="line">    self.szcsbm = <span class="string">"1"</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    self.szcsbm = loc_code[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">if</span> self.szcsbm == <span class="string">""</span> <span class="keyword">and</span> loc_name != <span class="string">"在西安"</span> <span class="keyword">and</span> loc_name != <span class="string">"在学校"</span>:</span><br><span class="line">    print(</span><br><span class="line">        <span class="string">"获取上一次填报的信息时出现错误！"</span></span><br><span class="line">        + <span class="string">"\n"</span></span><br><span class="line">        + <span class="string">"请联系作者（通过 Github Issue 或邮箱：i@pm-z.tech）并附上信息填报网站「个人中心→我的打卡」页面的截图，便于定位问题！"</span></span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">if</span> user_config.SC_switcher == <span class="number">1</span>:</span><br><span class="line">        Pusher.sc_push_when_wrong_info(self)</span><br><span class="line">    exit()</span><br><span class="line"></span><br><span class="line">self.hsjc = self.get_last_hsjc_status(data_for_init, header_for_init)</span><br></pre></td></tr></table></figure>
+<p>需要注意的是 <code>szcsbm</code> 的获取，这个数据没有办法通过前端获取的 html 来解析，因此需要通过 <code>location.GetLocation(loc_name)</code> 来进行匹配。因为返回的是一个 <code>list</code>，所以还要把它转换为 <code>str</code>。</p>
+<h3 id="1-4-获取-Form-信息">1.4 获取 Form 信息</h3>
+<p>先手动在浏览器上完成一次健康申报过程，抓包观察 POST 出去的数据，然后在代码中打包。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">header_for_submit = &#123;</span><br><span class="line">    <span class="string">"Host"</span>: <span class="string">"yqtb.nwpu.edu.cn"</span>,</span><br><span class="line">    <span class="string">"Origin"</span>: <span class="string">"http://yqtb.nwpu.edu.cn"</span>,</span><br><span class="line">    <span class="string">"Referer"</span>: <span class="string">"http://yqtb.nwpu.edu.cn/wx/ry/jrsb.jsp"</span>,</span><br><span class="line">    <span class="string">"Content-Type"</span>: <span class="string">"application/x-www-form-urlencoded; charset=UTF-8"</span>,</span><br><span class="line">    <span class="string">"Cookie"</span>: <span class="string">"JSESSIONID="</span> + str((self.session.cookies.values()[<span class="number">2</span>])),</span><br><span class="line">    <span class="string">"user-agent"</span>: <span class="string">"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_16_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.26 Safari/537.36"</span>,</span><br><span class="line">&#125;</span><br><span class="line">self.data_for_submit = &#123;</span><br><span class="line">    <span class="string">'actionType'</span>: <span class="string">'addRbxx'</span>,</span><br><span class="line">    <span class="string">'userLoginId'</span>: self.username,</span><br><span class="line">    <span class="string">'sfjt'</span>: <span class="string">'0'</span>,</span><br><span class="line">    <span class="string">'sfjcry'</span>: <span class="string">'0'</span>,</span><br><span class="line">    <span class="string">'sfjcqz'</span>: <span class="string">'0'</span>,</span><br><span class="line">    <span class="string">'sfjkqk'</span>: <span class="string">'0'</span>,</span><br><span class="line">    <span class="string">'sfyzz'</span>: <span class="string">'0'</span>,</span><br><span class="line">    <span class="string">'sfqz'</span>: <span class="string">'0'</span>,</span><br><span class="line">    <span class="string">'glqk'</span>: <span class="string">'0'</span>,</span><br><span class="line">    <span class="string">'tbly'</span>: <span class="string">'sso'</span>,</span><br><span class="line">    <span class="string">'userType'</span>: <span class="string">'2'</span>,</span><br><span class="line">    <span class="string">'userName'</span>: self.name,</span><br><span class="line">    <span class="string">'bdzt'</span>: <span class="string">'1'</span>,</span><br><span class="line">    <span class="string">'xymc'</span>: self.xymc,</span><br><span class="line">    <span class="string">'xssjhm'</span>: self.xssjhm,</span><br><span class="line">    <span class="string">'szcsmc'</span>: self.szcsmc,</span><br><span class="line">    <span class="string">'szcsbm'</span>: self.szcsbm,</span><br><span class="line">    <span class="string">'hsjc'</span>: self.hsjc,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里面我们会发现一些变量需要动态地从疫情填报网站中获取，例如 <code>name</code>、<code>szcsbm</code>、<code>szcsmc</code> 等，而刚刚「1.3.2 初始化」的步骤就是为了得到这些它们。</p>
+<h3 id="1-5-提交-Form-信息">1.5 提交 Form 信息</h3>
+<p>通过上述操作，我们已经得到了填表所需要动态获取的各个变量。接下来向 <code>url_ry_util</code> post 整个 form，也就是 1.4 部分中所提到的 form。</p>
+<p>篇幅所限这里就省略了，看上面 1.4 吧。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">HeadersForm = &#123;...&#125;</span><br><span class="line">tbDataForm = &#123;...&#125;</span><br></pre></td></tr></table></figure>
+<p>POST 完以后，不出意外学校的服务器已经收到了我们填报的数据，接下来需要对结果进行分析。</p>
+<h3 id="1-6-填报结果判定">1.6 填报结果判定</h3>
+<p><code>self.judge_last_report_is_today(self.get_last_report_time(data_for_init, header_for_init))</code> 的意义：<br>
+判断系统当前日期是否与最后一次填报的日期一致。如条件为 <code>False</code>，则不一致，认为今日未填报，执行 POST；否则跳过 POST 步骤，不再重复填报。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># `self.judge_last_report_is_today(</span></span><br><span class="line"><span class="comment">#       self.get_last_report_time(data_for_init, header_for_init))` 的意义：</span></span><br><span class="line"><span class="comment"># 判断系统当前日期是否与最后一次填报的日期一致。</span></span><br><span class="line"><span class="comment"># 如条件为 `False`，则不一致，认为今日未填报，执行 POST；</span></span><br><span class="line"><span class="comment"># 否则跳过 POST 步骤，不再重复填报。</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> (self.judge_last_report_is_today(self.get_last_report_time(data_for_init, header_for_init))):</span><br><span class="line">    url_ry_util_with_token = url_ry_util + <span class="string">'?sign='</span> + self.sign + <span class="string">'&amp;timeStamp='</span> + self.timeStamp</span><br><span class="line">    self.session.post(url=url_ry_util_with_token,</span><br><span class="line">                        data=self.data_for_submit,</span><br><span class="line">                        headers=header_for_submit)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'今日已填报，无需重复填报！'</span>)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断填报成功</span></span><br><span class="line"><span class="keyword">if</span> (self.judge_last_report_is_today(self.get_last_report_time(data_for_init, header_for_init))):</span><br><span class="line">    print(<span class="string">'申报成功！'</span>)</span><br><span class="line">    <span class="keyword">if</span> user_config.SC_switcher == <span class="number">1</span>:</span><br><span class="line">        Pusher.scPush(self)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'申报失败，请重试！'</span>)</span><br><span class="line">    <span class="keyword">if</span> user_config.SC_switcher == <span class="number">1</span>:</span><br><span class="line">        Pusher.sc_push_when_wrong_info(self)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">judge_last_report_is_today</span><span class="params">(self, report_time)</span>:</span></span><br><span class="line">    report_time = self.string_toDatetime(report_time)</span><br><span class="line">    <span class="keyword">if</span> report_time.date() == datetime.today().date():</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取最近一次填报的时间，判断是否为今天</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_last_report_time</span><span class="params">(self, data, header)</span>:</span></span><br><span class="line">    last_report_time = \</span><br><span class="line">        etree.HTML(self.get_last_report(data, header)).xpath(</span><br><span class="line">            <span class="string">'/html/body/div[1]/div[2]/div/div[2]/div[1]/div[2]/text()'</span>)[<span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> last_report_time</span><br></pre></td></tr></table></figure>
+<h2 id="0x03-程序配置"><strong>0x03 程序配置</strong></h2>
+<p>使该程序正确运行，需要编辑 <code>user_config.py</code> 中的部分变量，配置西工大翱翔门户账号、邮箱信息（可选）。其他文件无需改动。</p>
+<p><code>user_config.py</code> 需要设置的变量如下：</p>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>填入登录翱翔门户的用户名，通常为学工号</td>
+</tr>
+<tr>
+<td><code>password</code></td>
+<td>填入对应用户的密码</td>
+</tr>
+<tr>
+<td><code>SC_switcher</code></td>
+<td>ServerChan 微信推送服务开关，默认开启服务，赋值为 <code>1</code>；填 <code>0</code> 则关闭；<br>如果关闭了该服务则不需要配置 <code>SCKey</code>。</td>
+</tr>
+<tr>
+<td><code>SCKEY</code></td>
+<td>ServerChan 微信推送服务对应的 Key，用于绑定自己的微信。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="0x04-云端部署"><strong>0x04 云端部署</strong></h2>
+<p>这里以阿里云函数计算为例。</p>
+<ol>
+<li>
+<p>首先注册一个阿里云账号，然后在控制台中搜索并进入「函数计算」；<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/upload/README-2022-01-13-17-31-35.png" alt=""></p>
+</li>
+<li>
+<p>点击「服务及函数」；<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/upload/README-2022-01-13-17-34-05.png" alt=""></p>
+</li>
+<li>
+<p>选择「创建服务」并输入服务名称（可自定义）；<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/upload/README-2022-01-13-17-35-42.png" alt=""></p>
+</li>
+<li>
+<p>点击「创建函数」；<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/upload/README-2022-01-13-17-38-24.png" alt=""></p>
+</li>
+<li>
+<p>按图示填入参数；</p>
+<blockquote>
+<p>其中：</p>
+<ul>
+<li>「名称」可自定义；</li>
+<li>「运行环境」选择 <code>Python 3</code>；</li>
+<li>其他选项不变；</li>
+<li>内存规格 128MB 已经足够。</li>
+</ul>
+</blockquote>
+<p><img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/upload/README-2022-01-13-17-39-43.png" alt=""></p>
+</li>
+<li>
+<p>跳转进入「函数详情」页面，在打开的 IDE 终端中，分步执行如下命令安装源码及所需第三方库：</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;Pinming&#x2F;NWPU_COVID19_AutoReport.git</span><br><span class="line">mv .&#x2F;NWPU_COVID19_AutoReport&#x2F;* .</span><br><span class="line">pip install -r requirements.txt -t &#96;pwm&#96;</span><br></pre></td></tr></table></figure>
+<p><img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/upload/README-2022-01-13-20-57-11.png" alt=""></p>
+</li>
+<li>
+<p>在 IDE 中修改 <code>user_config.py</code>，填入相关字段；<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/upload/README-2022-01-13-20-59-07.png" alt=""></p>
+</li>
+<li>
+<p>设置完毕后，点击 IDE 右上角「保存并部署」，完成代码部署；<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/upload/README-2022-01-13-21-01-27.png" alt=""></p>
+</li>
+<li>
+<p>点击左上角「测试函数」，观察运行结果；<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/upload/README-2022-01-13-21-06-13.png" alt=""></p>
+</li>
+<li>
+<p>测试正常后，加入触发器以保证周期触发程序。在页面上方打开「触发器管理」，点击「创建触发器」。</p>
+</li>
+</ol>
+<blockquote>
+<p>其中：</p>
+<ul>
+<li><strong>触发器类型</strong>选择定时触发器；</li>
+<li><strong>名称</strong>可自定义；</li>
+<li><strong>触发方式</strong>可以选择自己认为合适的方式；</li>
+<li>如触发方式选择了 CRON 表达式，表达式可填写为 <code>CRON_TZ=Asia/Shanghai 0 0 1,7,13,19 * * ?</code><br>该表达式即在北京时间每天的 1:00、7:00、13:00、19:00 各执行一次程序。</li>
+</ul>
+</blockquote>
+<p><img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/upload/README-2022-01-13-21-09-54.png" alt=""></p>
+<p>至此便可以实现确定时间间隔的每日自动健康填报。</p>
+<p>收到的微信推送效果如下：<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/upload/Auto_Reporter_For_COVID19-2022-01-13-22-17-02.jpg?x-oss-process=style/2560_90per" alt=""></p>
+<p>如果需要关闭云端的自动填报，在「触发器」菜单中关闭即可。<br>
+<img src="/img/lazyload.png" data-original="https://oss.pm-z.tech/img/upload/README-2022-01-13-21-13-37.png" alt=""></p>
+<div class="note info">
+            <p class='p subtitle'>关于潜在的收费提示</p>在建立函数过程中，你可能会发现关于该功能的收费提示。<br>本函数的请求量、请求时间及耗费公网流量均极小，每天执行三四次水平的请求的花费可以说近似是 0（考虑到会产生公网流量，费用可能是 0 一直写到两位以上小数的水平），请放心。<span class="heimu" title="你知道的太多了">大不了别充钱嘛！</span><br>具体收费标准详见：<a href="https://help.aliyun.com/document_detail/54301.html" target="_blank" rel="noopener">https://help.aliyun.com/document_detail/54301.html</a>
+          </div>
+<h2 id="0xFF-后记"><strong>0xFF 后记</strong></h2>
+<p>这算是我个人第一次爬虫的尝试吧…… 也算是又一次感受到了 Python 的魅力。将整个过程记录下来也算是一种学习和巩固了。</p>
+<p>至于代码本身以及这篇文章写得是相当混乱，可读性是不咋滴【滑稽】，很可能逻辑上也不怎么简洁高效。也希望各位看官多多包涵了，欢迎批评指正！</p>
+<p>后期应该会增加对于 ServerChan 微信推送的支持吧，毕竟这个比 Email 好用多了。</p>
+<div class="note info">
+            <p>关于 ServerChan 的接入已更新。请参阅文章<a href="https://www.pm-z.tech/2020/08/07/Auto_Reporter_For_COVID19_2nd/">『妈妈再也不用担心我忘记填报疫情（Ⅱ）——利用 Server 酱完成填报结果推送』</a>。</p>
+          </div>
+<p>最后，还是期望全人类<span class="heimu" title="你知道的太多了">包括美国</span>能够早日战胜 COVID-19，这个程序早一天失去它的用武之地吧~</p>
+<img src='https://oss.pm-z.tech/RewardCode.jpg/80'>
+
+          
+        </div>
+        
+          
+
+
+  <section class='meta' id="footer-meta">
+    <div class='new-meta-box'>
+      
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Python/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Python</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%88%AC%E8%99%AB/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>爬虫</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%A8%A1%E6%8B%9F%E7%99%BB%E5%BD%95/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>模拟登录</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/request/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>request</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/cookie/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>cookie</p></a></div>
+
+
+        
+      
+    </div>
+  </section>
+
+
+        
+        
+          <div class="prev-next">
+            
+              <a class='prev' href='/2020/08/07/Auto_Reporter_For_COVID19_2nd/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>妈妈再也不用担心我忘记填报疫情（Ⅱ）——利用 Server 酱完成填报结果推送</p>
+                <!-- <p class='content'>抛弃 Email，骑在张小龙的头上推送，舒服辣！
+
+0x00 前言
+
+            本文中提及的部分内容可能已过时Server 酱在本文写成后经历了一次改版，但用法大同小异，请自行参考...</p> -->
+              </a>
+            
+            
+              <a class='next' href='/2020/07/26/playlist-20w31/'>
+                <p class='title'>Pinming 的歌单 | 2020 年第 31 周<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <!-- <p class='content'>本歌单不定期更新，这里都是 Pinming 最近在听的并且希望推荐给大家的歌~
+
+0x01 AURORA | Daydreamer
+词・曲 | Aurora Aksnes &amp; Peter...</p> -->
+              </a>
+            
+          </div>
+        
+      </section>
+    </article>
+  
+
+  
+    <!-- 显示推荐文章和评论 -->
+
+
+
+  <article class="post white-box reveal comments shadow">
+    <section class="article typo">
+      <p ct><i class='fas fa-comments'></i> 评论</p>
+      
+      
+      
+      
+      
+      
+        <section id="comments">
+          <div id="valine_container" class="valine_thread">
+            <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+          </div>
+        </section>
+      
+      
+    </section>
+  </article>
+
+
+  
+
+
+
+
+<!-- 根据页面mathjax变量决定是否加载MathJax数学公式js -->
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+<section class="widget blogger shadow desktop mobile">
+  <div class='content'>
+    
+      
+        <a class='avatar flat-box' href='/about/'>
+          <img no-lazy src='https://www.pm-z.tech/avatar.png'/>
+        </a>
+      
+    
+    
+    
+      <div class="social-wrapper">
+        
+          
+            <a href="mailto:i@pm-z.tech"
+              class="social fas fa-envelope flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://github.com/Pinming"
+              class="social fab fa-github flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://music.163.com/#/user/home?id=92932311"
+              class="social fas fa-headphones-alt flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+          
+            <a href="https://space.bilibili.com/19448112"
+              class="social fab fa-youtube flat-btn"
+              target="_blank"
+              rel="external nofollow noopener noreferrer">
+            </a>
+          
+        
+      </div>
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+
+<section class="widget text shadow desktop mobile">
+  
+  <header>
+    
+      <a href='/about/'><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><span class='name'>自述</span></a>
+    
+  </header>
+
+
+  <div class='content'>
+    
+      <p><i class="fa fa-birthday-cake fa-fw" aria-hidden="true"></i> 2000/12/12</p>
+
+    
+      <p><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i> 现居广东深圳</p>
+
+    
+      <p><i class="fa fa-university fa-fw" aria-hidden="true"></i> 西北工业大学</p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget category shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/Pinming-%E5%92%8C%E4%BB%96%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC/" href="/categories/Pinming-%E5%92%8C%E4%BB%96%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC/"
+            id="categoriesPinming-E5928CE4BB96E79A84E69C8BE58F8BE4BBAC"
+            ><div class='name'>Pinming 和他的朋友们</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E3%80%8C%E6%9C%BA%E3%80%8D%E4%B9%90%E4%B8%96%E7%95%8C/" href="/categories/%E3%80%8C%E6%9C%BA%E3%80%8D%E4%B9%90%E4%B8%96%E7%95%8C/"
+            id="categoriesE3808CE69CBAE3808DE4B990E4B896E7958C"
+            ><div class='name'>「机」乐世界</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%85%AC%E5%91%8A/" href="/categories/%E5%85%AC%E5%91%8A/"
+            id="categoriesE585ACE5918A"
+            ><div class='name'>公告</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/" href="/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"
+            id="categoriesE5BC80E58F91E8AEB0E5BD95"
+            ><div class='name'>开发记录</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%BF%83%E6%83%85%E7%A9%BA%E9%97%B4/" href="/categories/%E5%BF%83%E6%83%85%E7%A9%BA%E9%97%B4/"
+            id="categoriesE5BF83E68385E7A9BAE997B4"
+            ><div class='name'>心情空间</div><div class='badge'>(13)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E8%81%9A%E5%85%89/" href="/categories/%E8%81%9A%E5%85%89/"
+            id="categoriesE8819AE58589"
+            ><div class='name'>聚光</div><div class='badge'>(3)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
+
+  
+    
+    
+
+
+  <section class="widget toc-wrapper shadow desktop mobile">
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0x00-前言"><span class="toc-text">0x00 前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x01-代码实现"><span class="toc-text">0x01 代码实现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-整体流程分析"><span class="toc-text">1.1 整体流程分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-模拟-CAS-登录"><span class="toc-text">1.2 模拟 CAS 登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-填报信息的初始化"><span class="toc-text">1.3 填报信息的初始化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-准备工作（获取-Cookie）"><span class="toc-text">1.3.1 准备工作（获取 Cookie）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-初始化"><span class="toc-text">1.3.2 初始化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-4-获取-Form-信息"><span class="toc-text">1.4 获取 Form 信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-5-提交-Form-信息"><span class="toc-text">1.5 提交 Form 信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-6-填报结果判定"><span class="toc-text">1.6 填报结果判定</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x03-程序配置"><span class="toc-text">0x03 程序配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0x04-云端部署"><span class="toc-text">0x04 云端部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#0xFF-后记"><span class="toc-text">0xFF 后记</span></a></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+<footer class="clearfix ">
+  <br><br>
+
+
+   
+  Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.
+  <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+  <div>
+    本站使用
+    <a href="https://volantis.js.org/" target="_blank">Volantis 为主题</a>
+    |
+    总访问量为
+    <span id="busuanzi_value_site_pv"><i class="fas fa-spinner fa-spin fa-fw" aria-hidden="true"></i></span>
+    次
+  </div>
+  © Pinming 2019-<span id="fyear">2015</span> | All Rights Reserved.<br>
+        <!-- 更新年份 -->
+        <script>
+          document.getElementById('fyear').innerHTML = new Date().getFullYear() + '';
+        </script>
+  <span class="fa fa-heart" aria-hidden="true"></span> <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+    if(interval != null){
+      clearInterval(interval);
+    } // 重置 Interval
+    var now = new Date();
+    // var isLoad = new Boolean(false);
+    function createtime() {
+      var grt = new Date("12/12/2019 00:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+      now.setTime(now.getTime() + 1000);
+      days = (now - grt) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+      hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+      if (String(hnum).length == 1) { hnum = "0" + hnum; } minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+      mnum = Math.floor(minutes); if (String(mnum).length == 1) { mnum = "0" + mnum; }
+      seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+      snum = Math.round(seconds); if (String(snum).length == 1) { snum = "0" + snum; }
+      document.getElementById("timeDate").innerHTML = "本站已运行 " + dnum + " 天 ";
+      document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分钟 " + snum + " 秒";
+      // isLoad(true);
+    }
+    var interval = setInterval("createtime()", 1000);
+    
+    
+  </script>
+  <br />
+  <a href="http://beian.miit.gov.cn/" target="_blank">粤 ICP 备 19139605 号</a> <br />
+  <img src="https://oss.pm-z.tech/110.svg" height="14" width="14" /><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502004717" target="_blank">粤公网安备 44030502004717 号</a>
+
+
+  
+</footer>
+<!-- <script>setLoadingBarProgress(80);</script> -->
+
+        </div>
+        <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+      </div>
+      <div>
+        
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script src="https://oss.pm-z.tech/pjax.min.js"></script>
+
+
+
+<script>
+  
+    var SEARCH_SERVICE = "hexo " || "
+  hexo ";
+  var ROOT = "/" || "/";
+  if (!ROOT.endsWith('/')) ROOT += '/';
+</script>
+
+
+<!--无需处理 - 确认兼容-->
+
+
+<!--无需处理 - 确认兼容-->
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery-backstretch/2.1.17/jquery.backstretch.min.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    var imgs = ["https://oss-qiniu.pm-z.tech/nbimg/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpg", "https://oss-qiniu.pm-z.tech/nbimg/41F215B9-261F-48B4-80B5-4E86E165259E.jpg"];
+    if ('true' == 'true') {
+      function shuffle(arr) {
+        /*From countercurrent-time*/
+        var n = arr.length;
+        while (n--) {
+          var index = Math.floor(Math.random() * n);
+          var temp = arr[index];
+          arr[index] = arr[n];
+          arr[n] = temp;
+        }
+      }
+      shuffle(imgs);
+    }
+    if ('') {
+      $('').backstretch(
+        imgs, {
+          duration: "20000",
+          fade: "1500"
+        });
+    } else {
+      $.backstretch(
+        imgs, {
+          duration: "20000",
+          fade: "1500"
+        });
+    }
+  });
+</script>
+
+
+
+<!--似乎不需要处理-->
+
+
+<!--PS：只对 valine 做了 Pjax 兼容测试-->
+
+
+
+
+
+
+
+
+
+
+<script src="https://www.pm-z.tech/js/valine.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    var valinePath = $.trim($('#valine-path').text()) === "none" ?
+      window.location.pathname : $.trim($('#valine-path').text());
+
+    var valinePlaceholder = $.trim($('#valine-placeholder').text()) === "none" ?
+      "这就看完了？BB 两句再走吧~" : $.trim($('#valine-placeholder').text());
+
+    var ALLPATH = '';
+    if (ALLPATH != '') valinePath = ALLPATH;
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: valinePlaceholder,
+      path: valinePath,
+      appId: "A2M0uswOM4AoTkNJ0MYKiQum-gzGzoHsz",
+      appKey: "lY0S03ALVr8MXCOFpIURMa6r",
+      pageSize: '10',
+      avatar: 'retro',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+
+    })
+  }
+
+  $(function() {
+    pjax_valine();
+  });
+</script>
+
+
+
+<!-- 复制 -fix -->
+
+<script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
+<script>
+function wait(callback,seconds){var timelag=null;timelag=window.setTimeout(callback,seconds)}function pjax_initCopyCode(){var copyHtml='';copyHtml+='<button class="btn-copy" data-clipboard-snippet="">';copyHtml+='<i class="fas fa-copy"></i><span>COPY</span>';copyHtml+='</button>';$(".highlight .code pre").before(copyHtml);$(".article pre code").before(copyHtml);var clipboard=new ClipboardJS('.btn-copy',{target:function(trigger){return trigger.nextElementSibling}});clipboard.on('success',function(e){$.message({title:'复制成功',message:"代码已复制，请遵守相关授权协议。",type:'success'});let $btn=$(e.trigger);$btn.addClass('copied');let $icon=$($btn.find('i'));$icon.removeClass('fa-copy');$icon.addClass('fa-check-circle');let $span=$($btn.find('span'));$span[0].innerText='COPIED';wait(function(){$icon.removeClass('fa-check-circle');$icon.addClass('fa-copy');$span[0].innerText='COPY'},2000)});clipboard.on('error',function(e){e.clearSelection();let $btn=$(e.trigger);$btn.addClass('copy-failed');let $icon=$($btn.find('i'));$icon.removeClass('fa-copy');$icon.addClass('fa-times-circle');let $span=$($btn.find('span'));$span[0].innerText='COPY FAILED';wait(function(){$icon.removeClass('fa-times-circle');$icon.addClass('fa-copy');$span[0].innerText='COPY'},2000)})}$(function(){pjax_initCopyCode()});
+</script>
+
+<!-- ******************************** -->
+
+<!--scrollreveal -fix -->
+
+<script src="https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+<script type="text/javascript">
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '8px',
+      duration: '800',
+      interval: '100',
+      scale: '1'
+    });
+  }
+
+  $(function() {
+    pjax_scrollrebeal();
+  });
+</script>
+
+<!-- ******************************** -->
+
+<!-- fancybox -fix -->
+<script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<script>
+  function pjax_fancybox() {
+    $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".article-entry").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  $(function () {
+    pjax_fancybox();
+  });
+</script>
+
+<!-- ******************************** -->
+
+<!--主要的 JS 文件-->
+
+
+<script src="/js/app.js"></script>
+
+
+
+<!--fix-->
+
+
+
+<script src="/js/search.js"></script>
+
+
+
+
+<!--重新加载即可-->
+
+<script defer src="https://oss.pm-z.tech/busuanzi.pure.mini.js" data-pjax></script>
+
+
+<!--无需处理-->
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/node-waves/0.7.6/waves.min.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    Waves.attach('.flat-btn', ['waves-button']);
+    Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+    Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+    Waves.attach('.flat-box', ['waves-block']);
+    Waves.attach('.float-box', ['waves-block', 'waves-float']);
+    Waves.attach('.waves-image');
+    Waves.init();
+  });
+</script>
+
+
+<!--无需处理-->
+
+
+<!--无需处理 ？-->
+
+
+
+
+
+<script src="/js/message.js"></script>
+
+
+<!-- <script type="text/javascript">
+  var t = 7.9;
+  t = t.toFixed(1); 
+  setInterval("refer()", 100);
+  function refer() {
+    if (t < 0) {
+      t = 0;
+      return 0;
+    }
+    document.getElementById('show').innerHTML = t;
+    t = t - 0.1;
+    t = t.toFixed(1); 
+  } 
+</script> -->
+
+<script>
+  var t = 7.9;
+  t = t.toFixed(1);
+  setInterval("refer()", 100);
+
+  function refer() {
+    if (t < 0) {
+      t = 0;
+      return 0;
+    }
+    if (document.getElementById('show') != null) {
+      document.getElementById('show').innerHTML = t;
+    }
+    t = t - 0.1;
+    t = t.toFixed(1);
+  }
+
+  $(document).ready(function() {
+    NProgress.done();
+
+     // if (theme.plugins.aplayer.enable == true && theme.plugins.aplayer.autoplay == true)
+    var isplay = true;
+    $.message({
+      title: '<b>音乐播放</b>',
+      message: '<span id="show">8.0</span> 秒后播放音乐，点击<a class="stopMusic">停止播放</a>',
+      type: 'warning'
+    });
+    setTimeout(function() {
+      if (isplay)
+        ap.play();
+    }, 8000)
+    $(".stopMusic").click(function() {
+      $(".c-message--close").click();
+      isplay = false;
+    })
+    
+  });
+
+
+  var pjax;
+  document.addEventListener('DOMContentLoaded', function() {
+    pjax = new Pjax({
+      elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+      selectors: [
+        "title",
+        "meta[name=description]",
+        "meta[name=keywords]",
+        "meta[name=name]",
+        "meta[name=wechatimg]",
+        "meta[name=image]",
+        "#pjax-container"
+      ],
+      cacheBust: false, // url 地址追加时间戳，用以避免浏览器缓存
+      timeout: '5000'
+    });
+  });
+
+  document.addEventListener('pjax:send', function() {
+    window.stop(); // 相当于点击了浏览器的停止按钮
+    window.subData = null; // 移除标题（用于一二级导航栏切换处）
+
+    $.fancybox.close(); // 关闭弹窗，曾经有人提过个BUG，在查看图片时浏览器返回上一页后，弹窗无法关闭了
+
+    $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+    $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+    $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+    $(window).unbind('resize'); // 解绑
+    $(window).unbind('scroll'); // 解绑
+    $(window).unbind('click'); // 解绑
+    $(document).unbind('scroll'); // 解绑
+
+    NProgress.start();
+  });
+
+  document.addEventListener('pjax:complete', function() {
+
+    $('script[data-pjax], .pjax-reload script').each(function() {
+      $(this).parent().append($(this).remove());
+    });
+
+    try {
+      pjax_fancybox();
+      
+      pjax_scrollrebeal();
+      
+      
+      pjax_initCopyCode();
+      
+      
+      pjax_valine();
+      
+    } catch (e) {
+      console.log(e);
+    }
+
+    NProgress.done();
+  });
+
+  document.addEventListener('pjax:error', function() {
+    NProgress.done();
+    $.message({
+      title: '事件通知',
+      message: "链接加载失败，执行强制刷新！",
+      type: 'warning'
+    });
+    window.location.href = event.triggerElement.href;
+  });
+</script>
+      </div>
+
+  <script id="pjax-container">
+            window.imageLazyLoadSetting = {
+                isSPA: true,
+                processImages: null,
+            };
+        </script><script id>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script id>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+
+</html>

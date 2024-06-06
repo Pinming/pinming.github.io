@@ -3,71 +3,6 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
-  <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js"  id="pjax-container"></script>
-  <!-- WXSDK-NewestModified -->
-  <script id="pjax-container">
-    url = location.href.split("#")[0]
-    $.ajax({
-      type: "get",
-      url: "https://server.pm-z.tech/jssdk/jssdk.php?url=" + encodeURIComponent(url),
-      dataType: "jsonp",
-      jsonp: "callback",
-      jsonpCallback: "success_jsonpCallback",
-      success: function (data) {
-        wx.config({
-          debug: false,
-          appId: data.appId,
-          timestamp: data.timestamp,
-          nonceStr: data.nonceStr,
-          signature: data.signature,
-          jsApiList: [
-            "onMenuShareTimeline",
-            "onMenuShareAppMessage",
-            "onMenuShareQQ",
-            "onMenuShareWeibo" /*
-           "updateAppMessageShareData", //new * 2
-           "updateTimelineShareData" */
-          ]
-        });
-      },
-    });
-    wx.ready(function () {
-      // var shareData = {
-      wx.onMenuShareTimeline({
-        title: document.title, // 分享标题
-        link: location.href.split("#")[0],
-        imgUrl: 'https://www.pm-z.tech/favicon512.png',
-        success: function () {
-        }
-      });
-
-      wx.onMenuShareAppMessage({
-        title: document.title, // 分享标题
-        desc: '欢迎来到 Pinming 的小站~',
-        link: location.href.split("#")[0],
-        imgUrl: 'https://www.pm-z.tech/favicon512.png',
-        success: function () {
-        }
-      });
-
-      wx.onMenuShareQQ({
-        title: document.title, // 分享标题
-        link: location.href.split("#")[0],
-        imgUrl: 'https://www.pm-z.tech/favicon512.png',
-        success: function () {
-        }
-      });
-
-      wx.onMenuShareWeibo({
-        title: document.title, // 分享标题
-        link: location.href.split("#")[0],
-        imgUrl: 'https://www.pm-z.tech/favicon512.png',
-        success: function () {
-        }
-      });
-    });
-  </script>
 </head>
 <!-- 音频播放 -->
 <style>
@@ -77,13 +12,15 @@
 </style>
 <link rel="stylesheet" href="/css/APlayer.min.css">
 <div id="aplayer"></div>
-<script type="text/javascript" src="https://cdn.bootcss.com/aplayer/1.10.1/APlayer.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/aplayer/1.10.1/APlayer.min.js"></script>
 <script type="text/javascript" src="/dist/music.js"></script>
 
+
+
 <!-- 一言API -->
-<script src="https://cdn.jsdelivr.net/npm/bluebird@3/js/browser/bluebird.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@2.0.3/fetch.min.js"></script>
-<script>
+<script src="https://cdn.bootcdn.net/ajax/libs/bluebird/3.7.2/bluebird.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/fetch/2.0.1/fetch.min.js"></script>
+<script id="pjax-container">
   fetch('https://server.pm-z.tech/hito/hito.php')
     .then(response => response.json())
     .then(data => {
@@ -158,15 +95,28 @@
 
   <!-- 页面元数据 -->
   
-  <title>Pinming 的歌单 | 2019 年第 50 周 - Pinming&#39;s Blog</title>
+  <title>
+  Pinming 的歌单 | 2019 年第 50 周 - Pinming&#39;s Blog</title>
   
     <meta name="keywords" content="歌单">
   
 
   
-    <meta name="description" content="本歌单不定期更新，这里都是 Pinming 最近在听的并且希望推荐给大家的歌~">
+    <meta name="description" itemprop="description"  content="本歌单不定期更新，这里都是 Pinming 最近在听的并且希望推荐给大家的歌~">
   
 
+  
+    <meta name="wechatimg" content="https://www.pm-z.tech/favicon256.jpg">
+  
+
+  
+    <meta name="name" itemprop="name" content="Pinming 的歌单 | 2019 年第 50 周" />
+  
+
+  
+    <meta name="image" itemprop="image" content="https://www.pm-z.tech/favicon256.jpg" />
+  
+  
   <!-- feed -->
   
 
@@ -174,15 +124,15 @@
   
 
   <!-- link -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13/css/all.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.css">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.css">
   
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
 
 
   
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.css">
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/node-waves/0.7.6/waves.min.css">
 
   
 
@@ -204,7 +154,7 @@
 
   
 
-  <script src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+  <script src="https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/nprogress.js"></script>
 
   
   
@@ -221,8 +171,113 @@
   </script>
 </head>
 
-<body>
-  
+
+  <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://res.wx.qq.com/open/js/jweixin-1.6.0.js" id="pjax-container"></script>
+  <!-- WXSDK-NewestModified -->
+  <script id="pjax-container">
+    // 加入 pjax-id，保证每次刷新时重加载
+    url = location.href.split("#")[0]
+    x = document.getElementsByTagName("meta").description.content
+    if (x == null || x == "" || x == undefined) {
+      // 判断 desc 使其与 front-matter 中 description 取值一致
+      desc1 = "欢迎来到 Pinming 的小站~"
+      // 缺省值：没有指定 desc 的情况
+    } else {
+      desc1 = x
+    }
+
+    wechatimg = "https://www.pm-z.tech/favicon512.png"
+    if (document.getElementsByTagName("meta").wechatimg.content != undefined) {
+      wechatimg = document.getElementsByTagName("meta").wechatimg.content
+    }
+
+
+    $.ajax({
+      type: "get",
+      url: "https://server.pm-z.tech/jssdk/jssdk.php?url=" + encodeURIComponent(url),
+      dataType: "jsonp",
+      jsonp: "callback",
+      jsonpCallback: "success_jsonpCallback",
+      success: function (data) {
+        wx.config({
+          debug: false,
+          appId: data.appId,
+          timestamp: data.timestamp,
+          nonceStr: data.nonceStr,
+          signature: data.signature,
+          jsApiList: [
+            "onMenuShareTimeline",
+            "onMenuShareAppMessage",
+            "onMenuShareQQ",
+            "onMenuShareWeibo",
+            "updateAppMessageShareData",
+            "updateTimelineShareData"
+          ]
+        });
+      },
+    });
+
+    wx.ready(function () {
+      wx.updateAppMessageShareData({
+        title: document.title,
+        desc: desc1,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+          console.log("success_wx.updateAppMessageShareData")
+          // 设置成功
+        }
+      });
+
+      wx.updateTimelineShareData({
+        title: document.title,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+          console.log("success_wx.updateTimelineShareData")
+          // 设置成功
+        }
+      });
+
+      wx.onMenuShareTimeline({
+        title: document.title,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+        }
+      });
+
+      wx.onMenuShareAppMessage({
+        title: document.title,
+        desc: desc1,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+        }
+      });
+
+      wx.onMenuShareQQ({
+        title: document.title,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+        }
+      });
+
+      wx.onMenuShareWeibo({
+        title: document.title,
+        link: location.href.split("#")[0],
+        imgUrl: wechatimg,
+        success: function () {
+        }
+      });
+    });
+  </script>
+
+
+  <body>
+    
 <div class="cover-wrapper">
   <cover class='cover post' style="display: none;">
     <div class='cover-body'>
@@ -482,9 +537,9 @@
 </div>
 
 
-  <div class="l_body">
-    <div class='body-wrapper' id="pjax-container">
-      <!--此文件用来存放一些不方便取值的变量-->
+      <div class="l_body">
+        <div class='body-wrapper' id="pjax-container">
+          <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 
@@ -522,7 +577,7 @@
     }
 </script>
 
-      
+            
 
 <div class='l_main'>
   
@@ -554,7 +609,7 @@
             
               
 <div class='new-meta-item author'>
-  <a href="https://www.pm-z.tech" target="_blank" rel="nofollow noopener">
+  <a href="https://www.pm-z.tech" rel="nofollow">
     <img no-lazy src="https://www.pm-z.tech/favicon512.png">
     <p>Pinming</p>
   </a>
@@ -622,7 +677,9 @@
 那么　我可以呼唤你的名字吗</em></p>
 </blockquote>
 <p>本曲原唱（米津玄师 - アイネクライネ）MV | <a href="https://www.bilibili.com/video/av76989947" target="_blank" rel="noopener">(BiliBili)</a></p>
-<iframe id=sbrxp src="https://player.bilibili.com/player.html?aid=76989947&cid=131719764&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "></iframe>
+<div style="position: relative; padding: 30% 45%;">
+<iframe src="//player.bilibili.com/player.html?aid=76989947&cid=131719764&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe>
+</div>
 <h2 id="0x02-H△G-桜流星群"><strong>0x02 H△G | <a href="https://music.163.com/song?id=1354813194&amp;userid=92932311" target="_blank" rel="noopener">桜流星群</a></strong></h2>
 <p>词 · 曲 | H△G<br>
 首发 | 2019/3/27</p>
@@ -655,7 +712,9 @@
 蓝色汽水的味道　稚嫩而摇摆的感情</em></p>
 </blockquote>
 <p>本曲 MV | <a href="https://www.bilibili.com/video/av65948826" target="_blank" rel="noopener">(BiliBili)</a></p>
-<iframe id=sbrxp src="https://player.bilibili.com/player.html?aid=65948826&cid=114409000&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "></iframe>
+<div style="position: relative; padding: 30% 45%;">
+<iframe src="//player.bilibili.com/player.html?aid=65948826&cid=114409000&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe>
+</div>
 <h2 id="0x04-daoko-はじめましての気持ちを"><strong>0x04 daoko | <a href="https://music.163.com/song?id=1389088985&amp;userid=92932311" target="_blank" rel="noopener">はじめましての気持ちを</a></strong></h2>
 <p>词 | daoko　　曲 | 神山羊<br>
 首发 | 2019/9/4<br>
@@ -673,9 +732,13 @@
 与初次体会的情感</em></p>
 </blockquote>
 <p>本曲 MV | <a href="https://www.bilibili.com/video/av69526256" target="_blank" rel="noopener">(BiliBili)</a></p>
-<iframe id=sbrxp src="https://player.bilibili.com/player.html?aid=69526256&cid=120501910&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "></iframe>
+<div style="position: relative; padding: 30% 45%;">
+<iframe src="//player.bilibili.com/player.html?aid=69526256&cid=120501910&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe>
+</div>
 <p>Pinming 的信仰之作 <a href="https://www.bilibili.com/video/av70447482" target="_blank" rel="noopener">【高木同学】完结纪念 | 初遇之感 / はじめましての気持ちを</a> 也使用了本曲！欢迎来点赞投币收藏三连！</p>
-<iframe id=sbrxp src="https://player.bilibili.com/player.html?aid=70447482&cid=122044797&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "></iframe>
+<div style="position: relative; padding: 30% 45%;">
+<iframe src="//player.bilibili.com/player.html?aid=70447482&cid=122044797&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe>
+</div>
 <h2 id="0x05-Bastille-Joy"><strong>0x05 Bastille | <a href="https://music.163.com/song?id=1362743618&amp;userid=92932311" target="_blank" rel="noopener">Joy</a></strong></h2>
 <p>词 · 曲 | Dam Smith<br>
 首发 | 2019/5/2<br>
@@ -692,13 +755,17 @@ How’d you always know when I’m down? <br><br>
 你为何总能了解我深陷的绝望</em></p>
 </blockquote>
 <p>本曲现场版 | <a href="https://www.bilibili.com/video/av62017118" target="_blank" rel="noopener">(BiliBili)</a></p>
-<iframe id=sbrxp src="https://player.bilibili.com/player.html?aid=62017118&cid=107817326&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "></iframe>
+<div style="position: relative; padding: 30% 45%;">
+<iframe src="//player.bilibili.com/player.html?aid=62017118&cid=107817326&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe>
+</div>
 <h2 id="0x06-DJ-Shadow-Rocket-Fuel-feat-De-La-Soul"><strong>0x06 DJ Shadow | <a href="https://music.163.com/song?id=1379819374&amp;userid=92932311" target="_blank" rel="noopener">Rocket Fuel (feat. De La Soul)</a></strong></h2>
 <p>词 · 曲 | Joshua Davis, Kelvin Mercer, David Jude Jolicoeur, Gary DeCarlo, Paul Leka &amp; Dale Frashuer<br>
 首发 | 2019/7/24<br>
 ( 苹果 2019 秋季发布会 暖场音乐 )<br>
 本曲 MV | <a href="https://www.bilibili.com/video/av75741236" target="_blank" rel="noopener">(BiliBili)</a></p>
-<iframe id=sbrxp src="https://player.bilibili.com/player.html?aid=75741236&cid=129572689&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "></iframe>
+<div style="position: relative; padding: 30% 45%;">
+<iframe src="//player.bilibili.com/player.html?aid=75741236&cid=129572689&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe>
+</div>
 <h2 id="0x07-Westlife-One-Last-Time"><strong>0x07 Westlife | <a href="https://music.163.com/song?id=1403714051&amp;userid=92932311" target="_blank" rel="noopener">One Last Time</a></strong></h2>
 <p>词 · 曲 | Steve Mac &amp; Ed Sheeran<br>
 首发 | 2019/11/15<br>
@@ -732,7 +799,9 @@ Oh come and say that you love me one last time<br><br>
 不只是想保护你　而是想成为你独一无二的依靠</em></p>
 </blockquote>
 <p>本曲 Original Version MV | <a href="https://www.bilibili.com/video/av74651782" target="_blank" rel="noopener">(BiliBili)</a></p>
-<iframe id=sbrxp src="https://player.bilibili.com/player.html?aid=74651782&cid=127690122&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "></iframe>
+<div style="position: relative; padding: 30% 45%;">
+<iframe src="//player.bilibili.com/player.html?aid=74651782&cid=127690122&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe>
+</div>
 <h2 id="0x09-RADWIMPS-オーダーメイド"><strong>0x09 RADWIMPS | <a href="https://music.163.com/song?id=803950&amp;userid=92932311" target="_blank" rel="noopener">オーダーメイド</a></strong></h2>
 <p>词 · 曲 | 野田洋次郎<br>
 首发 | 2008/1/23<br>
@@ -748,7 +817,9 @@ Oh come and say that you love me one last time<br><br>
 这种感情叫做什么呢？</em></p>
 </blockquote>
 <p>本曲 MV | <a href="https://www.bilibili.com/video/av26907719" target="_blank" rel="noopener">(BiliBili)</a></p>
-<iframe id=sbrxp src="https://player.bilibili.com/player.html?aid=26907719&cid=46334556&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 720px; height: 400px; max-width: 100%; "></iframe>
+<div style="position: relative; padding: 30% 45%;">
+<iframe src="//player.bilibili.com/player.html?aid=26907719&cid=46334556&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;"></iframe>
+</div>
 <h2 id="0x0A-高橋李依-キセキ"><strong>0x0A 高橋李依 | <a href="https://y.qq.com/n/yqq/song/003SllzX0WnD0V.html" target="_blank" rel="noopener">キセキ</a></strong></h2>
 <p>词 · 曲 · <a href="https://music.163.com/song?id=733149&amp;userid=92932311" target="_blank" rel="noopener">原唱</a> | GReeeeN　　编曲 | 久下真音<br>
 首发 | 2019/7/21<br>
@@ -788,7 +859,7 @@ Oh come and say that you love me one last time<br><br>
 本次歌单所有能够添加的歌曲已在网易云建立<a href="https://music.163.com/playlist?id=3043228305&amp;userid=92932311" target="_blank" rel="noopener">歌单</a>，欢迎来跟我一起听歌！<br>
 虽然听歌品味不尽相同，但也希望大家能够喜欢！一首歌，就是一个故事。</p>
 <p>p.s. 第三首曲目**<code>H△G — 宵待ち花火 -Another Version-</code>** 网易云没有版权…… 因此没有收录于歌单。想了解本曲详情可以<a href="https://www.xiami.com/song/8IYBQzf4fe2" target="_blank" rel="noopener">点击这里</a>跳转去虾米网~</p>
-<p><img src="https://i.loli.net/2019/12/11/o4zQ2tSZduR3rfP.jpg" alt=""></p>
+<p><img src="/img/lazyload.png" data-original="https://i.loli.net/2019/12/11/o4zQ2tSZduR3rfP.jpg" alt=""></p>
 
           
         </div>
@@ -817,11 +888,20 @@ Oh come and say that you love me one last time<br><br>
         
           <div class="prev-next">
             
-              <a class='prev' href='/2019/12/12/HelloWorld/'>
-                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Hello World | 这破站是干啥的？</p>
-                <p class='content'>1234567# include &lt;iostream&gt;using namespace std;int main()&#123;    cout &lt;&lt; "Hello Wor...</p>
+              <a class='prev' href='/2019/12/24/playlist-19w52/'>
+                <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>Pinming 的歌单 | 2019 年第 52 周</p>
+                <!-- <p class='content'>本歌单不定期更新，这里都是 Pinming 最近在听的并且希望推荐给大家的歌~
+
+0x01 刘德华 | 十七岁
+词 | 许志宗、Jone Chui、刘德华　曲 | 许志宗、Jone Chui
+首...</p> -->
               </a>
             
+            
+              <a class='next' href='/2019/12/12/HelloWorld/'>
+                <p class='title'>Hello World | 这破站是干啥的？<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+                <!-- <p class='content'>1234567# include &lt;iostream&gt;using namespace std;int main()&#123;    cout &lt;&lt; "Hello Wor...</p> -->
+              </a>
             
           </div>
         
@@ -923,6 +1003,87 @@ Oh come and say that you love me one last time<br><br>
   
 
   
+    
+    
+
+<section class="widget text shadow desktop mobile">
+  
+  <header>
+    
+      <a href='/about/'><i class="fa fa-info-circle fa-fw" aria-hidden="true"></i><span class='name'>自述</span></a>
+    
+  </header>
+
+
+  <div class='content'>
+    
+      <p><i class="fa fa-birthday-cake fa-fw" aria-hidden="true"></i> 2000/12/12</p>
+
+    
+      <p><i class="fa fa-map-marker fa-fw" aria-hidden="true"></i> 现居广东深圳</p>
+
+    
+      <p><i class="fa fa-university fa-fw" aria-hidden="true"></i> 西北工业大学</p>
+
+    
+  </div>
+</section>
+
+  
+
+  
+    
+    
+  
+
+  <section class="widget category shadow desktop mobile">
+    
+  <header>
+    
+      <a href='/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+    
+  </header>
+
+
+    <div class='content'>
+      <ul class="entry navigation">
+        
+          <li><a class="flat-box"
+            title="/categories/Pinming-%E5%92%8C%E4%BB%96%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC/" href="/categories/Pinming-%E5%92%8C%E4%BB%96%E7%9A%84%E6%9C%8B%E5%8F%8B%E4%BB%AC/"
+            id="categoriesPinming-E5928CE4BB96E79A84E69C8BE58F8BE4BBAC"
+            ><div class='name'>Pinming 和他的朋友们</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E3%80%8C%E6%9C%BA%E3%80%8D%E4%B9%90%E4%B8%96%E7%95%8C/" href="/categories/%E3%80%8C%E6%9C%BA%E3%80%8D%E4%B9%90%E4%B8%96%E7%95%8C/"
+            id="categoriesE3808CE69CBAE3808DE4B990E4B896E7958C"
+            ><div class='name'>「机」乐世界</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%85%AC%E5%91%8A/" href="/categories/%E5%85%AC%E5%91%8A/"
+            id="categoriesE585ACE5918A"
+            ><div class='name'>公告</div><div class='badge'>(1)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/" href="/categories/%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/"
+            id="categoriesE5BC80E58F91E8AEB0E5BD95"
+            ><div class='name'>开发记录</div><div class='badge'>(4)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E5%BF%83%E6%83%85%E7%A9%BA%E9%97%B4/" href="/categories/%E5%BF%83%E6%83%85%E7%A9%BA%E9%97%B4/"
+            id="categoriesE5BF83E68385E7A9BAE997B4"
+            ><div class='name'>心情空间</div><div class='badge'>(13)</div></a></li>
+        
+          <li><a class="flat-box"
+            title="/categories/%E8%81%9A%E5%85%89/" href="/categories/%E8%81%9A%E5%85%89/"
+            id="categoriesE8819AE58589"
+            ><div class='name'>聚光</div><div class='badge'>(3)</div></a></li>
+        
+      </ul>
+    </div>
+  </section>
+
+
+  
 
   
     
@@ -970,83 +1131,103 @@ Oh come and say that you love me one last time<br><br>
         <script>
           document.getElementById('fyear').innerHTML = new Date().getFullYear() + '';
         </script>
+  <span class="fa fa-heart" aria-hidden="true"></span> <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+    if(interval != null){
+      clearInterval(interval);
+    } // 重置 Interval
+    var now = new Date();
+    // var isLoad = new Boolean(false);
+    function createtime() {
+      var grt = new Date("12/12/2019 00:00:00");//在此处修改你的建站时间，格式：月/日/年 时:分:秒
+      now.setTime(now.getTime() + 1000);
+      days = (now - grt) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+      hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+      if (String(hnum).length == 1) { hnum = "0" + hnum; } minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+      mnum = Math.floor(minutes); if (String(mnum).length == 1) { mnum = "0" + mnum; }
+      seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+      snum = Math.round(seconds); if (String(snum).length == 1) { snum = "0" + snum; }
+      document.getElementById("timeDate").innerHTML = "本站已运行 " + dnum + " 天 ";
+      document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分钟 " + snum + " 秒";
+      // isLoad(true);
+    }
+    var interval = setInterval("createtime()", 1000);
+    
+    
+  </script>
   <br />
   <a href="http://beian.miit.gov.cn/" target="_blank">粤 ICP 备 19139605 号</a> <br />
-  <img src="https://pinmingblog.oss-cn-hongkong.aliyuncs.com/ghs.png" height="14" width="14" /><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502004717" target="_blank">粤公网安备 44030502004717 号</a>
+  <img src="https://oss.pm-z.tech/110.svg" height="14" width="14" /><a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=44030502004717" target="_blank">粤公网安备 44030502004717 号</a>
 
 
   
 </footer>
 <!-- <script>setLoadingBarProgress(80);</script> -->
 
-    </div>
-    <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
-  </div>
-  <div>
-    
+        </div>
+        <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+      </div>
+      <div>
+        
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+<script src="https://oss.pm-z.tech/pjax.min.js"></script>
 
 
 
-  <script>
-    
-    var SEARCH_SERVICE = "hexo" || "hexo";
-    var ROOT = "/" || "/";
-    if (!ROOT.endsWith('/')) ROOT += '/';
-  </script>
-
-
-<!--无许处理 - 确认兼容-->
-
-  <script async src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/instant_page.js" type="module" defer
-          integrity="sha384-OeDn4XE77tdHo8pGtE1apMPmAipjoxUQ++eeJa6EtJCfHlvijigWiJpD7VDPWXV1"></script>
-
-
-<!--无许处理 - 确认兼容-->
-
+<script>
   
-  
-  
-    
-<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+    var SEARCH_SERVICE = "hexo " || "
+  hexo ";
+  var ROOT = "/" || "/";
+  if (!ROOT.endsWith('/')) ROOT += '/';
+</script>
 
-    <script type="text/javascript">
-      $(function(){
-        var imgs=["https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg", "https://cdn.jsdelivr.net/gh/xaoxuu/cdn-wallpaper/abstract/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpeg"];
-        if ('true' == 'true') {
-          function shuffle(arr){
-            /*From countercurrent-time*/
-            var n = arr.length;
-            while(n--) {
-              var index = Math.floor(Math.random() * n);
-              var temp = arr[index];
-              arr[index] = arr[n];
-              arr[n] = temp;
-            }
-          }
-          shuffle(imgs);
+
+<!--无需处理 - 确认兼容-->
+
+
+<!--无需处理 - 确认兼容-->
+
+
+
+
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery-backstretch/2.1.17/jquery.backstretch.min.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    var imgs = ["https://oss-qiniu.pm-z.tech/nbimg/BBC19066-E176-47C2-9D22-48C81EE5DF6B.jpg", "https://oss-qiniu.pm-z.tech/nbimg/41F215B9-261F-48B4-80B5-4E86E165259E.jpg"];
+    if ('true' == 'true') {
+      function shuffle(arr) {
+        /*From countercurrent-time*/
+        var n = arr.length;
+        while (n--) {
+          var index = Math.floor(Math.random() * n);
+          var temp = arr[index];
+          arr[index] = arr[n];
+          arr[n] = temp;
         }
-        if ('') {
-          $('').backstretch(
-            imgs,
-          {
-            duration: "20000",
-            fade: "1500"
-          });
-        } else {
-          $.backstretch(
-            imgs,
-          {
-            duration: "20000",
-            fade: "1500"
-          });
-        }
-      });
-    </script>
-  
+      }
+      shuffle(imgs);
+    }
+    if ('') {
+      $('').backstretch(
+        imgs, {
+          duration: "20000",
+          fade: "1500"
+        });
+    } else {
+      $.backstretch(
+        imgs, {
+          duration: "20000",
+          fade: "1500"
+        });
+    }
+  });
+</script>
+
 
 
 <!--似乎不需要处理-->
@@ -1061,73 +1242,73 @@ Oh come and say that you love me one last time<br><br>
 
 
 
-  
-    
+
+
 <script src="https://www.pm-z.tech/js/valine.js"></script>
 
-  
-  <script>
-    var GUEST_INFO = ['nick', 'mail', 'link'];
-    var meta = 'nick,mail,link'.split(',').filter(function (item) {
-      return GUEST_INFO.indexOf(item) > -1
-    });
-    var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
-    var requiredFields = 'nick,mail'.split(',').filter(function (item) {
-      return REQUIRED_FIELDS.indexOf(item) > -1
-    });
 
-    function emoji(path, idx, ext) {
-      return path + "/" + path + "-" + idx + "." + ext;
-    }
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function(item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
 
-    var emojiMaps = {};
-    for (var i = 1; i <= 101; i++) {
-      emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
-    }
-    for (var i = 1; i <= 4; i++) {
-      emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
-    }
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
 
-    function pjax_valine() {
-      var valinePath = $.trim($('#valine-path').text()) === "none" ?
-              window.location.pathname : $.trim($('#valine-path').text());
+  var emojiMaps = {};
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
 
-      var valinePlaceholder = $.trim($('#valine-placeholder').text()) === "none" ?
-              "这就看完了？BB 两句再走吧~" : $.trim($('#valine-placeholder').text());
+  function pjax_valine() {
+    var valinePath = $.trim($('#valine-path').text()) === "none" ?
+      window.location.pathname : $.trim($('#valine-path').text());
 
-      var ALLPATH = '';
-      if(ALLPATH != '') valinePath = ALLPATH;
+    var valinePlaceholder = $.trim($('#valine-placeholder').text()) === "none" ?
+      "这就看完了？BB 两句再走吧~" : $.trim($('#valine-placeholder').text());
 
-      var valine = new Valine();
-      valine.init({
-        el: '#valine_container',
-        meta: meta,
-        placeholder: valinePlaceholder,
-        path: valinePath,
-        appId: "A2M0uswOM4AoTkNJ0MYKiQum-gzGzoHsz",
-        appKey: "lY0S03ALVr8MXCOFpIURMa6r",
-        pageSize: '10',
-        avatar: 'retro',
-        lang: 'zh-cn',
-        visitor: 'true',
-        highlight: 'true',
-        mathJax: 'false',
-        enableQQ: 'true',
-        requiredFields: requiredFields,
+    var ALLPATH = '';
+    if (ALLPATH != '') valinePath = ALLPATH;
 
-      })
-    }
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: valinePlaceholder,
+      path: valinePath,
+      appId: "A2M0uswOM4AoTkNJ0MYKiQum-gzGzoHsz",
+      appKey: "lY0S03ALVr8MXCOFpIURMa6r",
+      pageSize: '10',
+      avatar: 'retro',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'false',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
 
-    $(function () {
-      pjax_valine();
-    });
-  </script>
+    })
+  }
+
+  $(function() {
+    pjax_valine();
+  });
+</script>
 
 
 
 <!-- 复制 -fix -->
 
-  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"></script>
 <script>
 function wait(callback,seconds){var timelag=null;timelag=window.setTimeout(callback,seconds)}function pjax_initCopyCode(){var copyHtml='';copyHtml+='<button class="btn-copy" data-clipboard-snippet="">';copyHtml+='<i class="fas fa-copy"></i><span>COPY</span>';copyHtml+='</button>';$(".highlight .code pre").before(copyHtml);$(".article pre code").before(copyHtml);var clipboard=new ClipboardJS('.btn-copy',{target:function(trigger){return trigger.nextElementSibling}});clipboard.on('success',function(e){$.message({title:'复制成功',message:"代码已复制，请遵守相关授权协议。",type:'success'});let $btn=$(e.trigger);$btn.addClass('copied');let $icon=$($btn.find('i'));$icon.removeClass('fa-copy');$icon.addClass('fa-check-circle');let $span=$($btn.find('span'));$span[0].innerText='COPIED';wait(function(){$icon.removeClass('fa-check-circle');$icon.addClass('fa-copy');$span[0].innerText='COPY'},2000)});clipboard.on('error',function(e){e.clearSelection();let $btn=$(e.trigger);$btn.addClass('copy-failed');let $icon=$($btn.find('i'));$icon.removeClass('fa-copy');$icon.addClass('fa-times-circle');let $span=$($btn.find('span'));$span[0].innerText='COPY FAILED';wait(function(){$icon.removeClass('fa-times-circle');$icon.addClass('fa-copy');$span[0].innerText='COPY'},2000)})}$(function(){pjax_initCopyCode()});
 </script>
@@ -1136,26 +1317,26 @@ function wait(callback,seconds){var timelag=null;timelag=window.setTimeout(callb
 
 <!--scrollreveal -fix -->
 
-  <script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.6/dist/scrollreveal.min.js"></script>
-  <script type="text/javascript">
-    function pjax_scrollrebeal() {
-      ScrollReveal().reveal('.l_main .reveal', {
-        distance: '8px',
-        duration: '800',
-        interval: '100',
-        scale: '1'
-      });
-    }
-
-    $(function () {
-      pjax_scrollrebeal();
+<script src="https://cdn.bootcdn.net/ajax/libs/scrollReveal.js/4.0.9/scrollreveal.min.js"></script>
+<script type="text/javascript">
+  function pjax_scrollrebeal() {
+    ScrollReveal().reveal('.l_main .reveal', {
+      distance: '8px',
+      duration: '800',
+      interval: '100',
+      scale: '1'
     });
-  </script>
+  }
+
+  $(function() {
+    pjax_scrollrebeal();
+  });
+</script>
 
 <!-- ******************************** -->
 
 <!-- fancybox -fix -->
-<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 <script>
   function pjax_fancybox() {
     $(".article-entry").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
@@ -1203,48 +1384,44 @@ function wait(callback,seconds){var timelag=null;timelag=window.setTimeout(callb
 
 <!--主要的 JS 文件-->
 
-  
+
 <script src="/js/app.js"></script>
 
 
 
 <!--fix-->
 
-  
-    
+
+
 <script src="/js/search.js"></script>
 
-  
+
 
 
 <!--重新加载即可-->
 
-  <script defer src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script> 
+<script defer src="https://oss.pm-z.tech/busuanzi.pure.mini.js" data-pjax></script>
 
 
 <!--无需处理-->
 
-  
-<script src="https://cdn.jsdelivr.net/npm/node-waves@0.7.6/dist/waves.min.js"></script>
 
-  <script type="text/javascript">
-    $(function () {
-      Waves.attach('.flat-btn', ['waves-button']);
-      Waves.attach('.float-btn', ['waves-button', 'waves-float']);
-      Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
-      Waves.attach('.flat-box', ['waves-block']);
-      Waves.attach('.float-box', ['waves-block', 'waves-float']);
-      Waves.attach('.waves-image');
-      Waves.init();
-    });
-  </script>
+<script src="https://cdn.bootcdn.net/ajax/libs/node-waves/0.7.6/waves.min.js"></script>
+
+<script type="text/javascript">
+  $(function() {
+    Waves.attach('.flat-btn', ['waves-button']);
+    Waves.attach('.float-btn', ['waves-button', 'waves-float']);
+    Waves.attach('.float-btn-light', ['waves-button', 'waves-float', 'waves-light']);
+    Waves.attach('.flat-box', ['waves-block']);
+    Waves.attach('.float-box', ['waves-block', 'waves-float']);
+    Waves.attach('.waves-image');
+    Waves.init();
+  });
+</script>
 
 
 <!--无需处理-->
-
-  
-<script src="https://cdn.jsdelivr.net/gh/xaoxuu/cdn-volantis@2/js/comment_typing.js"></script>
-
 
 
 <!--无需处理 ？-->
@@ -1256,114 +1433,137 @@ function wait(callback,seconds){var timelag=null;timelag=window.setTimeout(callb
 <script src="/js/message.js"></script>
 
 
+<!-- <script type="text/javascript">
+  var t = 7.9;
+  t = t.toFixed(1); 
+  setInterval("refer()", 100);
+  function refer() {
+    if (t < 0) {
+      t = 0;
+      return 0;
+    }
+    document.getElementById('show').innerHTML = t;
+    t = t - 0.1;
+    t = t.toFixed(1); 
+  } 
+</script> -->
+
 <script>
-  $(document).ready(function () {
+  var t = 7.9;
+  t = t.toFixed(1);
+  setInterval("refer()", 100);
+
+  function refer() {
+    if (t < 0) {
+      t = 0;
+      return 0;
+    }
+    if (document.getElementById('show') != null) {
+      document.getElementById('show').innerHTML = t;
+    }
+    t = t - 0.1;
+    t = t.toFixed(1);
+  }
+
+  $(document).ready(function() {
     NProgress.done();
 
+     // if (theme.plugins.aplayer.enable == true && theme.plugins.aplayer.autoplay == true)
+    var isplay = true;
+    $.message({
+      title: '<b>音乐播放</b>',
+      message: '<span id="show">8.0</span> 秒后播放音乐，点击<a class="stopMusic">停止播放</a>',
+      type: 'warning'
+    });
+    setTimeout(function() {
+      if (isplay)
+        ap.play();
+    }, 8000)
+    $(".stopMusic").click(function() {
+      $(".c-message--close").click();
+      isplay = false;
+    })
     
   });
 
+
   var pjax;
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function() {
     pjax = new Pjax({
       elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
       selectors: [
         "title",
         "meta[name=description]",
         "meta[name=keywords]",
+        "meta[name=name]",
+        "meta[name=wechatimg]",
+        "meta[name=image]",
         "#pjax-container"
       ],
-      cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+      cacheBust: false, // url 地址追加时间戳，用以避免浏览器缓存
       timeout: '5000'
     });
   });
 
-  document.addEventListener('pjax:send', function () {
+  document.addEventListener('pjax:send', function() {
     window.stop(); // 相当于点击了浏览器的停止按钮
     window.subData = null; // 移除标题（用于一二级导航栏切换处）
 
-    $.fancybox.close();    // 关闭弹窗，曾经有人提过个BUG，在查看图片时浏览器返回上一页后，弹窗无法关闭了
+    $.fancybox.close(); // 关闭弹窗，曾经有人提过个BUG，在查看图片时浏览器返回上一页后，弹窗无法关闭了
 
     $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
     $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
     $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
 
-    $(window).unbind('resize');    // 解绑
-    $(window).unbind('scroll');    // 解绑
-    $(window).unbind('click');     // 解绑
-    $(document).unbind('scroll');  // 解绑
+    $(window).unbind('resize'); // 解绑
+    $(window).unbind('scroll'); // 解绑
+    $(window).unbind('click'); // 解绑
+    $(document).unbind('scroll'); // 解绑
 
     NProgress.start();
   });
 
-  document.addEventListener('pjax:complete', function () {
-    
-    $('script[data-pjax], .pjax-reload script').each(function () {
+  document.addEventListener('pjax:complete', function() {
+
+    $('script[data-pjax], .pjax-reload script').each(function() {
       $(this).parent().append($(this).remove());
     });
 
-    try{
+    try {
       pjax_fancybox();
       
-        pjax_scrollrebeal();
+      pjax_scrollrebeal();
       
       
-        pjax_initCopyCode();
+      pjax_initCopyCode();
       
       
-        pjax_valine();
+      pjax_valine();
       
     } catch (e) {
       console.log(e);
     }
 
     NProgress.done();
-
-    wx.ready(function () {
-      // var shareData = {
-      wx.onMenuShareTimeline({
-        title: document.title, // 分享标题
-        link: location.href.split("#")[0],
-        imgUrl: 'https://www.pm-z.tech/favicon512.png',
-        success: function () {
-        }
-      });
-
-      wx.onMenuShareAppMessage({
-        title: document.title, // 分享标题
-        desc: '欢迎来到 Pinming 的小站~',
-        link: location.href.split("#")[0],
-        imgUrl: 'https://www.pm-z.tech/favicon512.png',
-        success: function () {
-        }
-      });
-
-      wx.onMenuShareQQ({
-        title: document.title, // 分享标题
-        link: location.href.split("#")[0],
-        imgUrl: 'https://www.pm-z.tech/favicon512.png',
-        success: function () {
-        }
-      });
-
-      wx.onMenuShareWeibo({
-        title: document.title, // 分享标题
-        link: location.href.split("#")[0],
-        imgUrl: 'https://www.pm-z.tech/favicon512.png',
-        success: function () {
-        }
-      });
-    });
-    
   });
 
-  document.addEventListener('pjax:error', function () {
+  document.addEventListener('pjax:error', function() {
     NProgress.done();
-    $.message({title:'事件通知',message:"链接加载失败，执行强制刷新！",type:'warning'});
+    $.message({
+      title: '事件通知',
+      message: "链接加载失败，执行强制刷新！",
+      type: 'warning'
+    });
     window.location.href = event.triggerElement.href;
   });
-
 </script>
-  </div>
-</body>
+      </div>
+
+  <script id="pjax-container">
+            window.imageLazyLoadSetting = {
+                isSPA: true,
+                processImages: null,
+            };
+        </script><script id>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script id>!function(n){n.imageLazyLoadSetting.processImages=o;var i=n.imageLazyLoadSetting.isSPA,r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]"));function o(){i&&(r=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")));for(var t,e,a=0;a<r.length;a++)t=r[a],0<=(e=t.getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(n.innerHeight||document.documentElement.clientHeight)&&function(){var t,e,n,i,o=r[a];t=o,e=function(){r=r.filter(function(t){return o!==t})},n=new Image,i=t.getAttribute("data-original"),n.onload=function(){t.src=i,e&&e()},n.src=i}()}o(),n.addEventListener("scroll",function(){var t,e;t=o,e=n,clearTimeout(t.tId),t.tId=setTimeout(function(){t.call(e)},500)})}(this);</script></body>
+
 </html>

@@ -3,7 +3,7 @@ $.extend({
         var b = {
             title: "",
             message: " 操作成功",
-            time: "3000",
+            time: "8000",
             type: "success",
             showClose: !0,
             autoClose: !0,
